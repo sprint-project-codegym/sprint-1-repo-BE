@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,16 +21,18 @@ public class Account {
     private Integer accountId;
     private String userName;
     private String email;
-    private String encriptPw;
+    private String encryptPw;
     private String token;
     private Boolean isEnable;
     private String verificationCode;
 
-    @OneToOne(mappedBy = "accounts")
-    @JsonBackReference
-    private AccountRole accountRole;
-
-    @OneToOne(mappedBy = "accountOfEmployee")
+    @OneToOne(mappedBy = "account")
     @JsonBackReference
     private Employee employee;
+
+    @OneToMany(mappedBy = "account")
+    @JsonBackReference
+    private Set<AccountRole> accountRoleList;
+
 }
+

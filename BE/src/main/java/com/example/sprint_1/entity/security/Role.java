@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,7 +20,8 @@ public class Role {
     private Integer roleId;
     private String name;
 
-    @OneToOne(mappedBy = "role")
+    @OneToMany(mappedBy = "role")
     @JsonBackReference
-    private AccountRole accountRole;
+    private Set<AccountRole> accountRoleList;
 }
+

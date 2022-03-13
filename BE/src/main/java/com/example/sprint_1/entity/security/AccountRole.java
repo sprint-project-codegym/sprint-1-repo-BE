@@ -1,6 +1,6 @@
 package com.example.sprint_1.entity.security;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.example.sprint_1.entity.ground.Ground;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,14 +17,11 @@ public class AccountRole {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer accountRoleId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "accountId", referencedColumnName = "accountId")
-    @JsonBackReference
-    private Account accounts;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "roleId", referencedColumnName = "roleId")
-    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
     private Role role;
 
 }
