@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,16 +31,13 @@ public class Employee {
     private Boolean deleteFlag;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
-    @JoinColumn(name = "accountId", referencedColumnName = "accountId")
-    private Account accountOfEmployee;
+    @JoinColumn(name = "accountId")
+    private Account account;
 
     @ManyToOne(targetEntity = Position.class)
     @JoinColumn(name = "positionId")
     private Position position;
 
-
-    @OneToOne(mappedBy = "employee")
-    @JsonBackReference
-    private Contract contract;
+    @OneToMany(mappedBy = "employee")
+    public List<Contract> contractList;
 }

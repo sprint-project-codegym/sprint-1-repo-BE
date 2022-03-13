@@ -7,10 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,7 +29,6 @@ public class Customer {
     private String status;
     private Boolean deleteFlag;
 
-    @OneToOne(mappedBy = "customer")
-    @JsonBackReference
-    private Contract contract;
+    @OneToMany(mappedBy = "customer")
+    public List<Contract> contractList;
 }

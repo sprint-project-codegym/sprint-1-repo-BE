@@ -30,14 +30,12 @@ public class Contract {
     private String contractContent;
     private Boolean deleteFlag;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
-    @JsonBackReference
+    @ManyToOne(targetEntity = Customer.class)
+    @JoinColumn(name = "customerId")
     private Customer customer;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "employeeId", referencedColumnName = "employeeId")
-    @JsonBackReference
+    @ManyToOne(targetEntity = Employee.class)
+    @JoinColumn(name = "employeeId")
     private Employee employee;
 
     @ManyToOne(targetEntity = Ground.class)
