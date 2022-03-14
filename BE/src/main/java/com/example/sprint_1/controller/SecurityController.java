@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
  * Tran Minh Khoa
  */
 @RestController
-@RequestMapping("api/public")
+@RequestMapping("api/home")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SecurityController {
     @Autowired
