@@ -14,6 +14,7 @@ import java.util.List;
 @Getter
 @Entity(name = "floor")
 public class Floor {
+
     @Id
     private String floorId;
     private String floorName;
