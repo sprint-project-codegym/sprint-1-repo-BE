@@ -32,6 +32,7 @@ public class Employee {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "accountId")
+    @JsonBackReference
     private Account account;
 
     @ManyToOne(targetEntity = Position.class)
@@ -39,5 +40,6 @@ public class Employee {
     private Position position;
 
     @OneToMany(mappedBy = "employee")
+    @JsonBackReference
     public List<Contract> contractList;
 }

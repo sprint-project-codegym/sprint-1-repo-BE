@@ -30,5 +30,6 @@ public class Customer {
     private Boolean deleteFlag;
 
     @OneToMany(mappedBy = "customer")
+    @JsonBackReference
     public List<Contract> contractList;
 }

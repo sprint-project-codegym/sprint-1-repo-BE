@@ -1,5 +1,6 @@
 package com.example.sprint_1.entity.employee;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,5 +22,6 @@ public class Position {
     private String positionName;
 
     @OneToMany(mappedBy = "position")
+    @JsonBackReference
     public List<Employee> employeeList;
 }
