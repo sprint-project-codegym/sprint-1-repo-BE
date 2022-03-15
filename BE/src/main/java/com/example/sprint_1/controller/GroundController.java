@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,10 +21,11 @@ public class GroundController {
     //LuanVT: add new ground
     @PostMapping("/api/manager/ground/create")
     @Transactional
-    public ResponseEntity<?> createGround(@RequestBody GroundCreateDTO groundCreateDTO) {
-        groundService.createGround(groundCreateDTO.getGroundId(), groundCreateDTO.getGroundType(), groundCreateDTO.getArea(),
-                groundCreateDTO.getImage(), groundCreateDTO.getStatus(), groundCreateDTO.getRentCost(), groundCreateDTO.getManageCost(),
-                groundCreateDTO.getNote(), groundCreateDTO.getVersion(), groundCreateDTO.getFloorId());
+    public ResponseEntity<?> createGround(@Validated @RequestBody GroundCreateDTO groundCreateDTO, BindingResult bindingResult) throws MethodArgumentNotValidException {
+        if (bindingResult.hasErrors()) {
+            throw new MethodArgumentNotValidException(null, bindingResult);
+        }
+        groundService.createGround(groundCreateDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
