@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,11 +33,11 @@ public class GroundController {
     }
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteGround(@PathVariable("id") String id) {
-        groundService.deleteGround(id);
         Ground ground = groundService.findById(id);
-        if(ground != null) {
+        if(ground == null) {
             return new ResponseEntity<>("Không tìm thấy ground" ,HttpStatus.NOT_FOUND);
         }
+        groundService.deleteGround(id);
         return new ResponseEntity<>("xóa thành công" , HttpStatus.OK);
     }
 }

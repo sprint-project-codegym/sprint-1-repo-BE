@@ -18,13 +18,13 @@ public interface GroundRepository extends JpaRepository<Ground, String> {
 
     @Modifying
     @Transactional
-    @Query(value = "delete from ground as g where g.ground_id = :id", nativeQuery = true)
+    @Query(value = "update ground set ground.delete_flag = 0 where ground.ground_id = :id", nativeQuery = true)
     void deleteByGroundId(@Param("id") String id);
-    @Query( value = "select g.ground_id, g.area, g.ground_type, g.image, g.status, g.rent_cost, g.manage_cost, g.note, g.version, g.delete_flag, g.floor_id from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_id like :id and g.ground_type like :groundType", nativeQuery = true)
-    List<Ground> findByGroundIdContainingAndGroundTypeContaining(@Param("id") String id, @Param("groundType") String groundType);
-    @Query( value = "select g.ground_id, g.area, g.ground_type, g.image, g.status, g.rent_cost, g.manage_cost, g.note, g.version, g.delete_flag, g.floor_id from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_id like :id", nativeQuery = true)
+    @Query( value = "select g.ground_id, g.area, g.ground_type, g.image, g.status, g.rent_cost, g.manage_cost, g.note, g.version, g.delete_flag, g.floor_id from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_id like %?1% and g.ground_type like %?2%", nativeQuery = true)
+    List<Ground> findByGroundIdContainingAndGroundTypeContaining(String id, String groundType);
+    @Query( value = "select g.ground_id, g.area, g.ground_type, g.image, g.status, g.rent_cost, g.manage_cost, g.note, g.version, g.delete_flag, g.floor_id from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_id like %?1%", nativeQuery = true)
     List<Ground> findByGroundIdContaining(String id);
 
-    @Query( value = "select g.ground_id, g.area, g.ground_type, g.image, g.status, g.rent_cost, g.manage_cost, g.note, g.version, g.delete_flag, g.floor_id from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_type like :groundType", nativeQuery = true)
+    @Query( value = "select g.ground_id, g.area, g.ground_type, g.image, g.status, g.rent_cost, g.manage_cost, g.note, g.version, g.delete_flag, g.floor_id from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_type like %?1%", nativeQuery = true)
     List<Ground> findByGroundTypeContaining(String groundType);
 }
