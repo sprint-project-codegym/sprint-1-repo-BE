@@ -12,6 +12,8 @@ import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
+@Setter
+@Getter
 @Entity(name = "customer")
 public class Customer {
     @Id
@@ -27,93 +29,6 @@ public class Customer {
     private String status;
     private Boolean deleteFlag;
 
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public String getCustomerBirthday() {
-        return customerBirthday;
-    }
-
-    public void setCustomerBirthday(String customerBirthday) {
-        this.customerBirthday = customerBirthday;
-    }
-
-    public String getCustomerIdCard() {
-        return customerIdCard;
-    }
-
-    public void setCustomerIdCard(String customerIdCard) {
-        this.customerIdCard = customerIdCard;
-    }
-
-    public String getCustomerEmail() {
-        return customerEmail;
-    }
-
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
-    }
-
-    public String getCustomerAddress() {
-        return customerAddress;
-    }
-
-    public void setCustomerAddress(String customerAddress) {
-        this.customerAddress = customerAddress;
-    }
-
-    public String getCustomerPhone() {
-        return customerPhone;
-    }
-
-    public void setCustomerPhone(String customerPhone) {
-        this.customerPhone = customerPhone;
-    }
-
-    public String getCustomerCompany() {
-        return customerCompany;
-    }
-
-    public void setCustomerCompany(String customerCompany) {
-        this.customerCompany = customerCompany;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Boolean getDeleteFlag() {
-        return deleteFlag;
-    }
-
-    public void setDeleteFlag(Boolean deleteFlag) {
-        this.deleteFlag = deleteFlag;
-    }
-
-    public List<Contract> getContractList() {
-        return contractList;
-    }
-
-    public void setContractList(List<Contract> contractList) {
-        this.contractList = contractList;
-    }
 
     @OneToMany(mappedBy = "customer")
     @JsonBackReference
