@@ -1,13 +1,12 @@
 package com.example.sprint_1.entity.ground;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -28,5 +27,6 @@ public class Floor {
     private Building building;
 
     @OneToMany(mappedBy = "floor")
+    @JsonBackReference
     public List<Ground> groundList;
 }

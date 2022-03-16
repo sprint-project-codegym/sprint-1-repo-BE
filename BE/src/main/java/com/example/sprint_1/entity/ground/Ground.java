@@ -1,14 +1,13 @@
 package com.example.sprint_1.entity.ground;
 
 import com.example.sprint_1.entity.contract.Contract;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -32,5 +31,6 @@ public class Ground {
     private Floor floor;
 
     @OneToMany(mappedBy = "ground")
+    @JsonBackReference(value = "ground_contract")
     public List<Contract> contractList;
 }
