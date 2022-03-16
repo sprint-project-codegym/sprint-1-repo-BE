@@ -6,9 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 
 public interface FloorService {
-
     //PhuocDD da code chuc nang nay de lay danh sach tang
-    Page<Floor> findAllFloorWithPaginationn(Pageable pageable);
+    Page<Floor> findAllFloorWithPagination(Pageable pageable);
 
     //PhuocDD da code chuc nang nay de xoa tang
     void deleteFloor (@Param("id") String id);
