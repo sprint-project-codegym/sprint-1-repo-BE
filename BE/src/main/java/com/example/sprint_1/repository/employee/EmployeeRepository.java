@@ -18,19 +18,18 @@ public interface EmployeeRepository extends JpaRepository<Employee, String> {
     @Query(value= "select * from employee",nativeQuery = true)
     List<Employee> getAllEmployee();
 
-    @Query(value= "select * from employe where employee_id=:id",nativeQuery = true)
-    Employee getEmployeeById(@Param("id")String id);
+    @Query(value= "select * from employee\n" +
+            "where delete_flag = false and employee_id=?1",nativeQuery = true)
+    Employee getEmployeeById(String id);
 
     @Modifying
     @Transactional
-    @Query(value= "update employee set employee.delete_flag = 0 where employee_id=?1",nativeQuery = true)
+    @Query(value= "update employee set employee.delete_flag = true where employee_id=?1",nativeQuery = true)
     void deleteEmployee(String id);
 
-    @Query(value= "select * from employee where employee_id like %?1% and employee_name like %?2%",nativeQuery = true)
-    List<Employee> searchEmployee( String id, String name);
-
-    @Query(value = "select employee.employee_id, employee.employee_name from employee \n" +
-            "where employee.employee_name like ?1 and employee.employee_id like ?2 and employee.delete_flag = false ", nativeQuery = true)
+    @Query(value = "select * from employee\n" +
+            "where employee.employee_name like ?1 and employee.employee_id like ?2\n" +
+            "and employee.delete_flag = false", nativeQuery = true)
     List<Employee> findEmployeeByIdAndName(String name, String id);
 
 }
