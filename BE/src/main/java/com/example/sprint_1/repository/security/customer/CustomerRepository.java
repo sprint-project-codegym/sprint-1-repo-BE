@@ -1,4 +1,4 @@
-package com.example.sprint_1.repository.customer;
+package com.example.sprint_1.repository.security.customer;
 
 import com.example.sprint_1.entity.customer.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -5,17 +5,30 @@ import com.example.sprint_1.dto.employee.EmployeeDTO;
 import com.example.sprint_1.dto.ground.GroundDTO;
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 public class ContractDTO {
     @Id
+    @NotEmpty
     private String contractId;
+    @Column(columnDefinition = "Date")
+    @NotEmpty
     private String startDate;
+    @NotEmpty
+    @Column(columnDefinition = "Date")
     private String endDate;
+    @NotEmpty
+    @Column(columnDefinition = "Date")
     private String contractDate;
+    @NotNull(message = "alo alo")
     private Double rentCost;
+    @NotNull
     private Double totalCost;
+    @NotEmpty
     private String contractContent;
     private Boolean deleteFlag;
 
