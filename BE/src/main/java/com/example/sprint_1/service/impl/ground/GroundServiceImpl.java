@@ -1,5 +1,6 @@
 package com.example.sprint_1.service.impl.ground;
 
+import com.example.sprint_1.dto.ground.GroundDTO;
 import com.example.sprint_1.entity.ground.Ground;
 import com.example.sprint_1.repository.ground.GroundRepository;
 import com.example.sprint_1.service.ground.GroundService;
@@ -14,35 +15,20 @@ public class GroundServiceImpl implements GroundService {
     GroundRepository groundRepository;
 
     @Override
-    public Ground getGroundByGroundId(String groundId) {
-        return groundRepository.findByGroundId(groundId);
+    public Ground getGroundByGroundId(String id) {
+        return groundRepository.findByGroundId(id);
     }
 
-    @Override
-    public Ground save(Ground ground) {
-        return groundRepository.save(ground);
-    }
 
     @Override
     public List<Ground> findAll() {
         return groundRepository.findAll();
     }
 
+    //NghiaND - chỉnh sửa mặt bằng
     @Override
-    public Ground updateGround(String id, Ground groundRequest) {
-        Ground ground = groundRepository.findByGroundId(id);
-        ground.setGroundType(groundRequest.getGroundType());
-        ground.setArea(groundRequest.getArea());
-        ground.setFloor(groundRequest.getFloor());
-        ground.setContractList(groundRequest.getContractList());
-        ground.setDeleteFlag(groundRequest.getDeleteFlag());
-        ground.setImage(groundRequest.getImage());
-        ground.setManageCost(groundRequest.getManageCost());
-        ground.setRentCost(groundRequest.getRentCost());
-        ground.setNote(groundRequest.getNote());
-        ground.setStatus(groundRequest.getStatus());
-        ground.setVersion(groundRequest.getVersion());
-        return groundRepository.save(ground);
+    public void updateGround(String id, GroundDTO ground) {
+        groundRepository.updateGroundDTO(ground.getGroundId(), ground.getGroundType(),ground.getArea(),ground.getImage(),ground.getStatus(),ground.getRentCost(),ground.getManageCost(),ground.getNote(),ground.getVersion(),ground.getFloor().getFloorId(),id);
 
     }
 }

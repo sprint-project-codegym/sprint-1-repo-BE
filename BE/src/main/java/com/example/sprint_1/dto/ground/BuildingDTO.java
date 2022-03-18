@@ -1,5 +1,8 @@
 package com.example.sprint_1.dto.ground;
 
+import lombok.Data;
+
+@Data
 public class BuildingDTO {
     private String buildingId;
     private String buildingName;
