@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -19,8 +20,10 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer accountId;
+    @NotBlank
     private String userName;
     private String email;
+    @NotBlank
     private String encryptPw;
     private String token;
     private Boolean isEnable;
