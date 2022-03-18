@@ -3,6 +3,10 @@ package com.example.sprint_1.controller;
 import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.service.customer.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,32 +27,27 @@ public class CustomerController {
 
     //NgaLT hien thi list khach hang, tim kiem khach hang
     @GetMapping("/list")
-    public ResponseEntity<List<Customer>> getList(@RequestParam("id") Optional<String> id, @RequestParam("name") Optional<String> name) {
-        List<Customer> customers = customerService.findAllCustomer();
-        if(id.isPresent() && !name.isPresent()) {
-            customers = customerService.searchCustomerById(id.get());
-        } else if(!id.isPresent() && name.isPresent()) {
-            customers = customerService.searchCustomerByName(name.get());
-        } else if(id.isPresent()) {
-            customers = customerService.searchCustomerByIdAndName(id.get(),name.get());
+    public ResponseEntity<Page<Customer>> GetListWithPagination(@RequestParam(defaultValue = "") String id,
+                                                                @RequestParam(defaultValue = "") String name,
+                                                                @RequestParam(defaultValue = "0") int page) {
+        Pageable pageable = PageRequest.of(page, 10);
+        Page<Customer> customers;
+        customers = customerService.findAllCustomerWithPagination(id, name,pageable);
+        if(customers.isEmpty()){
+            return new ResponseEntity<>( HttpStatus.NOT_FOUND);
         }
-        if(customers.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(customers, HttpStatus.OK);
+        return new ResponseEntity<>(customers,HttpStatus.OK);
     }
 
     //NgaLT xoa khach hang
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<String> deleteCustomerById (@PathVariable("id") String id){
+    public ResponseEntity<String> deleteCustomerById(@PathVariable("id") String id) {
         Customer customer = customerService.findCustomerByCustomerId(id);
-           if(customer == null) {
-               return new ResponseEntity<>("notOk",HttpStatus.NOT_FOUND);
-           }else {
-               customerService.deleteCustomer(id);
-               return new ResponseEntity<>("OK", HttpStatus.OK);
-           }
-
+        if (customer == null) {
+            return new ResponseEntity<>("notOk", HttpStatus.NOT_FOUND);
+        } else {
+            customerService.deleteCustomer(id);
+            return new ResponseEntity<>("OK", HttpStatus.OK);
+        }
     }
-
 }
