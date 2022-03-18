@@ -24,7 +24,7 @@ public class SecurityController_authenticateUser {
 
     //username= "null"
     @Test
-    public void authenticateUser_username_15() throws Exception {
+    public void authenticateUser_username_13() throws Exception {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("null");
         loginRequest.setPassword("123");
@@ -40,7 +40,7 @@ public class SecurityController_authenticateUser {
 
     //password= "null"
     @Test
-    public void authenticateUser_password_15() throws Exception {
+    public void authenticateUser_password_13() throws Exception {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("admin");
         loginRequest.setPassword("null");
@@ -54,9 +54,25 @@ public class SecurityController_authenticateUser {
                 .andExpect(status().is4xxClientError());
     }
 
+    //username= "null" and password= "null"
+    @Test
+    public void authenticateUser_username_password_13() throws Exception {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername("null");
+        loginRequest.setPassword("null");
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/login")
+                        .content(this.objectMapper.writeValueAsString(loginRequest))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
     //username= ""
     @Test
-    public void authenticateUser_username_16() throws Exception {
+    public void authenticateUser_username_14() throws Exception {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("");
         loginRequest.setPassword("123");
@@ -73,7 +89,7 @@ public class SecurityController_authenticateUser {
 
     //password= ""
     @Test
-    public void authenticateUser_password_16() throws Exception {
+    public void authenticateUser_password_14() throws Exception {
         LoginRequest loginRequest = new LoginRequest();
         loginRequest.setUsername("admin");
         loginRequest.setPassword("");
@@ -86,6 +102,132 @@ public class SecurityController_authenticateUser {
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
-    // Username không được trống, tối thiểu 4 ký tự,tối đa 30 ký tự, không chứa ký tự đặc biệt(trừ . và @) và khoảng trắng
-    // Mật khẩu không được trống, tối thiểu 3 ký tự,tối đa 15 ký tự
+
+    //username= "" and password= ""
+    @Test
+    public void authenticateUser_username_password_14() throws Exception {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername("");
+        loginRequest.setPassword("");
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/login")
+                        .content(this.objectMapper.writeValueAsString(loginRequest))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    //username không chứa ký tự đặc biệt(trừ . và @)
+    @Test
+    public void authenticateUser_username_15_1() throws Exception {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername("minh%!kh@a.tr");
+        loginRequest.setPassword("123");
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/login")
+                        .content(this.objectMapper.writeValueAsString(loginRequest))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    //username không chứa khoảng trắng
+    @Test
+    public void authenticateUser_username_15_2() throws Exception {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername("minh khoa");
+        loginRequest.setPassword("123");
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/login")
+                        .content(this.objectMapper.writeValueAsString(loginRequest))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    // username tối thiểu 4 ký tự
+    @Test
+    public void authenticateUser_username_16() throws Exception {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername("min");
+        loginRequest.setPassword("123");
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/login")
+                        .content(this.objectMapper.writeValueAsString(loginRequest))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    //password tối thiểu 3 ký tự
+    @Test
+    public void authenticateUser_password_16() throws Exception {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername("admin");
+        loginRequest.setPassword("12");
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/login")
+                        .content(this.objectMapper.writeValueAsString(loginRequest))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    //username tối đa 30 ký tự
+    @Test
+    public void authenticateUser_username_17() throws Exception {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername("tranminhkhoadev06102000@gmail.com");
+        loginRequest.setPassword("123");
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/login")
+                        .content(this.objectMapper.writeValueAsString(loginRequest))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    //password tối đa 15 ký tự
+    @Test
+    public void authenticateUser_password_17() throws Exception {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername("admin");
+        loginRequest.setPassword("123456789101112131415");
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/login")
+                        .content(this.objectMapper.writeValueAsString(loginRequest))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    // username and password correct
+    @Test
+    public void authenticateUser_18() throws Exception {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setUsername("admin");
+        loginRequest.setPassword("123");
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/login")
+                        .content(this.objectMapper.writeValueAsString(loginRequest))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is2xxSuccessful());
+    }
 }
