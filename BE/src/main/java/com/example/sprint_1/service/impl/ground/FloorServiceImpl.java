@@ -21,9 +21,8 @@ public class FloorServiceImpl implements FloorService {
     FloorRepository floorRepository;
 
     @Override
-    public List<Floor> findAllFloor() {
-        List<Floor> floors = floorRepository.findAllFloor();
-        return filterFloor(floors);
+    public Page<Floor> findAllFloor(Pageable pageable) {
+        return floorRepository.findAllFloor(pageable);
     }
 
     @Override
@@ -36,14 +35,4 @@ public class FloorServiceImpl implements FloorService {
         floorRepository.deleteFloor(id);
     }
 
-    @Override
-    public List<Floor> filterFloor(List<Floor> floors) {
-        List<Floor> floorList = new ArrayList<>();
-        for(Floor floor: floors){
-            if(floor.getDeleteFlag()){
-                floorList.add(floor);
-            }
-        }
-        return floorList;
-    }
 }
