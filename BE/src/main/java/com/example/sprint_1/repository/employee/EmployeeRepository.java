@@ -15,11 +15,16 @@ import java.util.List;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, String> {
-    @Query(value= "select * from employee",nativeQuery = true)
-    List<Employee> getAllEmployee();
+    @Query(value= "select employee.employee_id, employee.employee_name, employee.employee_birthday, employee.employee_gender, employee.employee_id_card, employee.employee_gmail, \n" +
+            "employee.employee_address, employee.employee_phone, employee.employee_salary, employee.account_id, employee.position_id, employee.delete_flag \n" +
+            "from employee\n " +
+            "where delete_flag = false ",nativeQuery = true)
+    Page<Employee> getAllEmployee(Pageable pageable);
 
-    @Query(value= "select * from employee\n" +
-            "where delete_flag = false and employee_id=?1",nativeQuery = true)
+    @Query(value= "select employee.employee_id, employee.employee_name, employee.employee_birthday, employee.employee_gender, employee.employee_id_card, employee.employee_gmail, \n" +
+            "employee.employee_address, employee.employee_phone, employee.employee_salary, employee.account_id, employee.position_id, employee.delete_flag \n" +
+            "from employee \n" +
+            "where delete_flag = false and employee_id=?1 ",nativeQuery = true)
     Employee getEmployeeById(String id);
 
     @Modifying
@@ -27,9 +32,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, String> {
     @Query(value= "update employee set employee.delete_flag = true where employee_id=?1",nativeQuery = true)
     void deleteEmployee(String id);
 
-    @Query(value = "select * from employee\n" +
+    @Query(value = "select employee.employee_id, employee.employee_name, employee.employee_birthday, employee.employee_gender, employee.employee_id_card, employee.employee_gmail, \n" +
+            "employee.employee_address, employee.employee_phone, employee.employee_salary, employee.account_id, employee.position_id, employee.delete_flag \n" +
+            "from employee " +
             "where employee.employee_name like ?1 and employee.employee_id like ?2\n" +
-            "and employee.delete_flag = false", nativeQuery = true)
-    List<Employee> findEmployeeByIdAndName(String name, String id);
+            "and employee.delete_flag = false ", nativeQuery = true)
+    Page<Employee> findEmployeeByIdAndName(Pageable pageable, String name, String id);
 
 }

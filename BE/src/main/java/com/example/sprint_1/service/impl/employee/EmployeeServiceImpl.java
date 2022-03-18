@@ -16,8 +16,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     private EmployeeRepository employeeRepository;
 
     @Override
-    public List<Employee> getAllEmployee() {
-        return employeeRepository.getAllEmployee();
+    public Page<Employee> getAllEmployee(Pageable pageable) {
+        return employeeRepository.getAllEmployee(pageable);
     }
 
     @Override
@@ -26,8 +26,8 @@ public class EmployeeServiceImpl implements EmployeeService{
     }
 
     @Override
-    public List<Employee> searchEmployee(String name, String id) {
-        return employeeRepository.findEmployeeByIdAndName(name, id);
+    public Page<Employee> searchEmployee(Pageable pageable, String name, String id) {
+        return employeeRepository.findEmployeeByIdAndName(pageable,name, id);
     }
 
     @Override
