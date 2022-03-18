@@ -36,7 +36,5 @@ public class GroundCreateDTO {
 
     private String note;
     private Integer version;
-
-    @NotBlank(message = "Không được để trống!")
-    private String floorId;
+    private FloorDTO floorDTO;
 }
