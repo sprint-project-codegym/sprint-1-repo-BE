@@ -8,5 +8,5 @@ import java.util.List;
 public interface ContractService {
     public List<Contract> findAll();
 
-    public void updateContractDTO(String id, ContractDTO contractDTO);
+    public void updateContractDTO(ContractDTO contractDTO);
 }

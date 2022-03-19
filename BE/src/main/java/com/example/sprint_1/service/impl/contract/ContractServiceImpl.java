@@ -20,8 +20,8 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public void updateContractDTO(String id, ContractDTO contractDTO) {
-        contractRepository.updateContractDTO(id, contractDTO.getContractContent(),
+    public void updateContractDTO(ContractDTO contractDTO) {
+        contractRepository.updateContractDTO(contractDTO.getContractId(), contractDTO.getContractContent(),
                 contractDTO.getContractDate(), contractDTO.getDeleteFlag(),
                 contractDTO.getEndDate(), contractDTO.getRentCost(),
                 contractDTO.getStartDate(), contractDTO.getTotalCost(),

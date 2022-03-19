@@ -98,4 +98,12 @@ public class EmployeeDTO {
     public void setDeleteFlag(Boolean deleteFlag) {
         this.deleteFlag = deleteFlag;
     }
+
+    public PositionDTO getPosition() {
+        return position;
+    }
+
+    public void setPosition(PositionDTO position) {
+        this.position = position;
+    }
 }

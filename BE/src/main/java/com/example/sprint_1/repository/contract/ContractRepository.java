@@ -11,11 +11,6 @@ import javax.transaction.Transactional;
 
 @Repository
 public interface ContractRepository extends JpaRepository<Contract, String> {
-    @Query(value = "SELECT contract_id, contract_content, contract_date, delete_flag, end_date, rent_cost, " +
-            "start_date, total_cost, customer_id, employee_id, ground_id FROM `sprint-1`.contract " +
-            "where `contract`.`contract_id` = :contractId", nativeQuery = true)
-    Contract findByContractId(@Param("contractId") String contractId);
-
     @Transactional
     @Modifying
     @Query(value = "update `contract` as c set c.contract_content = :contract_content, c.contract_date = :contract_date," +

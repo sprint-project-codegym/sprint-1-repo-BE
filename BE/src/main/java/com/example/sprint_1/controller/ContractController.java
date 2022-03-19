@@ -24,13 +24,13 @@ public class ContractController {
         return new ResponseEntity<>(contractList, HttpStatus.OK);
     }
 
-    @PutMapping(value = "/api/contract/edit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult, @PathVariable("id") String id) {
+    @PatchMapping(value = "/api/contract/edit", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String message = "Lỗi định dạng";
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }
-        contractService.updateContractDTO(id, contractDTO);
+        contractService.updateContractDTO(contractDTO);
         return new ResponseEntity<>(contractDTO, HttpStatus.OK);
     }
 }

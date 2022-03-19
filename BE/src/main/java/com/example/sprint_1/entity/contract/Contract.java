@@ -4,6 +4,7 @@ import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.ground.Ground;
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -27,11 +28,16 @@ public class Contract {
     @NotEmpty
     @Column(columnDefinition = "Date")
     private String contractDate;
-    @NotNull(message = "alo alo")
+    @NotNull
+    @DecimalMax("1000000000.0")
+    @DecimalMin("10.0")
     private Double rentCost;
     @NotNull
+    @DecimalMax("1000000000.0")
+    @DecimalMin("10.0")
     private Double totalCost;
     @NotEmpty
+    @Length(min = 5, max = 20)
     private String contractContent;
     private Boolean deleteFlag;
 
