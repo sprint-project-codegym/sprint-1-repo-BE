@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebAppConfiguration
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ContractController_editContract {
+public class ContractController_updateContract {
 
     @Autowired
     private MockMvc mockMvc;
@@ -85,7 +85,8 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
@@ -145,18 +146,14 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
 
 
-
-
-
     //Test items "" - 20
-
-
 
 
     @Test
@@ -214,7 +211,8 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
@@ -260,7 +258,7 @@ public class ContractController_editContract {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("CT001");
         contractDTO.setStartDate("2022-03-30");
-        contractDTO.setEndDate("");
+        contractDTO.setEndDate("2022-03");
         contractDTO.setContractDate("2022-03-30");
         contractDTO.setRentCost(10000.0);
         contractDTO.setTotalCost(10000.0);
@@ -274,7 +272,8 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
@@ -334,7 +333,8 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
@@ -394,19 +394,14 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
 
 
-
-
-
     //test items sai format - 21
-
-
-
 
 
     @Test
@@ -464,13 +459,14 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
 
     @Test
-    public void edit_contract_sendDate_21() throws Exception {
+    public void edit_contract_endDate_21() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -509,12 +505,12 @@ public class ContractController_editContract {
 
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("CT001");
-        contractDTO.setStartDate("2022-04-08");
-        contractDTO.setEndDate("2022-30");
+        contractDTO.setStartDate("2022-03-30");
+        contractDTO.setEndDate("2022-03");
         contractDTO.setContractDate("2022-03-30");
-        contractDTO.setRentCost(100000.0);
-        contractDTO.setTotalCost(100000.0);
-        contractDTO.setContractContent("cccccccccc");
+        contractDTO.setRentCost(10000.0);
+        contractDTO.setTotalCost(10000.0);
+        contractDTO.setContractContent("gggg");
         contractDTO.setDeleteFlag(true);
 
         contractDTO.setCustomer(customerDTO);
@@ -524,7 +520,8 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
@@ -569,12 +566,12 @@ public class ContractController_editContract {
 
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("CT001");
-        contractDTO.setStartDate("2022-04-08");
+        contractDTO.setStartDate("2022-03-30");
         contractDTO.setEndDate("2022-03-30");
-        contractDTO.setContractDate("03-30");
-        contractDTO.setRentCost(100000.0);
-        contractDTO.setTotalCost(100000.0);
-        contractDTO.setContractContent("ccccccc");
+        contractDTO.setContractDate("2022-03");
+        contractDTO.setRentCost(10000.0);
+        contractDTO.setTotalCost(10000.0);
+        contractDTO.setContractContent("gggg");
         contractDTO.setDeleteFlag(true);
 
         contractDTO.setCustomer(customerDTO);
@@ -584,7 +581,8 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
@@ -644,7 +642,8 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
@@ -704,16 +703,14 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
 
 
-
-
     // test items không >= minlength - 22
-
 
 
     @Test
@@ -771,15 +768,14 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
 
 
-
     // test items không <= maxlength - 23
-
 
 
     @Test
@@ -837,20 +833,18 @@ public class ContractController_editContract {
         contractDTO.setGround(groundDTO);
 
         this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
-                        .content(this.objectMapper.writeValueAsString(contractDTO)))
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
 
 
-
-
     //test all hợp lệ - 24
 
 
-
     @Test
-    public void edit_contract_contractContent_24() throws Exception {
+    public void edit_contract_available_24() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");

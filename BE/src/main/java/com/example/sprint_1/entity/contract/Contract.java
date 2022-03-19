@@ -9,7 +9,6 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -22,11 +21,11 @@ public class Contract {
     @Column(columnDefinition = "Date")
     @NotEmpty
     private String startDate;
-    @NotEmpty
     @Column(columnDefinition = "Date")
+    @NotEmpty
     private String endDate;
-    @NotEmpty
     @Column(columnDefinition = "Date")
+    @NotEmpty
     private String contractDate;
     @NotNull
     @DecimalMax("1000000000.0")
