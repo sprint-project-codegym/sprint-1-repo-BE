@@ -1,4 +1,4 @@
-//package com.example.sprint_1.service.security;
+package com.example.sprint_1.service.security;
 //
 //import com.example.sprint_1.entity.security.Account;
 //
@@ -6,7 +6,7 @@
 //import java.io.UnsupportedEncodingException;
 //import java.util.List;
 //
-//public interface AccountService {
+public interface AccountService {
 //    /**
 //     * Tran Minh Khoa
 //     */
@@ -34,4 +34,4 @@
 //
 //    Boolean existsByEmail(String email);
 //
-//}
+}

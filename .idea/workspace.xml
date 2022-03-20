@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0718c4cd-b939-4570-8618-b951d163b28e" name="Default Changelist" comment="" />
+    <list default="true" id="0718c4cd-b939-4570-8618-b951d163b28e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sprint-1-repo-BE.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/BE/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/BE/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/BE/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/BE/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/BE/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/BE/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/BE/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/BE/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/repository/employee/EmployeeRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/repository/employee/EmployeeRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/repository/security/AccountRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/repository/security/AccountRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/service/employee/EmployeeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/service/employee/EmployeeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/service/impl/employee/EmployeeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/service/impl/employee/EmployeeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/dto/employee/EmployeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/dto/employee/EmployeeDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/repository/employee/EmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/repository/employee/EmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/repository/security/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/repository/security/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/service/employee/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/service/employee/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/service/impl/employee/EmployeeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/service/impl/employee/EmployeeServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +36,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="26KOy1dQklnJTKlBhctXXFlzPLH" />
   <component name="ProjectViewState">
@@ -19,8 +49,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/BE" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -32,7 +63,23 @@
       <option name="presentableId" value="Default" />
       <updated>1647169061801</updated>
       <workItem from="1647169064764" duration="10000" />
+      <workItem from="1647617187277" duration="59000" />
+      <workItem from="1647617255767" duration="57000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
