@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 
 @RestController
 @RequestMapping("api/admin/employee")
@@ -19,17 +21,22 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping("")
-    public ResponseEntity<Page<Employee>> getList(@RequestParam(defaultValue = "") String name,
-                                                  @RequestParam(defaultValue = "") String id,
-                                                  @RequestParam(defaultValue = "0") Integer page,
-                                                  @RequestParam(defaultValue = "10") Integer size){
-        Page<Employee> employees;
+    public ResponseEntity<Page<Employee>> getList(@RequestParam(defaultValue = "0") Integer page,
+                                                  @RequestParam(defaultValue = "10") Integer size,
+                                                  @RequestParam(defaultValue = "") String name,
+                                                  @RequestParam(defaultValue = "") String id){
         Pageable paging= PageRequest.of(page,size);
-        if(!name.equals("")||!id.equals("")){
-            return new ResponseEntity<Page<Employee>>(employeeService.searchEmployee(paging,"%" +name+ "%", "%" +id+ "%"), HttpStatus.OK);
-        }else {
-            employees = employeeService.getAllEmployee(paging);
+        Page<Employee> employees = employeeService.searchEmployee(paging,name,id);
+        if(employees.isEmpty()){
+            return new ResponseEntity<Page<Employee>>(HttpStatus.NOT_FOUND);
         }
+        return new ResponseEntity<Page<Employee>>(employees, HttpStatus.OK);
+    }
+    @GetMapping("/listPaging")
+    public ResponseEntity<Page<Employee>> getListPaging(@RequestParam(defaultValue = "0") Integer page,
+                                                  @RequestParam(defaultValue = "10") Integer size){
+        Pageable paging= PageRequest.of(page,size);
+        Page<Employee> employees = employeeService.getAllEmployee(paging);
         if(employees.isEmpty()){
             return new ResponseEntity<Page<Employee>>(HttpStatus.NOT_FOUND);
         }
@@ -37,6 +44,10 @@ public class EmployeeController {
     }
     @PatchMapping("delete/{id}")
     public ResponseEntity<Void> deleteEmployee(@PathVariable String id){
+        Employee employee=employeeService.getEmployeeById(id);
+        if (employee==null){
+            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+        }
         employeeService.deleteEmployee(id);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
