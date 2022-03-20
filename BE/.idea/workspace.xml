@@ -5,22 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d94fb152-8fb1-48bc-927c-6809e3255dfc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/sprint_1/controller/FloorController_deleteCustomerById.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/sprint_1/controller/FloorController_getAllFloor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/controller/FloorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/controller/FloorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/repository/ground/FloorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/repository/ground/FloorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/ground/FloorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/ground/FloorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/ground/FloorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/ground/FloorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sprint_1/controller/FloorController_deleteCustomerById.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sprint_1/controller/FloorController_deleteFloorById.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,34 +106,13 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
-  <component name="RunManager" selected="Gradle.FloorController_deleteCustomerById.deleteFloor_28">
+  <component name="RunManager" selected="Gradle.FloorController_deleteFloorById">
     <configuration name="FloorController_deleteCustomerById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" value="--tests &quot;com.example.sprint_1.controller.FloorController_deleteCustomerById&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="FloorController_deleteCustomerById.deleteFloor_27" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.sprint_1.controller.FloorController_deleteCustomerById.deleteFloor_27&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -175,12 +149,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FloorController_getAllFloor" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FloorController_deleteFloorById" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.sprint_1.controller.FloorController_getAllFloor&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.example.sprint_1.controller.FloorController_deleteFloorById&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -196,12 +170,33 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="FloorController_getAllFloor.getAllFloor_6" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="FloorController_deleteFloorById.deleteFloor_27" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.example.sprint_1.controller.FloorController_getAllFloor.getAllFloor_6&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.example.sprint_1.controller.FloorController_deleteFloorById.deleteFloor_27&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="FloorController_deleteFloorById.deleteFloor_28" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.example.sprint_1.controller.FloorController_deleteFloorById.deleteFloor_28&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -239,11 +234,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.FloorController_deleteFloorById" />
+        <item itemvalue="Gradle.FloorController_deleteFloorById.deleteFloor_28" />
+        <item itemvalue="Gradle.FloorController_deleteFloorById.deleteFloor_27" />
         <item itemvalue="Gradle.FloorController_deleteCustomerById.deleteFloor_28" />
         <item itemvalue="Gradle.FloorController_deleteCustomerById" />
-        <item itemvalue="Gradle.FloorController_deleteCustomerById.deleteFloor_27" />
-        <item itemvalue="Gradle.FloorController_getAllFloor" />
-        <item itemvalue="Gradle.FloorController_getAllFloor.getAllFloor_6" />
       </list>
     </recent_temporary>
   </component>
@@ -285,6 +280,7 @@
       <workItem from="1647658541989" duration="3359000" />
       <workItem from="1647743435383" duration="4210000" />
       <workItem from="1647748006381" duration="116000" />
+      <workItem from="1647754092371" duration="1223000" />
     </task>
     <servers />
   </component>

@@ -34,7 +34,7 @@ public class FloorController {
 
     // PhuocDD xoa tang
     @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<String> deleteCustomerById (@PathVariable("id") String id){
+    public ResponseEntity<String> deleteFloorById (@PathVariable("id") String id){
         Floor floor = floorService.findFloorByFloorId(id);
         if(floor == null) {
             return new ResponseEntity<>("Delete fail",HttpStatus.NOT_FOUND);

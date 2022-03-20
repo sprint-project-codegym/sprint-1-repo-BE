@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class FloorController_deleteCustomerById {
+public class FloorController_deleteFloorById {
 
     @Autowired
     private MockMvc mockMvc;
@@ -23,7 +23,7 @@ public class FloorController_deleteCustomerById {
     public void deleteFloor_25() throws Exception {
         this.mockMvc.perform(
                 MockMvcRequestBuilders
-                        .get("/delete/{id}", "null"))
+                        .delete("/api/public/floor/delete/{id}", "null"))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
@@ -33,7 +33,7 @@ public class FloorController_deleteCustomerById {
     public void deleteFloor_26() throws Exception {
         this.mockMvc.perform(
                         MockMvcRequestBuilders
-                                .get("/delete/{id}", ""))
+                                .delete("/api/public/floor/delete/{id}", ""))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
@@ -43,7 +43,7 @@ public class FloorController_deleteCustomerById {
     public void deleteFloor_27() throws Exception {
         this.mockMvc.perform(
                         MockMvcRequestBuilders
-                                .get("/delete/{id}", "T1"))
+                                .delete("/api/public/floor/delete/{id}", "T1"))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
@@ -53,15 +53,8 @@ public class FloorController_deleteCustomerById {
     public void deleteFloor_28() throws Exception {
         this.mockMvc.perform(
                         MockMvcRequestBuilders
-                                .get("/delete/{id}", "MTL0014"))
+                                .delete("/api/public/floor/delete/{id}", "MTL0014"))
                 .andDo(print())
-                .andExpect(status().is2xxSuccessful())
-                .andExpect(jsonPath("$.floorId").value("MTL0014"))
-                .andExpect(jsonPath("$.floorName").value("Tầng 14"))
-                .andExpect(jsonPath("$.area").value(350))
-                .andExpect(jsonPath("$.capacity").value(20))
-                .andExpect(jsonPath("$.status").value("Đang vào ở"))
-                .andExpect(jsonPath("$.floorType").value("tầng 14"))
-                .andExpect(jsonPath("$.building.buildingId").value(1));
+                .andExpect(status().is2xxSuccessful());
     }
 }
