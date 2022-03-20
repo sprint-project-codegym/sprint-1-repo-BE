@@ -17,7 +17,7 @@ public class CustomerController_getListCustomerWithPagination {
     @Autowired
     private MockMvc mockMvc;
 
-    // search theo id = "null", name = "null"
+    // get list theo điều kiện search theo id = "null", name = "null"
     @Test
     public void getListCustomerWithPagination_1() throws Exception {
         this.mockMvc.perform(
@@ -27,7 +27,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is4xxClientError());
     }
 
-    // search theo id = "null"
+    // get list theo điều kiện search theo id = "null"
     @Test
     public void getListCustomerWithPagination_1_1() throws Exception {
         this.mockMvc.perform(
@@ -37,7 +37,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is4xxClientError());
     }
 
-    //  search theo name = "null"
+    // get list theo điều kiện  search theo name = "null"
     @Test
     public void getListCustomerWithPagination_1_2() throws Exception {
         this.mockMvc.perform(
@@ -47,7 +47,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is4xxClientError());
     }
 
-    // search theo id = "null", name = "Dũng", name tồn tại trong DB
+    // get list theo điều kiện search theo id = "null", name = "Dũng", name tồn tại trong DB
     @Test
     public void getListCustomerWithPagination_1_3() throws Exception {
         this.mockMvc.perform(
@@ -57,7 +57,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is4xxClientError());
     }
 
-    //  search theo id = "C001" name = "null", id tồn tại trong DB
+    // get list theo điều kiện search theo id = "C001" name = "null", id tồn tại trong DB
     @Test
     public void getListCustomerWithPagination_1_4() throws Exception {
         this.mockMvc.perform(
@@ -67,7 +67,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is4xxClientError());
     }
 
-    // search theo id = "", name = ""
+    // get list theo điều kiện  search theo id = "", name = ""
     @Test
     public void getListCustomerWithPagination_2() throws Exception {
         this.mockMvc.perform(
@@ -77,7 +77,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is2xxSuccessful());
     }
 
-    // search theo id= "", name = "Dũng", name có tồn tại trong DB
+    // get list theo điều kiện search theo id= "", name = "Dũng", name có tồn tại trong DB
     @Test
     public void getListCustomerWithPagination_2_1() throws Exception {
         this.mockMvc.perform(
@@ -87,7 +87,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is2xxSuccessful());
     }
 
-    // search theo id= "C001", name = "", id có tồn tại trong DB
+    // get list theo điều kiện  search theo id= "C001", name = "", id có tồn tại trong DB
     @Test
     public void getListCustomerWithPagination_2_2() throws Exception {
         this.mockMvc.perform(
@@ -97,7 +97,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is2xxSuccessful());
     }
 
-    // search theo id= "C0068", name = "", id không tồn tại trong DB
+    // get list theo điều kiện  search theo id= "C0068", name = "", id không tồn tại trong DB
     @Test
     public void getListCustomerWithPagination_2_3() throws Exception {
         this.mockMvc.perform(
@@ -107,7 +107,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is4xxClientError());
     }
 
-    // search theo id= "C001", name = "Bình", name không tồn tại trong DB
+    // get list theo điều kiện search theo id= "C001", name = "Bình", name không tồn tại trong DB
     @Test
     public void getListCustomerWithPagination_2_4() throws Exception {
         this.mockMvc.perform(
@@ -118,7 +118,7 @@ public class CustomerController_getListCustomerWithPagination {
     }
 
 
-    // search id = "C006",name = "Bình" cả id và name không tồn tại trong DB
+    // get list theo điều kiện search id = "C006",name = "Bình" cả id và name không tồn tại trong DB
     @Test
     public void getListCustomerWithPagination_3() throws Exception {
         this.mockMvc.perform(
@@ -128,7 +128,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is4xxClientError());
     }
 
-    // search id = "C005",name = "Bình", id tồn tại trong DB nhưng name không tồn tại trong DB
+    // get list theo điều kiện search id = "C005",name = "Bình", id tồn tại trong DB nhưng name không tồn tại trong DB
     @Test
     public void getListCustomerWithPagination_3_1() throws Exception {
         this.mockMvc.perform(
@@ -138,7 +138,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is4xxClientError());
     }
 
-    // search id = "C0068",name = "Dũng", id không tồn tại trong DB nhưng name tồn tại trong DB
+    //  get list theo điều kiện  search id = "C0068",name = "Dũng", id không tồn tại trong DB nhưng name tồn tại trong DB
     @Test
     public void getListCustomerWithPagination_3_2() throws Exception {
         this.mockMvc.perform(
@@ -149,7 +149,7 @@ public class CustomerController_getListCustomerWithPagination {
     }
 
 
-    //không nhập trường search
+    // get list theo điều kiện không nhập trường search
     @Test
     public void getListCustomerWithPagination_4() throws Exception {
         this.mockMvc.perform(
@@ -159,7 +159,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is2xxSuccessful());
     }
 
-    // search id = "C005",name = "Dũng", cả id và name tồn tại trong DB (tìm kiếm đúng)
+    //  get list theo điều kiện search id = "C005",name = "Dũng", cả id và name tồn tại trong DB (tìm kiếm đúng)
     @Test
     public void getListCustomerWithPagination_4_1() throws Exception {
         this.mockMvc.perform(
@@ -169,7 +169,7 @@ public class CustomerController_getListCustomerWithPagination {
                 .andExpect(status().is2xxSuccessful());
     }
 
-    // search id = "C00",name = "n", (tìm kiếm gần đúng)
+    //  get list theo điều kiện search id = "C00",name = "n", (tìm kiếm gần đúng)
     @Test
     public void getListCustomerWithPagination_4_2() throws Exception {
         this.mockMvc.perform(
