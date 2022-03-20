@@ -26,8 +26,7 @@ public class PersonalInfoController_updateEmployee {
     @Autowired
     ObjectMapper objectMapper;
 
-    //Test items null - 19
-
+    //No.19 - Test items null
     @Test
     public void edit_personalInfo_employeeGender_19() throws Exception {
         AccountDTO accountDTO = new AccountDTO();
@@ -56,9 +55,7 @@ public class PersonalInfoController_updateEmployee {
     }
 
 
-    //Test items "" - 20
-
-
+    //No.20 - Test items ""
     @Test
     public void edit_personalInfo_employeeName_20() throws Exception {
         AccountDTO accountDTO = new AccountDTO();
@@ -196,7 +193,7 @@ public class PersonalInfoController_updateEmployee {
 
 
 
-    //Test items sai format - 21
+    //No.21 - Test items sai format
 
     @Test
     public void edit_personalInfo_employeeGmail_21() throws Exception {
@@ -226,7 +223,7 @@ public class PersonalInfoController_updateEmployee {
     }
 
     @Test
-    public void edit_personalInfo_employeeAddress_2() throws Exception {
+    public void edit_personalInfo_employeeAddress_21() throws Exception {
         AccountDTO accountDTO = new AccountDTO();
         accountDTO.setAccountId(1);
         accountDTO.setUserName("admin");
@@ -281,9 +278,7 @@ public class PersonalInfoController_updateEmployee {
 
 
 
-    //Test items không >= minlength - 22
-
-
+    //No.22 - Test items không >= minlength
     @Test
     public void edit_personalInfo_employeeAddress_22() throws Exception {
         AccountDTO accountDTO = new AccountDTO();
@@ -313,9 +308,7 @@ public class PersonalInfoController_updateEmployee {
 
 
 
-    //Test items không <= maxlength - 23
-
-
+    //No.23 - Test items không <= maxlength
     @Test
     public void edit_personalInfo_employeeAddress_23() throws Exception {
         AccountDTO accountDTO = new AccountDTO();
@@ -345,9 +338,7 @@ public class PersonalInfoController_updateEmployee {
 
 
 
-    //Test all items hợp lệ - 24
-
-
+    //No.24 - Test all items hợp lệ
     @Test
     public void edit_personalInfo_available_24() throws Exception {
         AccountDTO accountDTO = new AccountDTO();
