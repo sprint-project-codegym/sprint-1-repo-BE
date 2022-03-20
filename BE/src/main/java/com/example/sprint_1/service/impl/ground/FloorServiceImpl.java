@@ -8,11 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
-import java.util.List;
-
 @Service
 public class FloorServiceImpl implements FloorService {
     // PhuocDD code chuc nang xoa tang
@@ -21,8 +16,8 @@ public class FloorServiceImpl implements FloorService {
     FloorRepository floorRepository;
 
     @Override
-    public Page<Floor> findAllFloor(Pageable pageable) {
-        return floorRepository.findAllFloor(pageable);
+    public Page<Floor> findAllFloorWithPagination(Pageable pageable) {
+        return floorRepository.findAllFloorWithPagination(pageable);
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface FloorService {
     //PhuocDD da code chuc nang nay de lay danh sach tang
-    Page<Floor> findAllFloor( Pageable pageable);
+    Page<Floor> findAllFloorWithPagination( Pageable pageable);
 
     //PhuocDD da code chuc nang nay de lay floor ID
     Floor findFloorByFloorId( String id);
