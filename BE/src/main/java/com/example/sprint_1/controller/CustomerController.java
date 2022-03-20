@@ -27,10 +27,11 @@ public class CustomerController {
 
     //NgaLT hien thi list khach hang, tim kiem khach hang
     @GetMapping("/list")
-    public ResponseEntity<Page<Customer>> GetListWithPagination(@RequestParam(defaultValue = "") String id,
-                                                                @RequestParam(defaultValue = "") String name,
-                                                                @RequestParam(defaultValue = "0") int page) {
-        Pageable pageable = PageRequest.of(page, 10);
+    public ResponseEntity<Page<Customer>> getListCustomerWithPagination(@RequestParam(defaultValue = "0") int page,
+                                                                        @RequestParam(defaultValue = "2") int size,
+                                                                        @RequestParam(defaultValue = "") String id,
+                                                                        @RequestParam(defaultValue = "") String name) {
+        Pageable pageable = PageRequest.of(page, size);
         Page<Customer> customers;
         customers = customerService.findAllCustomerWithPagination(id, name,pageable);
         if(customers.isEmpty()){
@@ -44,10 +45,10 @@ public class CustomerController {
     public ResponseEntity<String> deleteCustomerById(@PathVariable("id") String id) {
         Customer customer = customerService.findCustomerByCustomerId(id);
         if (customer == null) {
-            return new ResponseEntity<>("notOk", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>( HttpStatus.NOT_FOUND);
         } else {
             customerService.deleteCustomer(id);
-            return new ResponseEntity<>("OK", HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
     }
 }
