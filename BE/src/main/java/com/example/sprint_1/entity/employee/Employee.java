@@ -11,9 +11,7 @@ import java.util.List;
 @Entity(name = "employee")
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer employeeId;
-    private String employeeCode;
+    private String employeeId;
     private String employeeName;
     private String employeeBirthday;
     private Boolean employeeGender;
@@ -21,18 +19,29 @@ public class Employee {
     private String employeeGmail;
     private String employeeAddress;
     private String employeePhone;
-    private String employeeDateStart;
     private Double employeeSalary;
     private Boolean deleteFlag;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "accountId")
+    private Account account;
+
+    @ManyToOne(targetEntity = Position.class)
+    @JoinColumn(name = "positionId")
+    private Position position;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @JsonBackReference
+    public List<Contract> contractList;
 
     public Employee() {
     }
 
-    public Integer getEmployeeId() {
+    public String getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(Integer employeeId) {
+    public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -92,14 +101,6 @@ public class Employee {
         this.employeePhone = employeePhone;
     }
 
-    public String getEmployeeDateStart() {
-        return employeeDateStart;
-    }
-
-    public void setEmployeeDateStart(String employeeDateStart) {
-        this.employeeDateStart = employeeDateStart;
-    }
-
     public Double getEmployeeSalary() {
         return employeeSalary;
     }
@@ -140,24 +141,22 @@ public class Employee {
         this.contractList = contractList;
     }
 
-    public String getEmployeeCode() {
-        return employeeCode;
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId='" + employeeId + '\'' +
+                ", employeeName='" + employeeName + '\'' +
+                ", employeeBirthday='" + employeeBirthday + '\'' +
+                ", employeeGender=" + employeeGender +
+                ", employeeIdCard='" + employeeIdCard + '\'' +
+                ", employeeGmail='" + employeeGmail + '\'' +
+                ", employeeAddress='" + employeeAddress + '\'' +
+                ", employeePhone='" + employeePhone + '\'' +
+                ", employeeSalary=" + employeeSalary +
+                ", deleteFlag=" + deleteFlag +
+                ", account=" + account +
+                ", position=" + position +
+                ", contractList=" + contractList +
+                '}';
     }
-
-    public void setEmployeeCode(String employeeCode) {
-        this.employeeCode = employeeCode;
-    }
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "accountId")
-    @JsonBackReference
-    private Account account;
-
-    @ManyToOne(targetEntity = Position.class)
-    @JoinColumn(name = "positionId")
-    private Position position;
-
-    @JsonBackReference
-    @OneToMany(mappedBy = "employee")
-    public List<Contract> contractList;
 }
