@@ -30,6 +30,252 @@ public class ContractController_updateContract {
 
     //Test items null - 19
 
+
+    @Test
+    public void edit_contract_contractId_19() throws Exception {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setEmployeeId("E001");
+        employeeDTO.setEmployeeName("Nguyễn Thái Học");
+        employeeDTO.setEmployeeBirthday("2000-05-06");
+        employeeDTO.setEmployeeGender(true);
+        employeeDTO.setEmployeeIdCard("236568986");
+        employeeDTO.setEmployeeGmail("nthaihoc@gmail.com");
+        employeeDTO.setEmployeeAddress("Quảng Nam");
+        employeeDTO.setEmployeePhone("0365635686");
+        employeeDTO.setEmployeeSalary(1500.0);
+        employeeDTO.setDeleteFlag(true);
+
+        GroundDTO groundDTO = new GroundDTO();
+        groundDTO.setGroundId("1");
+        groundDTO.setGroundType("Normal");
+        groundDTO.setArea(100.0);
+        groundDTO.setImage("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.agiusa.com%2Fhow-to-test-for-land-subsidence-before-breaking-ground&psig=AOvVaw1Y54PIx8yoUsaxPjao-7IG&ust=1647396516755000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCUqbqEx_YCFQAAAAAdAAAAABAU");
+        groundDTO.setStatus("stutas");
+        groundDTO.setRentCost(1000.0);
+        groundDTO.setManageCost(1000.0);
+        groundDTO.setNote("note");
+        groundDTO.setVersion(1);
+        groundDTO.setDeleteFlag(true);
+
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setCustomerId("C002");
+        customerDTO.setCustomerName("Nguyễn Thái Học");
+        customerDTO.setCustomerBirthday("2000-05-06");
+        customerDTO.setCustomerIdCard("236568986");
+        customerDTO.setCustomerEmail("nthaihoc@gmail.com");
+        customerDTO.setCustomerAddress("Quảng Nam");
+        customerDTO.setCustomerPhone("0365635686");
+        customerDTO.setCustomerCompany("Codegym");
+        customerDTO.setStatus("Đang thuê");
+        customerDTO.setDeleteFlag(true);
+
+        ContractDTO contractDTO = new ContractDTO();
+        contractDTO.setContractId(null);
+        contractDTO.setStartDate("2022-03-30");
+        contractDTO.setEndDate("2022-03-30");
+        contractDTO.setContractDate("2022-03-30");
+        contractDTO.setRentCost(10000.0);
+        contractDTO.setTotalCost(10000.0);
+        contractDTO.setContractContent("gggg");
+        contractDTO.setDeleteFlag(true);
+
+        contractDTO.setCustomer(customerDTO);
+
+        contractDTO.setEmployee(employeeDTO);
+
+        contractDTO.setGround(groundDTO);
+
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    @Test
+    public void edit_contract_startDate_19() throws Exception {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setEmployeeId("E001");
+        employeeDTO.setEmployeeName("Nguyễn Thái Học");
+        employeeDTO.setEmployeeBirthday("2000-05-06");
+        employeeDTO.setEmployeeGender(true);
+        employeeDTO.setEmployeeIdCard("236568986");
+        employeeDTO.setEmployeeGmail("nthaihoc@gmail.com");
+        employeeDTO.setEmployeeAddress("Quảng Nam");
+        employeeDTO.setEmployeePhone("0365635686");
+        employeeDTO.setEmployeeSalary(1500.0);
+        employeeDTO.setDeleteFlag(true);
+
+        GroundDTO groundDTO = new GroundDTO();
+        groundDTO.setGroundId("1");
+        groundDTO.setGroundType("Normal");
+        groundDTO.setArea(100.0);
+        groundDTO.setImage("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.agiusa.com%2Fhow-to-test-for-land-subsidence-before-breaking-ground&psig=AOvVaw1Y54PIx8yoUsaxPjao-7IG&ust=1647396516755000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCUqbqEx_YCFQAAAAAdAAAAABAU");
+        groundDTO.setStatus("stutas");
+        groundDTO.setRentCost(1000.0);
+        groundDTO.setManageCost(1000.0);
+        groundDTO.setNote("note");
+        groundDTO.setVersion(1);
+        groundDTO.setDeleteFlag(true);
+
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setCustomerId("C002");
+        customerDTO.setCustomerName("Nguyễn Thái Học");
+        customerDTO.setCustomerBirthday("2000-05-06");
+        customerDTO.setCustomerIdCard("236568986");
+        customerDTO.setCustomerEmail("nthaihoc@gmail.com");
+        customerDTO.setCustomerAddress("Quảng Nam");
+        customerDTO.setCustomerPhone("0365635686");
+        customerDTO.setCustomerCompany("Codegym");
+        customerDTO.setStatus("Đang thuê");
+        customerDTO.setDeleteFlag(true);
+
+        ContractDTO contractDTO = new ContractDTO();
+        contractDTO.setContractId("E001");
+        contractDTO.setStartDate(null);
+        contractDTO.setEndDate("2022-03-30");
+        contractDTO.setContractDate("2022-03-30");
+        contractDTO.setRentCost(10000.0);
+        contractDTO.setTotalCost(10000.0);
+        contractDTO.setContractContent("gggg");
+        contractDTO.setDeleteFlag(true);
+
+        contractDTO.setCustomer(customerDTO);
+
+        contractDTO.setEmployee(employeeDTO);
+
+        contractDTO.setGround(groundDTO);
+
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    @Test
+    public void edit_contract_endDate_19() throws Exception {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setEmployeeId("E001");
+        employeeDTO.setEmployeeName("Nguyễn Thái Học");
+        employeeDTO.setEmployeeBirthday("2000-05-06");
+        employeeDTO.setEmployeeGender(true);
+        employeeDTO.setEmployeeIdCard("236568986");
+        employeeDTO.setEmployeeGmail("nthaihoc@gmail.com");
+        employeeDTO.setEmployeeAddress("Quảng Nam");
+        employeeDTO.setEmployeePhone("0365635686");
+        employeeDTO.setEmployeeSalary(1500.0);
+        employeeDTO.setDeleteFlag(true);
+
+        GroundDTO groundDTO = new GroundDTO();
+        groundDTO.setGroundId("1");
+        groundDTO.setGroundType("Normal");
+        groundDTO.setArea(100.0);
+        groundDTO.setImage("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.agiusa.com%2Fhow-to-test-for-land-subsidence-before-breaking-ground&psig=AOvVaw1Y54PIx8yoUsaxPjao-7IG&ust=1647396516755000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCUqbqEx_YCFQAAAAAdAAAAABAU");
+        groundDTO.setStatus("stutas");
+        groundDTO.setRentCost(1000.0);
+        groundDTO.setManageCost(1000.0);
+        groundDTO.setNote("note");
+        groundDTO.setVersion(1);
+        groundDTO.setDeleteFlag(true);
+
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setCustomerId("C002");
+        customerDTO.setCustomerName("Nguyễn Thái Học");
+        customerDTO.setCustomerBirthday("2000-05-06");
+        customerDTO.setCustomerIdCard("236568986");
+        customerDTO.setCustomerEmail("nthaihoc@gmail.com");
+        customerDTO.setCustomerAddress("Quảng Nam");
+        customerDTO.setCustomerPhone("0365635686");
+        customerDTO.setCustomerCompany("Codegym");
+        customerDTO.setStatus("Đang thuê");
+        customerDTO.setDeleteFlag(true);
+
+        ContractDTO contractDTO = new ContractDTO();
+        contractDTO.setContractId("E001");
+        contractDTO.setStartDate("2022-03-30");
+        contractDTO.setEndDate(null);
+        contractDTO.setContractDate("2022-03-30");
+        contractDTO.setRentCost(10000.0);
+        contractDTO.setTotalCost(10000.0);
+        contractDTO.setContractContent("gggg");
+        contractDTO.setDeleteFlag(true);
+
+        contractDTO.setCustomer(customerDTO);
+
+        contractDTO.setEmployee(employeeDTO);
+
+        contractDTO.setGround(groundDTO);
+
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+
+    @Test
+    public void edit_contract_contractDate_19() throws Exception {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setEmployeeId("E001");
+        employeeDTO.setEmployeeName("Nguyễn Thái Học");
+        employeeDTO.setEmployeeBirthday("2000-05-06");
+        employeeDTO.setEmployeeGender(true);
+        employeeDTO.setEmployeeIdCard("236568986");
+        employeeDTO.setEmployeeGmail("nthaihoc@gmail.com");
+        employeeDTO.setEmployeeAddress("Quảng Nam");
+        employeeDTO.setEmployeePhone("0365635686");
+        employeeDTO.setEmployeeSalary(1500.0);
+        employeeDTO.setDeleteFlag(true);
+
+        GroundDTO groundDTO = new GroundDTO();
+        groundDTO.setGroundId("1");
+        groundDTO.setGroundType("Normal");
+        groundDTO.setArea(100.0);
+        groundDTO.setImage("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.agiusa.com%2Fhow-to-test-for-land-subsidence-before-breaking-ground&psig=AOvVaw1Y54PIx8yoUsaxPjao-7IG&ust=1647396516755000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCUqbqEx_YCFQAAAAAdAAAAABAU");
+        groundDTO.setStatus("stutas");
+        groundDTO.setRentCost(1000.0);
+        groundDTO.setManageCost(1000.0);
+        groundDTO.setNote("note");
+        groundDTO.setVersion(1);
+        groundDTO.setDeleteFlag(true);
+
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setCustomerId("C002");
+        customerDTO.setCustomerName("Nguyễn Thái Học");
+        customerDTO.setCustomerBirthday("2000-05-06");
+        customerDTO.setCustomerIdCard("236568986");
+        customerDTO.setCustomerEmail("nthaihoc@gmail.com");
+        customerDTO.setCustomerAddress("Quảng Nam");
+        customerDTO.setCustomerPhone("0365635686");
+        customerDTO.setCustomerCompany("Codegym");
+        customerDTO.setStatus("Đang thuê");
+        customerDTO.setDeleteFlag(true);
+
+        ContractDTO contractDTO = new ContractDTO();
+        contractDTO.setContractId(null);
+        contractDTO.setStartDate("2022-03-30");
+        contractDTO.setEndDate("2022-03-30");
+        contractDTO.setContractDate(null);
+        contractDTO.setRentCost(10000.0);
+        contractDTO.setTotalCost(10000.0);
+        contractDTO.setContractContent("gggg");
+        contractDTO.setDeleteFlag(true);
+
+        contractDTO.setCustomer(customerDTO);
+
+        contractDTO.setEmployee(employeeDTO);
+
+        contractDTO.setGround(groundDTO);
+
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
     @Test
     public void edit_contract_rentCost_19() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
@@ -152,9 +398,131 @@ public class ContractController_updateContract {
                 .andExpect(status().is4xxClientError());
     }
 
+    @Test
+    public void edit_contract_contractContent_19() throws Exception {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setEmployeeId("E001");
+        employeeDTO.setEmployeeName("Nguyễn Thái Học");
+        employeeDTO.setEmployeeBirthday("2000-05-06");
+        employeeDTO.setEmployeeGender(true);
+        employeeDTO.setEmployeeIdCard("236568986");
+        employeeDTO.setEmployeeGmail("nthaihoc@gmail.com");
+        employeeDTO.setEmployeeAddress("Quảng Nam");
+        employeeDTO.setEmployeePhone("0365635686");
+        employeeDTO.setEmployeeSalary(1500.0);
+        employeeDTO.setDeleteFlag(true);
+
+        GroundDTO groundDTO = new GroundDTO();
+        groundDTO.setGroundId("1");
+        groundDTO.setGroundType("Normal");
+        groundDTO.setArea(100.0);
+        groundDTO.setImage("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.agiusa.com%2Fhow-to-test-for-land-subsidence-before-breaking-ground&psig=AOvVaw1Y54PIx8yoUsaxPjao-7IG&ust=1647396516755000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCUqbqEx_YCFQAAAAAdAAAAABAU");
+        groundDTO.setStatus("stutas");
+        groundDTO.setRentCost(1000.0);
+        groundDTO.setManageCost(1000.0);
+        groundDTO.setNote("note");
+        groundDTO.setVersion(1);
+        groundDTO.setDeleteFlag(true);
+
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setCustomerId("C002");
+        customerDTO.setCustomerName("Nguyễn Thái Học");
+        customerDTO.setCustomerBirthday("2000-05-06");
+        customerDTO.setCustomerIdCard("236568986");
+        customerDTO.setCustomerEmail("nthaihoc@gmail.com");
+        customerDTO.setCustomerAddress("Quảng Nam");
+        customerDTO.setCustomerPhone("0365635686");
+        customerDTO.setCustomerCompany("Codegym");
+        customerDTO.setStatus("Đang thuê");
+        customerDTO.setDeleteFlag(true);
+
+        ContractDTO contractDTO = new ContractDTO();
+        contractDTO.setContractId("E001");
+        contractDTO.setStartDate("2022-03-30");
+        contractDTO.setEndDate("2022-03-30");
+        contractDTO.setContractDate("2022-03-30");
+        contractDTO.setRentCost(10000.0);
+        contractDTO.setTotalCost(10000.0);
+        contractDTO.setContractContent(null);
+        contractDTO.setDeleteFlag(true);
+
+        contractDTO.setCustomer(customerDTO);
+
+        contractDTO.setEmployee(employeeDTO);
+
+        contractDTO.setGround(groundDTO);
+
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
 
     //Test items "" - 20
 
+
+    @Test
+    public void edit_contract_contractId_20() throws Exception {
+        EmployeeDTO employeeDTO = new EmployeeDTO();
+        employeeDTO.setEmployeeId("E001");
+        employeeDTO.setEmployeeName("Nguyễn Thái Học");
+        employeeDTO.setEmployeeBirthday("2000-05-06");
+        employeeDTO.setEmployeeGender(true);
+        employeeDTO.setEmployeeIdCard("236568986");
+        employeeDTO.setEmployeeGmail("nthaihoc@gmail.com");
+        employeeDTO.setEmployeeAddress("Quảng Nam");
+        employeeDTO.setEmployeePhone("0365635686");
+        employeeDTO.setEmployeeSalary(1500.0);
+        employeeDTO.setDeleteFlag(true);
+
+        GroundDTO groundDTO = new GroundDTO();
+        groundDTO.setGroundId("1");
+        groundDTO.setGroundType("Normal");
+        groundDTO.setArea(100.0);
+        groundDTO.setImage("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.agiusa.com%2Fhow-to-test-for-land-subsidence-before-breaking-ground&psig=AOvVaw1Y54PIx8yoUsaxPjao-7IG&ust=1647396516755000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKCUqbqEx_YCFQAAAAAdAAAAABAU");
+        groundDTO.setStatus("stutas");
+        groundDTO.setRentCost(1000.0);
+        groundDTO.setManageCost(1000.0);
+        groundDTO.setNote("note");
+        groundDTO.setVersion(1);
+        groundDTO.setDeleteFlag(true);
+
+        CustomerDTO customerDTO = new CustomerDTO();
+        customerDTO.setCustomerId("C002");
+        customerDTO.setCustomerName("Nguyễn Thái Học");
+        customerDTO.setCustomerBirthday("2000-05-06");
+        customerDTO.setCustomerIdCard("236568986");
+        customerDTO.setCustomerEmail("nthaihoc@gmail.com");
+        customerDTO.setCustomerAddress("Quảng Nam");
+        customerDTO.setCustomerPhone("0365635686");
+        customerDTO.setCustomerCompany("Codegym");
+        customerDTO.setStatus("Đang thuê");
+        customerDTO.setDeleteFlag(true);
+
+        ContractDTO contractDTO = new ContractDTO();
+        contractDTO.setContractId("");
+        contractDTO.setStartDate("2022-03-30");
+        contractDTO.setEndDate("2022-03-30");
+        contractDTO.setContractDate("2022-03-30");
+        contractDTO.setRentCost(10000.0);
+        contractDTO.setTotalCost(10000.0);
+        contractDTO.setContractContent("gggg");
+        contractDTO.setDeleteFlag(true);
+
+        contractDTO.setCustomer(customerDTO);
+
+        contractDTO.setEmployee(employeeDTO);
+
+        contractDTO.setGround(groundDTO);
+
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/contract/edit")
+                        .content(this.objectMapper.writeValueAsString(contractDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
 
     @Test
     public void edit_contract_startDate_20() throws Exception {
@@ -258,8 +626,8 @@ public class ContractController_updateContract {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("CT001");
         contractDTO.setStartDate("2022-03-30");
-        contractDTO.setEndDate("2022-03");
-        contractDTO.setContractDate("2022-03-30");
+        contractDTO.setEndDate("2022-03-30");
+        contractDTO.setContractDate("");
         contractDTO.setRentCost(10000.0);
         contractDTO.setTotalCost(10000.0);
         contractDTO.setContractContent("gggg");
@@ -476,7 +844,7 @@ public class ContractController_updateContract {
         employeeDTO.setEmployeeGmail("nthaihoc@gmail.com");
         employeeDTO.setEmployeeAddress("Quảng Nam");
         employeeDTO.setEmployeePhone("0365635686");
-        employeeDTO.setEmployeeSalary(1500.0);
+        employeeDTO.setEmployeeSalary(-78.0);
         employeeDTO.setDeleteFlag(true);
 
         GroundDTO groundDTO = new GroundDTO();
