@@ -40,7 +40,7 @@ public class CustomerController {
         return new ResponseEntity<>(customers,HttpStatus.OK);
     }
 
-    //NgaLT xoa khach hang
+    //NgaLT delete customer
     @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<String> deleteCustomerById(@PathVariable("id") String id) {
         Customer customer = customerService.findCustomerByCustomerId(id);
