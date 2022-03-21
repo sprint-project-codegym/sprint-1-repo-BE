@@ -25,10 +25,12 @@ public class ContractController {
         return new ResponseEntity<>(contractService.findAll(), HttpStatus.OK);
     }
 
+//    KienHQ create contract
+
     @PostMapping(value = "/create", produces = {"application/json"})
-    public ResponseEntity<List<FieldError>> createContract(@Validated @RequestBody ContractDTO dto, BindingResult bindingResult) {
+    public ResponseEntity<?> createContract(@Validated @RequestBody ContractDTO dto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return new ResponseEntity<>(bindingResult.getFieldErrors(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(bindingResult.getFieldErrors(), HttpStatus.NOT_ACCEPTABLE);
         }
          contractService.saveContract(dto);
         return new ResponseEntity<>(HttpStatus.CREATED);
