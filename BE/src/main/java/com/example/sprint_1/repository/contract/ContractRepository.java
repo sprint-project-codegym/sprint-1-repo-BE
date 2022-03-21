@@ -4,9 +4,11 @@ import com.example.sprint_1.entity.contract.Contract;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
+@Repository
 public interface ContractRepository extends JpaRepository<Contract, String> {
     @Modifying
     @Query(value = "INSERT INTO Contract VALUES (:#{#contract.contractId}, :#{#contract.contractContent}, :#{#contract.contractDate}," +
@@ -14,4 +16,5 @@ public interface ContractRepository extends JpaRepository<Contract, String> {
             ":#{#contract.customer.customerId}, :#{#contract.employee.employeeId}, :#{#contract.ground.groundId})", nativeQuery = true)
     @Transactional
     void saveContract(Contract contract);
+
 }

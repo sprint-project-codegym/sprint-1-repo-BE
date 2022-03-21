@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
+
 @Setter
 @Getter
 @NoArgsConstructor
@@ -23,4 +25,21 @@ public class ContractDTO {
     private String customerId;
     private String employeeId;
     private String groundId;
+
+    @Override
+    public String toString() {
+        return "ContractDTO{" +
+                "contractId='" + contractId + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", contractDate='" + contractDate + '\'' +
+                ", rentCost=" + rentCost +
+                ", totalCost=" + totalCost +
+                ", contractContent='" + contractContent + '\'' +
+                ", deleteFlag=" + deleteFlag +
+                ", customerId='" + customerId + '\'' +
+                ", employeeId='" + employeeId + '\'' +
+                ", groundId='" + groundId + '\'' +
+                '}';
+    }
 }

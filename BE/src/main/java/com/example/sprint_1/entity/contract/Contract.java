@@ -3,7 +3,7 @@ package com.example.sprint_1.entity.contract;
 import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.ground.Ground;
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +27,8 @@ public class Contract {
     private String contractDate;
     private Double rentCost;
     private Double totalCost;
+
+    @NotNull
     private String contractContent;
     private Boolean deleteFlag;
 
@@ -41,4 +43,21 @@ public class Contract {
     @ManyToOne(targetEntity = Ground.class)
     @JoinColumn(name = "groundId")
     private Ground ground;
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "contractId='" + contractId + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", contractDate='" + contractDate + '\'' +
+                ", rentCost=" + rentCost +
+                ", totalCost=" + totalCost +
+                ", contractContent='" + contractContent + '\'' +
+                ", deleteFlag=" + deleteFlag +
+                ", customer=" + customer +
+                ", employee=" + employee +
+                ", ground=" + ground +
+                '}';
+    }
 }
