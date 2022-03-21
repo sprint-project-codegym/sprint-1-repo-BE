@@ -14,6 +14,7 @@ public class GroundCreateDTO {
     private String groundId;
 
     @NotBlank(message = "Không được để trống!")
+    @Size(min = 2, max = 50, message = "Tối thiểu 2 ký tự, tối đa 50 ký tự!")
     private String groundType;
 
     @NotNull(message = "Không được để trống!")
@@ -36,5 +37,7 @@ public class GroundCreateDTO {
 
     private String note;
     private Integer version;
+
+    @NotNull(message = "Không được để trống!")
     private FloorDTO floorDTO;
 }

@@ -160,6 +160,60 @@ public class GroundController_createGround {
                 .andExpect(status().is4xxClientError());
     }
 
+    //type <= min length
+    @Test
+    public void createGround_type_16() throws Exception {
+        GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
+        groundCreateDTO.setGroundId("MB-0001");
+        groundCreateDTO.setGroundType("z");
+        groundCreateDTO.setArea(50.0);
+        groundCreateDTO.setImage("image/ground1.jpg");
+        groundCreateDTO.setStatus("Chưa bàn giao");
+        groundCreateDTO.setRentCost(1000.0);
+        groundCreateDTO.setManageCost(100.0);
+        groundCreateDTO.setNote("abc");
+        groundCreateDTO.setVersion(0);
+
+        FloorDTO floorDTO = new FloorDTO();
+        floorDTO.setFloorId("FL-0001");
+        groundCreateDTO.setFloorDTO(floorDTO);
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/manager/ground/create")
+                        .content(this.objectMapper.writeValueAsString(groundCreateDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    //type >= min length
+    @Test
+    public void createGround_type_17() throws Exception {
+        GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
+        groundCreateDTO.setGroundId("MB-0001");
+        groundCreateDTO.setGroundType("abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc");
+        groundCreateDTO.setArea(50.0);
+        groundCreateDTO.setImage("image/ground1.jpg");
+        groundCreateDTO.setStatus("Chưa bàn giao");
+        groundCreateDTO.setRentCost(1000.0);
+        groundCreateDTO.setManageCost(100.0);
+        groundCreateDTO.setNote("abc");
+        groundCreateDTO.setVersion(0);
+
+        FloorDTO floorDTO = new FloorDTO();
+        floorDTO.setFloorId("FL-0001");
+        groundCreateDTO.setFloorDTO(floorDTO);
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/manager/ground/create")
+                        .content(this.objectMapper.writeValueAsString(groundCreateDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
     //area = null
     @Test
     public void createGround_area_13() throws Exception {
@@ -420,6 +474,60 @@ public class GroundController_createGround {
 
         FloorDTO floorDTO = new FloorDTO();
         floorDTO.setFloorId("FL-0001");
+        groundCreateDTO.setFloorDTO(floorDTO);
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/manager/ground/create")
+                        .content(this.objectMapper.writeValueAsString(groundCreateDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    //floor = null
+    @Test
+    public void createGround_floor_13() throws Exception {
+        GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
+        groundCreateDTO.setGroundId("MB-0001");
+        groundCreateDTO.setGroundType("Mặt tiền");
+        groundCreateDTO.setArea(50.0);
+        groundCreateDTO.setImage("image/ground1.jpg");
+        groundCreateDTO.setStatus("Chưa bàn giao");
+        groundCreateDTO.setRentCost(1000.0);
+        groundCreateDTO.setManageCost(100.0);
+        groundCreateDTO.setNote("abc");
+        groundCreateDTO.setVersion(0);
+
+        FloorDTO floorDTO = new FloorDTO();
+        floorDTO.setFloorId(null);
+        groundCreateDTO.setFloorDTO(floorDTO);
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/manager/ground/create")
+                        .content(this.objectMapper.writeValueAsString(groundCreateDTO))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+
+    //floor = ""
+    @Test
+    public void createGround_floor_14() throws Exception {
+        GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
+        groundCreateDTO.setGroundId("MB-0001");
+        groundCreateDTO.setGroundType("Mặt tiền");
+        groundCreateDTO.setArea(50.0);
+        groundCreateDTO.setImage("image/ground1.jpg");
+        groundCreateDTO.setStatus("Chưa bàn giao");
+        groundCreateDTO.setRentCost(1000.0);
+        groundCreateDTO.setManageCost(100.0);
+        groundCreateDTO.setNote("abc");
+        groundCreateDTO.setVersion(0);
+
+        FloorDTO floorDTO = new FloorDTO();
+        floorDTO.setFloorId("");
         groundCreateDTO.setFloorDTO(floorDTO);
 
         this.mockMvc

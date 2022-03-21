@@ -33,6 +33,7 @@ public class GroundController {
         Floor floorEntity = new Floor();
         floorEntity.setFloorId(groundCreateDTO.getFloorDTO().getFloorId());
         groundEntity.setFloor(floorEntity);
+        groundEntity.setDeleteFlag(true);
 
         this.groundService.save(groundEntity);
         return new ResponseEntity<>(HttpStatus.CREATED);

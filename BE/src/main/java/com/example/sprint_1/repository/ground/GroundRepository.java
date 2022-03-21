@@ -12,8 +12,8 @@ public interface GroundRepository extends JpaRepository<Ground, String> {
     //LuanVT: add new ground
     @Transactional
     @Modifying
-    @Query(value = "insert into ground(ground_id, ground_type, area, image, status, rent_cost, manage_cost, note, version, floor_id) " +
-            "values (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)", nativeQuery = true)
-    void createGroundDTO(String groundId, String groundType, Double area, String image, String status,
-                         Double rentCost, Double manageCost, String note, Integer version, String floorId);
+    @Query(value = "insert into ground(ground_id, ground_type, area, image, status, rent_cost, manage_cost, note, version, floor_id, delete_flag) " +
+            "values (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11)", nativeQuery = true)
+    void createGround(String groundId, String groundType, Double area, String image, String status,
+                         Double rentCost, Double manageCost, String note, Integer version, String floorId, Boolean deleteFlag);
 }
