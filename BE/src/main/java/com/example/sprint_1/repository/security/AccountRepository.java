@@ -1,0 +1,80 @@
+package com.example.sprint_1.repository.security;
+
+import com.example.sprint_1.entity.security.Account;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@Repository
+@Transactional
+public interface AccountRepository extends JpaRepository<Account, Integer> {
+    /**
+     * Tran Minh Khoa
+     */
+
+    Account findAccountByUserName(String username);
+
+    @Query(value = "select account_id from  sprint_1.account where user_name = ?1", nativeQuery = true)
+    Integer findIdUserByUserName(String username);
+
+    @Query(value = "SELECT user_name from  sprint_1.account where user_name = ?1", nativeQuery = true)
+    String existsByUserName(String username);
+
+//    @Query(value = "SELECT email FROM account where email= ?1", nativeQuery = true)
+//    String existsByEmail(String email);
+
+    Boolean existsByEmail(String email);
+
+    @Modifying
+    @Query(value = "insert into account(user_name,encrypt_pw,is_enabled,verification_code,email,token) values (?1,?2,?3,?4,?5,?6)", nativeQuery = true)
+    void addNew(String username, String password, Boolean isEnable, String verifiedCode, String email, String token);
+
+    @Query(value = "select * from account where verification_code =?1", nativeQuery = true)
+    Account findAccountByVerificationCode(String verifyCode);
+
+    @Modifying
+    @Query(value = "update account set verification_code=?1 where user_name =?2", nativeQuery = true)
+    void addVerificationCode(String code, String username);
+
+    @Query(value = "select * from account", nativeQuery = true)
+    List<Account> getAllAccount();
+
+    /*
+    HauLC
+     */
+    @Modifying
+    @Query(value = "insert into account(user_name,email,encrypt_pw,is_enable) values (?1,?2,?3,true)", nativeQuery = true)
+    void addNewAccount(String username, String email, String password);
+
+//    @Modifying
+//    @Query(value = "update account set encrypt_pw =?1,verification_code=null where verification_code=?2 ", nativeQuery = true)
+//    void saveNewPassword(String password, String code);
+
+    /*
+        HauLC sử lại saveNewPassword
+     */
+    @Modifying
+    @Query(value = "update account set encrypt_pw =?1,verification_code=null where user_name=?2 ", nativeQuery = true)
+    void saveNewPassword(String password, String username);
+
+<<<<<<< HEAD
+//    @Modifying
+//    @Query(value = "update account set encrypt_pw =?1,verification_code=null where verification_code=?2 ", nativeQuery = true)
+//    void saveNewPassword(String password, String code);
+
+    @Modifying
+    @Query(value = "update account set encrypt_pw =?1,verification_code=null where user_name=?2 ", nativeQuery = true)
+    void saveNewPassword(String password, String username);
+=======
+    /*
+        HauLC bổ sung
+     */
+    @Modifying
+    @Query(value = "update account set encrypt_pw =?1,email=?2,verification_code=null where user_name=?3 ", nativeQuery = true)
+    void updateAccount(String password, String email,String username);
+>>>>>>> 72757406d8117924b4411b003cf435dbbb361414
+}
