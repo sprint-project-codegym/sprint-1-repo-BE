@@ -24,18 +24,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/BE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sprint-1-repo-BE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
@@ -92,8 +85,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/ground/FloorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/ground/FloorDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/ground/GroundDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/ground/GroundDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/contract/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/contract/Contract.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/customer/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/employee/Employee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/employee/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/employee/Position.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/ground/Building.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/ground/Building.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/ground/Floor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/ground/Floor.java" afterDir="false" />
@@ -398,7 +389,7 @@
       <workItem from="1647757747813" duration="617000" />
       <workItem from="1647859862137" duration="2079000" />
       <workItem from="1647865526786" duration="1375000" />
-      <workItem from="1647869876128" duration="2656000" />
+      <workItem from="1647869876128" duration="3098000" />
     </task>
     <servers />
   </component>
