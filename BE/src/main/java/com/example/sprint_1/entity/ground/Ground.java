@@ -11,6 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Setter
 @Getter
+@Builder
 @Entity(name = "ground")
 public class Ground {
     @Id
