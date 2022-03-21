@@ -24,6 +24,7 @@ public class ContractController {
         return new ResponseEntity<>(contractList, HttpStatus.OK);
     }
 
+    // DongVTH edit
     @PatchMapping(value = "/api/contract/edit", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
