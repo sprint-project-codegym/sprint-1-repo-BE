@@ -86,9 +86,19 @@ public class AccountServiceImpl implements AccountService {
         return accountRepository.getAllAccount();
     }
 
+<<<<<<< HEAD
     @Override
     public void addNew(String username, String password) {
         accountRepository.addNewAccount(username, password);
+=======
+
+    /*
+    HauLC
+     */
+    @Override
+    public void addNew(String username, String email, String password) {
+        accountRepository.addNewAccount(username, email, password);
+>>>>>>> 72757406d8117924b4411b003cf435dbbb361414
     }
 
     @Override
@@ -101,6 +111,14 @@ public class AccountServiceImpl implements AccountService {
         return accountRepository.existsByEmail(email);
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public void updateAccount(String password, String email, String username) {
+        accountRepository.updateAccount(password,email,username);
+    }
+
+>>>>>>> 72757406d8117924b4411b003cf435dbbb361414
 //    public void sendVerificationEmail(String userName, String randomCode, String email) throws MessagingException, UnsupportedEncodingException {
 //        String subject = "Hãy xác thực email của bạn";
 //        String mailContent = "";
