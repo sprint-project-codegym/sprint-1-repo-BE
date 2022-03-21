@@ -21,12 +21,12 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer accountId;
-    @NotBlank(message = "Tên tài khoản không được để trống")
-    @Pattern(regexp = "^\\S[a-zA-Z0-9@.]{3,29}$", message = "Tên tài khoản không đúng định dạng!")
+//    @NotBlank(message = "Tên tài khoản không được để trống")
+//    @Pattern(regexp = "^\\S[a-zA-Z0-9@.]{3,29}$", message = "Tên tài khoản không đúng định dạng!")
     private String userName;
     private String email;
-    @NotBlank(message = "Mật khẩu không được để trống")
-    @Pattern(regexp = "^[-@.\\/#&+\\w\\s]{3,15}$", message = "Mật khẩu không đúng định dạng!")
+//    @NotBlank(message = "Mật khẩu không được để trống")
+//    @Pattern(regexp = "^[-@.\\/#&+\\w\\s]{3,15}$", message = "Mật khẩu không đúng định dạng!")
     private String encryptPw;
     private String token;
     private Boolean isEnable;
