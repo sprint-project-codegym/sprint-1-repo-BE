@@ -39,8 +39,8 @@ public class GroundDTO {
     private Integer version;
     private Boolean deleteFlag;
 
-//    @NotBlank(message = "Không được để trống!")
-    private FloorDTO floor;
+    @NotBlank(message = "Không được để trống!")
+    private String floorId;
 
 
     public String getGroundId() {
@@ -123,12 +123,11 @@ public class GroundDTO {
         this.deleteFlag = deleteFlag;
     }
 
-    public FloorDTO getFloor() {
-        return floor;
+    public String getFloorId() {
+        return floorId;
     }
 
-    public void setFloor(FloorDTO floor) {
-        this.floor = floor;
+    public void setFloorId(String floorId) {
+        this.floorId = floorId;
     }
-
 }

@@ -28,7 +28,7 @@ public class GroundServiceImpl implements GroundService {
     //NghiaND - chỉnh sửa mặt bằng
     @Override
     public void updateGround(String id, GroundDTO ground) {
-        groundRepository.updateGroundDTO(ground.getGroundId(), ground.getGroundType(),ground.getArea(),ground.getImage(),ground.getStatus(),ground.getRentCost(),ground.getManageCost(),ground.getNote(),ground.getVersion(),ground.getFloor().getFloorId(),id);
+        groundRepository.updateGroundDTO(ground.getGroundId(), ground.getGroundType(),ground.getArea(),ground.getImage(),ground.getStatus(),ground.getRentCost(),ground.getManageCost(),ground.getNote(),ground.getVersion(),ground.getFloorId(),id);
 
     }
 }
