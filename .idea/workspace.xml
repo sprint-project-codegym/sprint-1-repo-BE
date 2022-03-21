@@ -14,13 +14,9 @@
       <change beforePath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/repository/contract/ContractRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/repository/contract/ContractRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/service/contract/ContractService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/service/contract/ContractService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/service/impl/contract/ContractServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/classes/java/main/com/example/sprint_1/service/impl/contract/ContractServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/resources/main/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BE/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/BE/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/controller/ContractController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/controller/ContractController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/repository/contract/ContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/repository/contract/ContractRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/service/contract/ContractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/service/contract/ContractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/service/impl/contract/ContractServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/service/impl/contract/ContractServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BE/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BE/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,13 +49,21 @@
       <updated>1647169061801</updated>
       <workItem from="1647169064764" duration="10000" />
       <workItem from="1647428534660" duration="64000" />
+      <workItem from="1647863171869" duration="71000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1647428597215">
+    <state x="223" y="63" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1647863209043">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1647428597215" />
+    <state x="223" y="63" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.816@0.0.1536.816" timestamp="1647863209043" />
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1647863242014">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1647863242014" />
   </component>
 </project>

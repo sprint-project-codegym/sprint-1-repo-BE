@@ -22,10 +22,10 @@ public class ContractController {
     ContractService contractService;
 
     @GetMapping("/list") // Get list contract and search//
-    public ResponseEntity<Page<Contract>> GetListWithPagination(@RequestParam(defaultValue = "") String id,
+    public ResponseEntity<Page<Contract>> getListWithPagination(@RequestParam(defaultValue = "") String id,
                                                                 @RequestParam(defaultValue = "") String customerName,
                                                                 @RequestParam(defaultValue = "0") int page) {
-        Pageable pageable = PageRequest.of(page, 10);
+        Pageable pageable = PageRequest.of(page, 5);
         Page<Contract> contracts;
         contracts = contractService.findAllContractWithPagination(id, customerName,pageable);
         if(contracts.isEmpty()){
