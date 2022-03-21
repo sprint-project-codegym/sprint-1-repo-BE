@@ -87,7 +87,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setEmployeeGmail(employeeDto.getEmail());
         employee.setEmployeeAddress(employeeDto.getAddress());
         employee.setEmployeePhone(employeeDto.getPhone());
-        employee.setEmployeeSalary(employeeDto.getSalary());
+        employee.setEmployeeSalary(Double.valueOf(employeeDto.getSalary()));
         employee.setDeleteFlag(false);
 
         Position poEntity = new Position();
@@ -115,7 +115,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setEmployeeGmail(employeeDto.getEmail());
         employee.setEmployeeAddress(employeeDto.getAddress());
         employee.setEmployeePhone(employeeDto.getPhone());
-        employee.setEmployeeSalary(employeeDto.getSalary());
+        employee.setEmployeeSalary(Double.valueOf(employeeDto.getSalary()));
 
         Account account = employee.getAccount();
         account.setEmail(employee.getEmployeeGmail()); // cập nhật lại email cho account

@@ -28,17 +28,17 @@ public class EmployeeRestController_createEmployee {
     @Test
     public void createEmployee_name_14() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-        employeeDto.setName(null);
+        employeeDto.setName("null");
         employeeDto.setDateOfBirth("2001-10-31");
-        employeeDto.setGender(true);
+        employeeDto.setGender("true");
         employeeDto.setEmail("hau@gmail.com");
         employeeDto.setIdCard("206777555");
         employeeDto.setAddress("Quảng Nam");
         employeeDto.setPhone("099988778");
-        employeeDto.setSalary(1000.0);
+        employeeDto.setSalary("1000.0");
 
         AccountDTO accountDTO = new AccountDTO();
-        accountDTO.setUsername("leconghau");
+        accountDTO.setUsername("leconghau414");
         accountDTO.setPassword("123456");
         employeeDto.setAccount(accountDTO);
 
@@ -52,20 +52,19 @@ public class EmployeeRestController_createEmployee {
                         .content(this.objectMapper.writeValueAsString(employeeDto))
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
-                .andExpect(status().is2xxSuccessful());
+                .andExpect(status().is4xxClientError());
     }
-
     @Test
     public void createEmployee_dateOfBirth_14() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
         employeeDto.setName("Hậu");
-        employeeDto.setDateOfBirth(null);
-        employeeDto.setGender(true);
+        employeeDto.setDateOfBirth("null");
+        employeeDto.setGender("true");
         employeeDto.setEmail("hau@gmail.com");
         employeeDto.setIdCard("206777555");
         employeeDto.setAddress("Quảng Nam");
         employeeDto.setPhone("099988778");
-        employeeDto.setSalary(1000.0);
+        employeeDto.setSalary("1000.0");
 
         AccountDTO accountDTO = new AccountDTO();
         accountDTO.setUsername("leconghau4");
@@ -89,12 +88,12 @@ public class EmployeeRestController_createEmployee {
         EmployeeDTO employeeDto = new EmployeeDTO();
         employeeDto.setName("Hậu");
         employeeDto.setDateOfBirth("2001-10-31");
-        employeeDto.setGender(null);
+        employeeDto.setGender("null");
         employeeDto.setEmail("hau@gmail.com");
         employeeDto.setIdCard("206777555");
         employeeDto.setAddress("Quảng Nam");
         employeeDto.setPhone("099988778");
-        employeeDto.setSalary(1000.0);
+        employeeDto.setSalary("1000.0");
 
         AccountDTO accountDTO = new AccountDTO();
         accountDTO.setUsername("leconghau4");
@@ -118,12 +117,12 @@ public class EmployeeRestController_createEmployee {
         EmployeeDTO employeeDto = new EmployeeDTO();
         employeeDto.setName("Hậu");
         employeeDto.setDateOfBirth("2001-10-31");
-        employeeDto.setGender(true);
-        employeeDto.setEmail(null);
+        employeeDto.setGender("true");
+        employeeDto.setEmail("null");
         employeeDto.setIdCard("206777555");
         employeeDto.setAddress("Quảng Nam");
         employeeDto.setPhone("099988778");
-        employeeDto.setSalary(1000.0);
+        employeeDto.setSalary("1000.0");
 
         AccountDTO accountDTO = new AccountDTO();
         accountDTO.setUsername("leconghau689");
@@ -147,15 +146,160 @@ public class EmployeeRestController_createEmployee {
         EmployeeDTO employeeDto = new EmployeeDTO();
         employeeDto.setName("Hậu");
         employeeDto.setDateOfBirth("2001-10-31");
-        employeeDto.setGender(true);
+        employeeDto.setGender("true");
         employeeDto.setEmail("hau@gmail.com");
         employeeDto.setIdCard(null);
         employeeDto.setAddress("Quảng Nam");
         employeeDto.setPhone("099988778");
-        employeeDto.setSalary(1000.0);
+        employeeDto.setSalary("1000.0");
 
         AccountDTO accountDTO = new AccountDTO();
         accountDTO.setUsername("leconghau4");
+        accountDTO.setPassword("123456");
+        employeeDto.setAccount(accountDTO);
+
+        PositionDTO positionDTO = new PositionDTO();
+        positionDTO.setPositionId("1");
+        employeeDto.setPosition(positionDTO);
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/employee")
+                        .content(this.objectMapper.writeValueAsString(employeeDto))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+    @Test
+    public void createEmployee_address_14() throws Exception  {
+        EmployeeDTO employeeDto = new EmployeeDTO();
+        employeeDto.setName("Hậu");
+        employeeDto.setDateOfBirth("2001-10-31");
+        employeeDto.setGender("true");
+        employeeDto.setEmail("hau@gmail.com");
+        employeeDto.setIdCard("206888999");
+        employeeDto.setAddress("null");
+        employeeDto.setPhone("099988778");
+        employeeDto.setSalary("1000.0");
+
+        AccountDTO accountDTO = new AccountDTO();
+        accountDTO.setUsername("leconghau4");
+        accountDTO.setPassword("123456");
+        employeeDto.setAccount(accountDTO);
+
+        PositionDTO positionDTO = new PositionDTO();
+        positionDTO.setPositionId("1");
+        employeeDto.setPosition(positionDTO);
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/employee")
+                        .content(this.objectMapper.writeValueAsString(employeeDto))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+    @Test
+    public void createEmployee_phone_14() throws Exception  {
+        EmployeeDTO employeeDto = new EmployeeDTO();
+        employeeDto.setName("Hậu");
+        employeeDto.setDateOfBirth("2001-10-31");
+        employeeDto.setGender("true");
+        employeeDto.setEmail("hau@gmail.com");
+        employeeDto.setIdCard("206888999");
+        employeeDto.setAddress("Quảng Nam");
+        employeeDto.setPhone("null");
+        employeeDto.setSalary("1000.0");
+
+        AccountDTO accountDTO = new AccountDTO();
+        accountDTO.setUsername("leconghau4");
+        accountDTO.setPassword("123456");
+        employeeDto.setAccount(accountDTO);
+
+        PositionDTO positionDTO = new PositionDTO();
+        positionDTO.setPositionId("1");
+        employeeDto.setPosition(positionDTO);
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/employee")
+                        .content(this.objectMapper.writeValueAsString(employeeDto))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+    @Test
+    public void createEmployee_salary_14() throws Exception  {
+        EmployeeDTO employeeDto = new EmployeeDTO();
+        employeeDto.setName("Hậu");
+        employeeDto.setDateOfBirth("2001-10-31");
+        employeeDto.setGender("true");
+        employeeDto.setEmail("hau@gmail.com");
+        employeeDto.setIdCard("206888999");
+        employeeDto.setAddress("Quảng Nam");
+        employeeDto.setPhone("099988778");
+        employeeDto.setSalary("null");
+
+        AccountDTO accountDTO = new AccountDTO();
+        accountDTO.setUsername("leconghau4");
+        accountDTO.setPassword("123456");
+        employeeDto.setAccount(accountDTO);
+
+        PositionDTO positionDTO = new PositionDTO();
+        positionDTO.setPositionId("1");
+        employeeDto.setPosition(positionDTO);
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/employee")
+                        .content(this.objectMapper.writeValueAsString(employeeDto))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+    @Test
+    public void createEmployee_position_14() throws Exception  {
+        EmployeeDTO employeeDto = new EmployeeDTO();
+        employeeDto.setName("Hậu");
+        employeeDto.setDateOfBirth("2001-10-31");
+        employeeDto.setGender("true");
+        employeeDto.setEmail("hau@gmail.com");
+        employeeDto.setIdCard("206888999");
+        employeeDto.setAddress("Quảng Nam");
+        employeeDto.setPhone("099988778");
+        employeeDto.setSalary("1000.0");
+
+        AccountDTO accountDTO = new AccountDTO();
+        accountDTO.setUsername("leconghau4");
+        accountDTO.setPassword("123456");
+        employeeDto.setAccount(accountDTO);
+
+        PositionDTO positionDTO = new PositionDTO();
+        positionDTO.setPositionId("null");
+        employeeDto.setPosition(positionDTO);
+
+        this.mockMvc
+                .perform(MockMvcRequestBuilders
+                        .post("/api/home/employee")
+                        .content(this.objectMapper.writeValueAsString(employeeDto))
+                        .contentType(MediaType.APPLICATION_JSON_VALUE))
+                .andDo(print())
+                .andExpect(status().is4xxClientError());
+    }
+    @Test
+    public void createEmployee_account_14() throws Exception  {
+        EmployeeDTO employeeDto = new EmployeeDTO();
+        employeeDto.setName("Hậu");
+        employeeDto.setDateOfBirth("2001-10-31");
+        employeeDto.setGender("true");
+        employeeDto.setEmail("hau@gmail.com");
+        employeeDto.setIdCard("206888999");
+        employeeDto.setAddress("Quảng Nam");
+        employeeDto.setPhone("099988778");
+        employeeDto.setSalary("1000.0");
+
+        AccountDTO accountDTO = new AccountDTO();
+        accountDTO.setUsername("null");
         accountDTO.setPassword("123456");
         employeeDto.setAccount(accountDTO);
 

@@ -42,7 +42,7 @@ public class EmployeeController {
     private RoleService roleService;
 
     @Autowired
-    private EmployeeCreateValidation employeeValidation;
+    private EmployeeCreateValidation employeeCreateValidation;
 
     @Autowired
     private EmployeeEditValidation employeeEditValidation;
@@ -75,7 +75,7 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employee", method = RequestMethod.POST)
     public ResponseEntity<?> createEmployee(@Validated @RequestBody EmployeeDTO employeeDto, BindingResult bindingResult) {
-        employeeValidation.validate(employeeDto, bindingResult);
+        employeeCreateValidation.validate(employeeDto, bindingResult);
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.NOT_ACCEPTABLE);
         }

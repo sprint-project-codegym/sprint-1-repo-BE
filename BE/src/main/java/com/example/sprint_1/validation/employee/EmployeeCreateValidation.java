@@ -25,37 +25,58 @@ public class EmployeeCreateValidation implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"address","employee.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"phone","employee.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"salary","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"position","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"position.positionId","employee.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"account.username","employee.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"account.password","employee.empty");
 
+        if (employeeDTO.getName().equals("null")) {
+            errors.rejectValue("name", "name.null");
+        }
+
+        if(employeeDTO.getIdCard().equals("null")){
+            errors.rejectValue("idCard", "idCard.null");
+        }
+
+        if(employeeDTO.getEmail().equals("null")){
+            errors.rejectValue("email", "email.null");
+        }
+
+        if(employeeDTO.getAddress().equals("null")){
+            errors.rejectValue("address", "address.null");
+        }
+
+        if(employeeDTO.getSalary().equals("null")){
+            errors.rejectValue("salary", "address.null");
+        }
+
         if (!employeeDTO.getName().matches("^[\\D]+$")) {
             errors.rejectValue("name", "name.invalid");
-        }
-        if (employeeDTO.getName()==null) {
-            errors.rejectValue("name", "name.null");
         }
 
         if (!employeeDTO.getPhone().startsWith("0")) {
             errors.rejectValue("phone", "phone.invalid");
         }
-        if (employeeDTO.getPhone()==null) {
+        if (employeeDTO.getPhone().equals("null")) {
             errors.rejectValue("phone", "phone.null");
         }
 
         if(!employeeDTO.getEmail().matches("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")){
             errors.rejectValue("email", "email.invalid");
         }
-        if(employeeDTO.getEmail()==null){
+        if(employeeDTO.getEmail().equals("null")){
             errors.rejectValue("email", "email.null");
+        }
+
+        if(employeeDTO.getPosition().getPositionId().equals("null")){
+            errors.rejectValue("position.positionId", "position.null");
+        }
+
+        if(employeeDTO.getAccount().getUsername().equals("null")){
+            errors.rejectValue("account.username", "username.null");
         }
 
         if(!employeeDTO.getIdCard().matches("^[\\d]{9}|[\\d]{12}$")){
             errors.rejectValue("idCard", "idCard.invalid");
-        }
-
-        if(employeeDTO.getIdCard()==null){
-            errors.rejectValue("idCard", "idCard.null");
         }
 
         if(!DateValidator.greaterThan18Year(employeeDTO.getDateOfBirth())){

@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -12,12 +15,12 @@ import lombok.Setter;
 public class EmployeeDTO {
     String name;
     String dateOfBirth;
-    Boolean gender;
+    String gender;
     String email;
     String idCard;
     String address;
     String phone;
-    Double salary;
+    String salary;
     PositionDTO position;
     AccountDTO account;
 }
