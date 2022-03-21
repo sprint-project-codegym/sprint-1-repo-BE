@@ -1,6 +1,8 @@
 package com.example.sprint_1.service.ground;
 
 import com.example.sprint_1.entity.ground.Ground;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,15 +10,11 @@ import java.util.List;
 @Service
 public interface GroundService {
 
-    List<Ground> findALl();
+    Page<Ground> findALl(Pageable pageable);
 
     void deleteGround(String id);
 
     Ground findById(String id);
 
-    List<Ground> findByIdAndGroundType(String id, String groundType);
-
-    List<Ground> findByIdContaining(String id);
-
-    List<Ground> findByGroundType(String groundType);
+    Page<Ground> findByIdAndGroundType(Pageable pageable, String id, String groundType);
 }
