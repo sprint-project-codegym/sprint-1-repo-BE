@@ -1,28 +1,29 @@
 package com.example.sprint_1.controller;
 
+
 import com.example.sprint_1.dto.contract.ContractDTO;
 import com.example.sprint_1.entity.contract.Contract;
-import com.example.sprint_1.service.impl.contract.ContractServiceImpl;
+import com.example.sprint_1.service.contract.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
+
 
 @RestController
 public class ContractController {
+    // Nguyen Dinh Hung Anh //
     @Autowired
-    ContractServiceImpl contractService;
+    ContractService contractService;
 
-    @GetMapping("/api/contract/list")
-    public ResponseEntity<List<Contract>> getListContract() {
-        List<Contract> contractList = contractService.findAll();
-        return new ResponseEntity<>(contractList, HttpStatus.OK);
-    }
 
     // DongVTH edit
     @PatchMapping(value = "/api/contract/edit", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -34,4 +35,28 @@ public class ContractController {
         contractService.updateContractDTO(contractDTO);
         return new ResponseEntity<>(contractDTO, HttpStatus.OK);
     }
+
+    @GetMapping("/api/list") // Get list contract and search//
+    public ResponseEntity<Page<Contract>> getListWithPagination(@RequestParam(defaultValue = "") String id,
+                                                                @RequestParam(defaultValue = "") String customerName,
+                                                                @RequestParam(defaultValue = "0") int page) {
+        Pageable pageable = PageRequest.of(page, 5);
+        Page<Contract> contracts;
+        contracts = contractService.findAllContractWithPagination(id, customerName, pageable);
+        if (contracts.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(contracts, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/api/list/delete/{id}") //delete contract//
+    public ResponseEntity<String> deleteContractById(@PathVariable("id") String id, Model model) {
+        Contract contract = contractService.findById(id);
+        if (contract == null) {
+            return new ResponseEntity<>("Không tìm thấy hợp đồng", HttpStatus.NOT_FOUND);
+        }
+        contractService.deleteContractById(id);
+        return new ResponseEntity<>("OK", HttpStatus.OK);
+    }
+
 }

@@ -1,8 +1,8 @@
 package com.example.sprint_1.entity.ground;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.*;
 
+import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;

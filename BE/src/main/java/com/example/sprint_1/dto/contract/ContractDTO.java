@@ -3,6 +3,7 @@ package com.example.sprint_1.dto.contract;
 import com.example.sprint_1.dto.customer.CustomerDTO;
 import com.example.sprint_1.dto.employee.EmployeeDTO;
 import com.example.sprint_1.dto.ground.GroundDTO;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,8 +17,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
-@Getter
+@AllArgsConstructor
 @Setter
+@Getter
 public class ContractDTO {
     @Id
     @NotEmpty
