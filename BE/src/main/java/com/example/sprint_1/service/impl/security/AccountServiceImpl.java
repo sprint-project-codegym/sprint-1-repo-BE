@@ -86,9 +86,13 @@ public class AccountServiceImpl implements AccountService {
         return accountRepository.getAllAccount();
     }
 
+
+    /*
+    HauLC
+     */
     @Override
-    public void addNew(String username, String password) {
-        accountRepository.addNewAccount(username, password);
+    public void addNew(String username, String email, String password) {
+        accountRepository.addNewAccount(username, email, password);
     }
 
     @Override
@@ -99,6 +103,11 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Boolean existsByEmail(String email) {
         return accountRepository.existsByEmail(email);
+    }
+
+    @Override
+    public void updateAccount(String password, String email, String username) {
+        accountRepository.updateAccount(password,email,username);
     }
 
 //    public void sendVerificationEmail(String userName, String randomCode, String email) throws MessagingException, UnsupportedEncodingException {

@@ -10,16 +10,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeeDTO {
-    String id;
     String name;
     String dateOfBirth;
-    String gender;
+    Boolean gender;
     String email;
     String idCard;
     String address;
     String phone;
     Double salary;
-    String position;
-    String username;
-    String password;
+    PositionDTO position;
+    AccountDTO account;
 }

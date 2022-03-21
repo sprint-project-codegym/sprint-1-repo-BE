@@ -29,10 +29,18 @@ public interface AccountService {
 
     List<Account> getAllAccount();
 
-    void addNew(String username, String password);
+    /*
+    HauLC
+     */
+    void addNew(String username, String email, String password);
 
     void saveNewPassword(String password, String code);
 
     Boolean existsByEmail(String email);
+
+    /*
+        HauLC
+     */
+    void updateAccount(String password, String email,String username);
 
 }

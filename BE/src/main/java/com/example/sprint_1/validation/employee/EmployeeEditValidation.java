@@ -26,7 +26,7 @@ public class EmployeeEditValidation implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phone", "employee.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "salary", "employee.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "position", "employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "employee.empty");
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "employee.empty");
 
         if (!employeeDTO.getName().matches("^[\\D]+$")) {
             errors.rejectValue("phone", "phone.startWith");
