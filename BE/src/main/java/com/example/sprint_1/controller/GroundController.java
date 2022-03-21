@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class GroundController {
     @Autowired
     GroundService groundService;
-
+    // HungLM get list and search ground
     @GetMapping("/list")
     public ResponseEntity<Page<Ground>> getGround(@RequestParam(value = "id", defaultValue = "") String id,
                                                      @RequestParam(value = "groundType", defaultValue = "") String groundType,
@@ -27,7 +27,7 @@ public class GroundController {
         }
         return new ResponseEntity<>(grounds, HttpStatus.OK);
     }
-
+    //HungLM delete ground
     @PatchMapping("/delete/{id}")
     public ResponseEntity<String> deleteGround(@PathVariable("id") String id) {
         Ground ground = groundService.findById(id);
