@@ -27,12 +27,14 @@ import javax.validation.Valid;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.stream.Collectors;
+
 /**
  * Tran Minh Khoa
  */
 @RestController
 @RequestMapping("/api/home")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class SecurityController {
     @Autowired
     private JwtUtility jwtUtility;
@@ -58,7 +60,6 @@ public class SecurityController {
                 .collect(Collectors.toList());
 
         Account account = accountService.findAccountByUserName(loginRequest.getUsername());
-
         return ResponseEntity.ok(
                 new JwtResponse(
                         jwt,
