@@ -5,8 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d94fb152-8fb1-48bc-927c-6809e3255dfc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logging-test.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/sprint_1/controller/SecurityController_authenticateUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/sprint_1/entity/security/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/sprint_1/entity/security/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/sprint_1/entity/security/AccountRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/sprint_1/entity/security/AccountRole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/sprint_1/entity/security/Role.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/sprint_1/entity/security/Role.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/example/sprint_1/repository/security/AccountRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/example/sprint_1/repository/security/AccountRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/config/MailConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/config/MailConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/config/MyConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/config/MyConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/controller/FloorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/controller/FloorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/controller/SecurityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/controller/SecurityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/reponse/JwtResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/reponse/JwtResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/reponse/MessageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/reponse/MessageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/request/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/request/ResetPassRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/request/ResetPassRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/request/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/request/SignUpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/request/VerifyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/security/payload/request/VerifyRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/security/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/security/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/security/AccountRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/security/AccountRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/security/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/entity/security/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/repository/security/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/repository/security/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/AccountDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/AccountDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/AccountDetailsImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/AccountDetailsImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/AccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/AccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/jwt/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/jwt/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/jwt/JwtUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/jwt/JwtUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/security/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/security/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +312,7 @@
       <workItem from="1647754092371" duration="1223000" />
       <workItem from="1647756092633" duration="121000" />
       <workItem from="1648035362281" duration="598000" />
-      <workItem from="1648042038177" duration="148000" />
+      <workItem from="1648042038177" duration="959000" />
     </task>
     <servers />
   </component>
