@@ -84,6 +84,7 @@ public class SecurityController {
 
         if (accountService.existsByUserName(loginRequest.getUsername()) != null) {
             accountService.addVerificationCode(loginRequest.getUsername());
+
             return ResponseEntity.ok(new MessageResponse("Sent email "));
         }
         return ResponseEntity
