@@ -5,11 +5,11 @@ import com.example.sprint_1.entity.security.Account;
 import javax.mail.MessagingException;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
-
+/**
+ * Tran Minh Khoa code
+ */
 public interface AccountService {
-    /**
-     * Tran Minh Khoa
-     */
+
     Account findAccountByUserName(String username);
 
     Integer findIdUserByUserName(String username);
