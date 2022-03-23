@@ -30,8 +30,7 @@ public class FloorController {
         }
         return new ResponseEntity<>(floors, HttpStatus.OK);
     }
-
-
+    
     // PhuocDD xoa tang
     @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<String> deleteFloorById (@PathVariable("id") String id){
