@@ -22,7 +22,7 @@ public class EmployeeController {
 
     @GetMapping("")
     public ResponseEntity<Page<Employee>> getList(@RequestParam(defaultValue = "0") Integer page,
-                                                  @RequestParam(defaultValue = "10") Integer size,
+                                                  @RequestParam(defaultValue = "2") Integer size,
                                                   @RequestParam(defaultValue = "") String name,
                                                   @RequestParam(defaultValue = "") String id){
         Pageable paging= PageRequest.of(page,size);
@@ -34,7 +34,7 @@ public class EmployeeController {
     }
     @GetMapping("/listPaging")
     public ResponseEntity<Page<Employee>> getListPaging(@RequestParam(defaultValue = "0") Integer page,
-                                                  @RequestParam(defaultValue = "10") Integer size){
+                                                  @RequestParam(defaultValue = "2") Integer size){
         Pageable paging= PageRequest.of(page,size);
         Page<Employee> employees = employeeService.getAllEmployee(paging);
         if(employees.isEmpty()){
@@ -42,7 +42,7 @@ public class EmployeeController {
         }
         return new ResponseEntity<Page<Employee>>(employees, HttpStatus.OK);
     }
-    @PatchMapping("delete/{id}")
+    @GetMapping("delete/{id}")
     public ResponseEntity<Void> deleteEmployee(@PathVariable String id){
         Employee employee=employeeService.getEmployeeById(id);
         if (employee==null){
