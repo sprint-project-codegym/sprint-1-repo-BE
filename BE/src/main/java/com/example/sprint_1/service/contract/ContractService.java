@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public interface ContractService {
 
-    public void updateContractDTO(ContractDTO contractDTO);
+    public void updateContractDTO(String id, ContractDTO contractDTO);
 
     Page<Contract> findAllContractWithPagination(String id, String customerName, Pageable pageable);
 
@@ -17,6 +17,7 @@ public interface ContractService {
 
     Contract findById(String id); //Find contract by id
 
+    Contract findContractById(String id);
 }
 
 

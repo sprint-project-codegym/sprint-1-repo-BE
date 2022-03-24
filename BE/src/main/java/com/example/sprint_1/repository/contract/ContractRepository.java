@@ -22,7 +22,7 @@ public interface ContractRepository extends JpaRepository<Contract, String> {
             "c.total_cost = :total_cost, c.customer_id = :customer_id, c.employee_id = :employee_id, c.ground_id =:ground_id " +
             "where c.contract_id = :contract_id", nativeQuery = true)
     void updateContractDTO(@Param("contract_id") String contract_id, @Param("contract_content") String contract_content,
-                           @Param("contract_date") String contract_date, @Param("delete_flag") Boolean delete_flag,
+                           @Param("contract_date") String contract_date,
                            @Param("end_date") String end_date, @Param("rent_cost") Double rent_cost,
                            @Param("start_date") String start_date, @Param("total_cost") Double total_cost,
                            @Param("customer_id") String customer_id, @Param("employee_id") String employee_id,
@@ -44,6 +44,8 @@ public interface ContractRepository extends JpaRepository<Contract, String> {
     @Query(value = "update contract set contract.delete_flag = 0 where contract.contract_id = :id ", nativeQuery = true)
     void deleteContract(@Param("id") String id);
 
+    @Query(value = "SELECT * FROM sprint_1.contract where contract_id = :contractId", nativeQuery = true)
+    Contract getContractByContractId(@Param("contractId") String contractId);
 }
 
 

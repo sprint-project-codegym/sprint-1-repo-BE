@@ -19,6 +19,7 @@ import javax.validation.Valid;
 
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ContractController {
     // Nguyen Dinh Hung Anh //
     @Autowired
@@ -26,17 +27,17 @@ public class ContractController {
 
 
     // DongVTH edit
-    @PatchMapping(value = "/api/contract/edit", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult) {
+    @PatchMapping(value = "/contract/edit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult, @PathVariable("id") String id) {
         if (bindingResult.hasErrors()) {
             String message = "Lỗi định dạng";
             return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
         }
-        contractService.updateContractDTO(contractDTO);
+        contractService.updateContractDTO(id, contractDTO);
         return new ResponseEntity<>(contractDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/api/list") // Get list contract and search//
+    @GetMapping("/contract/list") // Get list contract and search//
     public ResponseEntity<Page<Contract>> getListWithPagination(@RequestParam(defaultValue = "") String id,
                                                                 @RequestParam(defaultValue = "") String customerName,
                                                                 @RequestParam(defaultValue = "0") int page) {
@@ -49,7 +50,7 @@ public class ContractController {
         return new ResponseEntity<>(contracts, HttpStatus.OK);
     }
 
-    @DeleteMapping("/api/list/delete/{id}") //delete contract//
+    @DeleteMapping("/list/delete/{id}") //delete contract//
     public ResponseEntity<String> deleteContractById(@PathVariable("id") String id, Model model) {
         Contract contract = contractService.findById(id);
         if (contract == null) {
@@ -58,5 +59,12 @@ public class ContractController {
         contractService.deleteContractById(id);
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
+
+    @GetMapping("/contract/{id}")
+    public ResponseEntity<Contract> getContractByContractId(@PathVariable("id") String id) {
+        Contract contract = contractService.findContractById(id);
+        return new ResponseEntity<>(contract, HttpStatus.OK);
+    }
+
 
 }

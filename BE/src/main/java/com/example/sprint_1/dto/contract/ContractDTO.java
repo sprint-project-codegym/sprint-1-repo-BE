@@ -44,7 +44,6 @@ public class ContractDTO {
     @NotEmpty
     @Length(min = 5, max = 20)
     private String contractContent;
-    private Boolean deleteFlag;
 
     private CustomerDTO customer;
 
