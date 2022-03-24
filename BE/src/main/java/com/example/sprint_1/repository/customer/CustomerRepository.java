@@ -27,7 +27,7 @@ public interface CustomerRepository extends JpaRepository<Customer, String> {
 
     @Modifying
     @Transactional
-    @Query(value = "update customer set customer.delete_flag = 0 where customer.customer_id = :id",nativeQuery = true)
+    @Query(value = "update customer set customer.delete_flag = true where customer.customer_id = :id",nativeQuery = true)
     void deleteCustomer (@Param("id") String id);
 }
 
