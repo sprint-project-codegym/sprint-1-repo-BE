@@ -32,16 +32,6 @@ public class EmployeeController {
         }
         return new ResponseEntity<Page<Employee>>(employees, HttpStatus.OK);
     }
-    @GetMapping("/listPaging")
-    public ResponseEntity<Page<Employee>> getListPaging(@RequestParam(defaultValue = "0") Integer page,
-                                                  @RequestParam(defaultValue = "2") Integer size){
-        Pageable paging= PageRequest.of(page,size);
-        Page<Employee> employees = employeeService.getAllEmployee(paging);
-        if(employees.isEmpty()){
-            return new ResponseEntity<Page<Employee>>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<Page<Employee>>(employees, HttpStatus.OK);
-    }
     @GetMapping("delete/{id}")
     public ResponseEntity<Void> deleteEmployee(@PathVariable String id){
         Employee employee=employeeService.getEmployeeById(id);
