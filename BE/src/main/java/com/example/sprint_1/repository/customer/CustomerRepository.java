@@ -8,9 +8,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import javax.persistence.Column;
 import javax.transaction.Transactional;
-import java.util.List;
 
 public interface CustomerRepository extends JpaRepository<Customer, String> {
     @Query(value= "select customer_id, customer_name, customer_birthday, customer_id_card, customer_email, customer_address, " +

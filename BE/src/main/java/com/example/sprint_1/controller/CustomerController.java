@@ -6,13 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 //@RequestMapping("api/home")
@@ -29,7 +26,7 @@ public class CustomerController {
     //NgaLT hien thi list khach hang, tim kiem khach hang
     @GetMapping("/customer/list")
     public ResponseEntity<Page<Customer>> getListCustomerWithPagination(@RequestParam(defaultValue = "0") int page,
-                                                                        @RequestParam(defaultValue = "2") int size,
+                                                                        @RequestParam(defaultValue = "5") int size,
                                                                         @RequestParam(defaultValue = "") String id,
                                                                         @RequestParam(defaultValue = "") String name) {
         Pageable pageable = PageRequest.of(page, size);
