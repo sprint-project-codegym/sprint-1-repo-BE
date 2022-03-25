@@ -23,7 +23,7 @@ public class AccountDetailsImpl implements UserDetails {
 
     @JsonIgnore
     private String password;
-    List<GrantedAuthority> authorities = null;
+    private List<GrantedAuthority> authorities = null;
 
     public AccountDetailsImpl(Integer id, String username, String password,
                               List<GrantedAuthority> authorities, Boolean enabled) {

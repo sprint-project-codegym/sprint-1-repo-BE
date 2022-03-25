@@ -24,8 +24,8 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     @Query(value = "SELECT user_name from  sprint_1.account where user_name = ?1", nativeQuery = true)
     String existsByUserName(String username);
 
-//    @Query(value = "SELECT email FROM account where email= ?1", nativeQuery = true)
-//    String existsByEmail(String email);
+    @Query(value = "SELECT email FROM account where email= ?1", nativeQuery = true)
+    String existsByEmailStr(String email);
 
     Boolean existsByEmail(String email);
 

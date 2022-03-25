@@ -59,7 +59,6 @@ public class SecurityController {
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
 
-        Account account = accountService.findAccountByUserName(loginRequest.getUsername());
         return ResponseEntity.ok(
                 new JwtResponse(
                         jwt,
