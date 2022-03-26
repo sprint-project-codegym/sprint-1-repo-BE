@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.Id;
 @Data
 public class AccountDTO {
-    @Id
+
     private Integer accountId;
     private String userName;
     private String email;

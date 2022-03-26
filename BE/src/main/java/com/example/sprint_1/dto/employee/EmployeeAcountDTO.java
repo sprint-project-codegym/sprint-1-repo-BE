@@ -17,7 +17,7 @@ import javax.validation.constraints.Pattern;
 @Getter
 @NoArgsConstructor
 public class EmployeeAcountDTO {
-    @Id
+    @NotEmpty
     private String employeeId;
     @NotEmpty
     private String employeeName;
@@ -29,7 +29,7 @@ public class EmployeeAcountDTO {
     @Email
     private String employeeGmail;
     @NotEmpty
-    @Length(min = 10, max = 50)
+    @Length(min = 1, max = 50)
     private String employeeAddress;
     @NotEmpty
     @Pattern(regexp = "^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$")

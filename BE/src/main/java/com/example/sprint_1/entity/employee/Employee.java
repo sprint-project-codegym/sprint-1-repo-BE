@@ -26,6 +26,7 @@ public class Employee {
     private String employeeAddress;
     private String employeePhone;
     private Double employeeSalary;
+    private String urlImage;
     private Boolean deleteFlag;
 
     @OneToOne(cascade = CascadeType.ALL)
