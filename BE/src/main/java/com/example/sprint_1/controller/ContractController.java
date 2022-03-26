@@ -19,7 +19,7 @@ import javax.validation.Valid;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class ContractController {
     // Nguyen Dinh Hung Anh //
     @Autowired
@@ -27,14 +27,14 @@ public class ContractController {
 
 
     // DongVTH edit
-    @PatchMapping(value = "/contract/edit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult, @PathVariable("id") String id) {
+    @PutMapping(value = "/contract/edit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult, @PathVariable("id") String id) {
         if (bindingResult.hasErrors()) {
             String message = "Lỗi định dạng";
-            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(message, HttpStatus.NOT_FOUND);
         }
         contractService.updateContractDTO(id, contractDTO);
-        return new ResponseEntity<>(contractDTO, HttpStatus.OK);
+        return new ResponseEntity(contractDTO, HttpStatus.OK);
     }
 
     @GetMapping("/contract/list") // Get list contract and search//

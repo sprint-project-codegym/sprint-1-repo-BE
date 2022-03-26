@@ -16,11 +16,10 @@ public class ContractServiceImpl implements ContractService {
     ContractRepository contractRepository;
 
     @Override
-    public void updateContractDTO(String id,ContractDTO contractDTO) {
+    public void updateContractDTO(String id, ContractDTO contractDTO) {
         contractRepository.updateContractDTO(id, contractDTO.getContractContent(),
-                contractDTO.getContractDate(),
-                contractDTO.getEndDate(), contractDTO.getRentCost(),
-                contractDTO.getStartDate(), contractDTO.getTotalCost(),
+                contractDTO.getContractDate(), contractDTO.getEndDate(), contractDTO.getRentCost(),
+                contractDTO.getStartDate(), contractDTO.getDeleteFlag(), contractDTO.getTotalCost(),
                 contractDTO.getCustomer().getCustomerId(), contractDTO.getEmployee().getEmployeeId(),
                 contractDTO.getGround().getGroundId());
     }
@@ -45,7 +44,6 @@ public class ContractServiceImpl implements ContractService {
     public Page<Contract> findAllContractWithPagination(String id, String customerName, Pageable pageable) {
         return contractRepository.findAllContractWithPagination(id, customerName, pageable);
     }
-
 
 
 }

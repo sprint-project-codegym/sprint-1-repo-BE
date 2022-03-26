@@ -34,7 +34,7 @@ public class ContractDTO {
     @NotEmpty
     private String contractDate;
     @NotNull
-    @DecimalMax("1000000000.0")
+    @DecimalMax("100000000.0")
     @DecimalMin("10.0")
     private Double rentCost;
     @NotNull
@@ -42,8 +42,9 @@ public class ContractDTO {
     @DecimalMin("10.0")
     private Double totalCost;
     @NotEmpty
-    @Length(min = 5, max = 20)
+    @Length(min = 10, max = 200)
     private String contractContent;
+    private Boolean deleteFlag;
 
     private CustomerDTO customer;
 

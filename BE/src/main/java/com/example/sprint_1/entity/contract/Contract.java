@@ -36,7 +36,7 @@ public class Contract {
     @DecimalMin("10.0")
     private Double totalCost;
     @NotEmpty
-    @Length(min = 5, max = 20)
+    @Length(min = 10, max = 200)
     private String contractContent;
     private Boolean deleteFlag;
 
