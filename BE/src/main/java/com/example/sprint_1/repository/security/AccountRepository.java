@@ -36,6 +36,9 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     @Query(value = "select * from account where verification_code =?1", nativeQuery = true)
     Account findAccountByVerificationCode(String verifyCode);
 
+    @Query(value = "select * from account where account_id =?1", nativeQuery = true)
+    Account findAccountByAccountId(Integer id);
+
     @Modifying
     @Query(value = "update account set verification_code=?1 where user_name =?2", nativeQuery = true)
     void addVerificationCode(String code, String username);

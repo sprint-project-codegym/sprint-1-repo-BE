@@ -18,13 +18,13 @@ public interface AccountService {
 
     Boolean existsById(Integer bookId);
 
-    void addNew(String username, String password, String email, String token) throws MessagingException, UnsupportedEncodingException;
+//    void addNew(String username, String password, String email, String token) throws MessagingException, UnsupportedEncodingException;
 
     Boolean findAccountByVerificationCode(String code);
 
     Boolean findAccountByVerificationCodeToResetPassword(String code);
 
-    void addVerificationCode(String username) throws MessagingException, UnsupportedEncodingException;
+//    void addVerificationCode(String username) throws MessagingException, UnsupportedEncodingException;
 
     List<Account> getAllAccount();
 
@@ -33,5 +33,7 @@ public interface AccountService {
     void saveNewPassword(String password, String code);
 
     Boolean existsByEmail(String email);
+
+    Account findByAccountId(Integer id);
 
 }

@@ -60,9 +60,8 @@ public interface PersonalInfoRepository extends JpaRepository<Employee, String> 
             "where a.account_id = ?1", nativeQuery = true)
     void saveAccount(Integer id, String password);
 
-    @Query(value = "SELECT * " +
-            "FROM account" +
-            "WHERE account.account_id = ?1", nativeQuery = true)
+    @Query(value = "SELECT a.* " +
+            "FROM account as a WHERE a.account_id = ?1", nativeQuery = true)
     Optional<Account> findById(Integer id);
 
     @Modifying

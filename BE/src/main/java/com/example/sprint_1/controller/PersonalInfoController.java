@@ -6,6 +6,7 @@ import com.example.sprint_1.dto.security.payload.reponse.MessageResponse;
 import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.security.Account;
 import com.example.sprint_1.service.employee.PersonalInfoService;
+import com.example.sprint_1.service.security.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,6 +26,9 @@ public class PersonalInfoController {
 
     @Autowired
     private PersonalInfoService personalInfoService;
+
+    @Autowired
+    private AccountService accountService;
 
 //    @Autowired
 //    private PasswordEncoder encoder;
@@ -55,24 +59,27 @@ public class PersonalInfoController {
     }
 
     //NhungHTC - Đổi mật khẩu
-//    @PutMapping("/api/personal-info/change-password/{id}")
-//    @ResponseBody
-////    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-//    public ResponseEntity<MessageResponse> changeUserPassword(@PathVariable("id") Integer id, @RequestBody PasswordDTO passwordDTO) {
-//        String oldPassword = passwordDTO.getOldPassword();
-//        String newPassword = passwordDTO.getNewPassword();
-//        Account account = personalInfoService.findById(id);
-//        if (!userPasswordCheck(oldPassword, account)) {
+    @PutMapping("/api/personal-info/change-password/{id}")
+    @ResponseBody
+//    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+    public ResponseEntity<MessageResponse> changeUserPassword(@PathVariable("id") Integer id, @RequestBody PasswordDTO passwordDTO) {
+        String oldPassword = passwordDTO.getOldPassword();
+        String newPassword = passwordDTO.getNewPassword();
+        Account account = accountService.findByAccountId(id);
+        if (!userPasswordCheck(oldPassword, account)) {
 //            return ResponseEntity.badRequest().body(new MessageResponse("Mật khẩu cũ không đúng. Vui lòng nhập lại."));
-//        } else {
-//            personalInfoService.updateAccountPassword(encoder.encode(newPassword), id);
-//            return ResponseEntity.ok(new MessageResponse("Đổi mật khẩu thành công"));
-//        }
-//    }
-//
-//    public boolean userPasswordCheck(String password, Account account) {
+            return new ResponseEntity<>(new MessageResponse("1"), HttpStatus.OK);
+        } else {
+            personalInfoService.updateAccountPassword(newPassword, id);
+            return new ResponseEntity<>(new MessageResponse("2"), HttpStatus.OK);
+//            return ResponseEntity.ok().body(new MessageResponse("Đổi mật khẩu thành công"));
+        }
+    }
+
+    public boolean userPasswordCheck(String password, Account account) {
 //        PasswordEncoder passencoder = new BCryptPasswordEncoder();
 //        String encodedPassword = account.getEncryptPw();
 //        return passencoder.matches(password, encodedPassword);
-//    }
+          return password.equals(account.getEncryptPw());
+    }
 }
