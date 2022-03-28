@@ -1,6 +1,5 @@
 package com.example.sprint_1.service.security;
 
-<<<<<<< HEAD
 import com.example.sprint_1.entity.security.Role;
 
 import java.util.List;
@@ -15,8 +14,4 @@ public interface RoleService {
     void setDefaultRole(int accountId, Integer roleId);
 
     List<Role> getAllRoles();
-
-=======
-public interface RoleService {
->>>>>>> origin/contract
 }

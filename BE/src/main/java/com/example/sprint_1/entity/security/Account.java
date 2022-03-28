@@ -34,7 +34,6 @@ public class Account {
     @JsonBackReference
     private Set<AccountRole> accountRoleList;
 
-<<<<<<< HEAD
     public Account(String userName, String encryptPw) {
         this.userName = userName;
         this.encryptPw = encryptPw;
@@ -117,7 +116,5 @@ public class Account {
     public void setAccountRoleList(Set<AccountRole> accountRoleList) {
         this.accountRoleList = accountRoleList;
     }
-=======
->>>>>>> origin/contract
 }
 

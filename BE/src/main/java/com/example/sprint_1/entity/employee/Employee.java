@@ -3,26 +3,12 @@ package com.example.sprint_1.entity.employee;
 import com.example.sprint_1.entity.contract.Contract;
 import com.example.sprint_1.entity.security.Account;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-<<<<<<< HEAD
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
-=======
 import lombok.*;
-
-import javax.persistence.*;
-import java.util.List;
 @Data
->>>>>>> origin/contract
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
 @Entity(name = "employee")
 public class Employee {
     @Id
@@ -40,11 +26,7 @@ public class Employee {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "accountId")
-<<<<<<< HEAD
-    @JsonBackReference
-=======
     @JsonBackReference(value = "account_employee")
->>>>>>> origin/contract
     private Account account;
 
     @ManyToOne(targetEntity = Position.class)
@@ -52,10 +34,6 @@ public class Employee {
     private Position position;
 
     @OneToMany(mappedBy = "employee")
-<<<<<<< HEAD
-    @JsonBackReference
-=======
     @JsonBackReference(value = "employee_contract")
->>>>>>> origin/contract
     public List<Contract> contractList;
 }
