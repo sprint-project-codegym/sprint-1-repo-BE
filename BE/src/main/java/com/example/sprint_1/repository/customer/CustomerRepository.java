@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 public interface CustomerRepository extends JpaRepository<Customer, String> {
     @Query(value = "select customer_id, customer_name, customer_birthday, customer_id_card, customer_email, customer_address, " +
@@ -29,8 +28,5 @@ public interface CustomerRepository extends JpaRepository<Customer, String> {
     @Query(value = "update customer set customer.delete_flag = 0 where customer.customer_id = :id", nativeQuery = true)
     void deleteCustomer(@Param("id") String id);
 
-    //ĐôngVTH xin 1 method ạ
-    @Query(value = "SELECT * FROM sprint_1.customer", nativeQuery = true)
-    List<Customer> getAllCustomer();
 }
 

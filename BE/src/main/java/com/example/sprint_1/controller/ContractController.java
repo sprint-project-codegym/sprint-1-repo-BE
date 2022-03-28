@@ -19,7 +19,8 @@ import javax.validation.Valid;
 
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/manager/contract")
 public class ContractController {
     // Nguyen Dinh Hung Anh //
     @Autowired
@@ -27,7 +28,7 @@ public class ContractController {
 
 
     // DongVTH edit
-    @PutMapping(value = "/contract/edit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/edit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult, @PathVariable("id") String id) {
         if (bindingResult.hasErrors()) {
             String message = "Lỗi định dạng";
@@ -37,7 +38,7 @@ public class ContractController {
         return new ResponseEntity(contractDTO, HttpStatus.OK);
     }
 
-    @GetMapping("/contract/list") // Get list contract and search//
+    @GetMapping("/list") // Get list contract and search//
     public ResponseEntity<Page<Contract>> getListWithPagination(@RequestParam(defaultValue = "") String id,
                                                                 @RequestParam(defaultValue = "") String customerName,
                                                                 @RequestParam(defaultValue = "0") int page) {
@@ -60,7 +61,7 @@ public class ContractController {
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
 
-    @GetMapping("/contract/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<Contract> getContractByContractId(@PathVariable("id") String id) {
         Contract contract = contractService.findContractById(id);
         return new ResponseEntity<>(contract, HttpStatus.OK);

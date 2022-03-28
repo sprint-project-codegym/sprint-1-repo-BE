@@ -10,10 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @CrossOrigin(origins = "*")
+@RequestMapping("/api/manager/customer")
 public class CustomerController {
     /**
      * Le Thi Nga
@@ -23,9 +22,9 @@ public class CustomerController {
     private CustomerService customerService;
 
     //NgaLT hien thi list khach hang, tim kiem khach hang
-    @GetMapping("/customer/list")
+    @GetMapping("/list")
     public ResponseEntity<Page<Customer>> getListCustomerWithPagination(@RequestParam(defaultValue = "0") int page,
-                                                                        @RequestParam(defaultValue = "10") int size,
+                                                                        @RequestParam(defaultValue = "2") int size,
                                                                         @RequestParam(defaultValue = "") String id,
                                                                         @RequestParam(defaultValue = "") String name) {
         Pageable pageable = PageRequest.of(page, size);
@@ -38,7 +37,7 @@ public class CustomerController {
     }
 
     //NgaLT delete customer
-    @DeleteMapping(value = "/customer/delete/{id}")
+    @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<String> deleteCustomerById(@PathVariable("id") String id) {
         Customer customer = customerService.findCustomerByCustomerId(id);
         if (customer == null) {
@@ -47,12 +46,5 @@ public class CustomerController {
             customerService.deleteCustomer(id);
             return new ResponseEntity<>(HttpStatus.OK);
         }
-    }
-
-    //ĐôngVTH
-    @GetMapping(value = "/customer/detail")
-    public ResponseEntity<List<Customer>> findAllCustomer() {
-        List<Customer> customerList = customerService.getAllCustomer();
-        return new ResponseEntity(customerList, HttpStatus.OK);
     }
 }
