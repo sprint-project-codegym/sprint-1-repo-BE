@@ -15,11 +15,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Page<Customer> findAllCustomerWithPagination(String id, String name,Pageable pageable) {
-        return customerRepository.findAllCustomerWithPagination(id, name,pageable);
+        return customerRepository.findAllCustomerWithPagination(id, name, pageable);
     }
 
+
     @Override
-    public  Customer findCustomerByCustomerId(String id) {
+    public Customer findCustomerByCustomerId(String id) {
         return customerRepository.findCustomerByCustomerId(id);
     }
 
@@ -27,4 +28,6 @@ public class CustomerServiceImpl implements CustomerService {
     public void deleteCustomer(String id) {
         customerRepository.deleteCustomer(id);
     }
+
+
 }

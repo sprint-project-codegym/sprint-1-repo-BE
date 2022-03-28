@@ -30,8 +30,7 @@ public class CustomerController {
                                                                         @RequestParam(defaultValue = "") String id,
                                                                         @RequestParam(defaultValue = "") String name) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<Customer> customers;
-        customers = customerService.findAllCustomerWithPagination(id, name, pageable);
+        Page<Customer> customers = customerService.findAllCustomerWithPagination(id, name, pageable);
         if (customers.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -43,10 +42,11 @@ public class CustomerController {
     public ResponseEntity<String> deleteCustomerById(@PathVariable("id") String id) {
         Customer customer = customerService.findCustomerByCustomerId(id);
         if (customer == null) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             customerService.deleteCustomer(id);
             return new ResponseEntity<>(HttpStatus.OK);
         }
     }
+
 }
