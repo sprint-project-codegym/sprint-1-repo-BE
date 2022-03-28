@@ -3,14 +3,12 @@ package com.example.sprint_1.entity.contract;
 import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.ground.Ground;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import lombok.*;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -18,17 +16,28 @@ import javax.validation.constraints.NotNull;
 @Entity(name = "contract")
 public class Contract {
     @Id
+    @NotNull
+    @NotEmpty
     private String contractId;
     @Column(columnDefinition = "Date")
+    @NotEmpty
     private String startDate;
     @Column(columnDefinition = "Date")
+    @NotEmpty
     private String endDate;
     @Column(columnDefinition = "Date")
+    @NotEmpty
     private String contractDate;
-    private Double rentCost;
-    private Double totalCost;
-
     @NotNull
+    @DecimalMax("1000000000.0")
+    @DecimalMin("10.0")
+    private Double rentCost;
+    @NotNull
+    @DecimalMax("1000000000.0")
+    @DecimalMin("10.0")
+    private Double totalCost;
+    @NotEmpty
+    @Length(min = 5, max = 20)
     private String contractContent;
     private Boolean deleteFlag;
 

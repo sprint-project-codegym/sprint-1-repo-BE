@@ -26,22 +26,8 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-
-    // https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin
     implementation 'org.sonarsource.scanner.maven:sonar-maven-plugin:3.8.0.2131'
 
-
-
-    /**
-     * Tran Minh Khoa
-     */
-//    implementation 'org.springframework.boot:spring-boot-starter-mail'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
-//    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-//    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
-//    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
-//    // https://mvnrepository.com/artifact/org.springframework/spring-context-support
-//    implementation group: 'org.springframework', name: 'spring-context-support', version: '5.2.12.RELEASE'
 
 }
 

@@ -1,12 +1,19 @@
 package com.example.sprint_1.entity.security;
 
+<<<<<<< HEAD
+=======
+import com.example.sprint_1.entity.ground.Ground;
+>>>>>>> origin/contract
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/contract
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -24,6 +31,7 @@ public class AccountRole {
     @JoinColumn(name = "role_id")
     private Role role;
 
+<<<<<<< HEAD
     public Integer getAccountRoleId() {
         return accountRoleId;
     }
@@ -47,4 +55,6 @@ public class AccountRole {
     public void setRole(Role role) {
         this.role = role;
     }
+=======
+>>>>>>> origin/contract
 }

@@ -66,4 +66,14 @@ public class ContractServiceImpl implements ContractService {
         contractRepository.saveContract(contract);
     }
 
+    @Override
+    public void updateContractDTO(ContractDTO contractDTO) {
+        contractRepository.updateContractDTO(contractDTO.getContractId(), contractDTO.getContractContent(),
+                contractDTO.getContractDate(), contractDTO.getDeleteFlag(),
+                contractDTO.getEndDate(), contractDTO.getRentCost(),
+                contractDTO.getStartDate(), contractDTO.getTotalCost(),
+                contractDTO.getCustomerId(), contractDTO.getEmployeeId(),
+                contractDTO.getGroundId());
+    }
+
 }

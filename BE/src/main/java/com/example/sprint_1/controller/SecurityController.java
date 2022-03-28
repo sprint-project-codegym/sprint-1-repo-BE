@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //package com.example.sprint_1.controller;
 //
 //import com.example.sprint_1.dto.security.payload.reponse.JwtResponse;
@@ -132,3 +133,9 @@
 //    }
 //
 //}
+=======
+package com.example.sprint_1.controller;
+
+public class SecurityController {
+}
+>>>>>>> origin/contract

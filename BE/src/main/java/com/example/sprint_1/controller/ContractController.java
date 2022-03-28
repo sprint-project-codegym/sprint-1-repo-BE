@@ -7,11 +7,13 @@ import com.example.sprint_1.entity.ground.Ground;
 import com.example.sprint_1.service.contract.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -20,12 +22,6 @@ public class ContractController {
 
     @Autowired
     ContractService contractService;
-//
-//    @GetMapping("/list")
-//    public ResponseEntity<List<Contract>> getListContract() {
-//        return new ResponseEntity<>(contractService.findAll(), HttpStatus.OK);
-//    }
-
 //    KienHQ create contract
 
     @GetMapping("/list-ground")
@@ -43,7 +39,23 @@ public class ContractController {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
-         contractService.saveContract(dto);
-        return new ResponseEntity<>(dto ,HttpStatus.CREATED);
+        contractService.saveContract(dto);
+        return new ResponseEntity<>(dto, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/api/contract/list")
+    public ResponseEntity<List<Contract>> getListContract() {
+        List<Contract> contractList = contractService.findAll();
+        return new ResponseEntity<>(contractList, HttpStatus.OK);
+    }
+
+    @PatchMapping(value = "/api/contract/edit", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            String message = "Lỗi định dạng";
+            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
+        }
+        contractService.updateContractDTO(contractDTO);
+        return new ResponseEntity<>(contractDTO, HttpStatus.OK);
     }
 }

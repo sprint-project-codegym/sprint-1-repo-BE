@@ -2,6 +2,7 @@ package com.example.sprint_1.repository.security;
 
 import com.example.sprint_1.entity.security.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
+<<<<<<< HEAD
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -24,4 +25,8 @@ public interface RoleRepository extends JpaRepository<Role, Integer> {
     @Query(value = "insert into account_role(account_id,role_id) values (?1,?2)", nativeQuery = true)
     void setDefaultRole(int accountId, Integer roleId);
 
+=======
+
+public interface RoleRepository extends JpaRepository<Role, Integer> {
+>>>>>>> origin/contract
 }

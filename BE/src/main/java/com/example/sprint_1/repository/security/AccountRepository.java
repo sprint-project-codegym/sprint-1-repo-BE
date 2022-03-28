@@ -2,6 +2,7 @@ package com.example.sprint_1.repository.security;
 
 import com.example.sprint_1.entity.security.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
+<<<<<<< HEAD
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -50,4 +51,8 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     @Modifying
     @Query(value = "update account set encrypt_pw =?1,verification_code=null where verification_code=?2 ", nativeQuery = true)
     void saveNewPassword(String password, String code);
+=======
+
+public interface AccountRepository extends JpaRepository<Account, Integer> {
+>>>>>>> origin/contract
 }
