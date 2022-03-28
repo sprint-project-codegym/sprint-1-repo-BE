@@ -25,6 +25,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/home")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
@@ -42,14 +43,20 @@ public class EmployeeController {
     private RoleService roleService;
 
     @Autowired
-<<<<<<< HEAD
-    private EmployeeCreateValidation employeeValidation;
-=======
     private EmployeeCreateValidation employeeCreateValidation;
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
 
     @Autowired
     private EmployeeEditValidation employeeEditValidation;
+
+    @RequestMapping(value = "/position",method = RequestMethod.GET)
+    public ResponseEntity<List<Position>> findAllPosition(){
+        List<Position> positionList = employeeService.getAllPosition();
+        if(positionList.isEmpty()) {
+            return new ResponseEntity<List<Position>>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<List<Position>>(positionList, HttpStatus.OK);
+        }
+    }
 
     @RequestMapping(value = "/employee",method = RequestMethod.GET)
     public ResponseEntity<List<Employee>> findAllEmployee(){
@@ -79,11 +86,7 @@ public class EmployeeController {
 
     @RequestMapping(value = "/employee", method = RequestMethod.POST)
     public ResponseEntity<?> createEmployee(@Validated @RequestBody EmployeeDTO employeeDto, BindingResult bindingResult) {
-<<<<<<< HEAD
-        employeeValidation.validate(employeeDto, bindingResult);
-=======
         employeeCreateValidation.validate(employeeDto, bindingResult);
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.NOT_ACCEPTABLE);
         }
@@ -91,8 +94,20 @@ public class EmployeeController {
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
+    @RequestMapping(value = "/employee/{id}",method = RequestMethod.GET)
+    public ResponseEntity<Employee> getEmployeeById(@PathVariable String id){
+        Employee employee = employeeService.findByEmployeeId(id);
+        System.out.println(employee);
+        if(employee==null) {
+            return new ResponseEntity<Employee>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<Employee>(employee, HttpStatus.OK);
+        }
+    }
+
     @RequestMapping(value = "/employee/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> editEmployee(@PathVariable("id") String id, @Validated @RequestBody EmployeeDTO employeeDto, BindingResult bindingResult) {
+        System.out.println(employeeDto);
         employeeEditValidation.validate(employeeDto, bindingResult);
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.NOT_ACCEPTABLE);

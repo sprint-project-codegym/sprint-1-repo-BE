@@ -61,20 +61,10 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     @Query(value = "update account set encrypt_pw =?1,verification_code=null where user_name=?2 ", nativeQuery = true)
     void saveNewPassword(String password, String username);
 
-<<<<<<< HEAD
-//    @Modifying
-//    @Query(value = "update account set encrypt_pw =?1,verification_code=null where verification_code=?2 ", nativeQuery = true)
-//    void saveNewPassword(String password, String code);
-
-    @Modifying
-    @Query(value = "update account set encrypt_pw =?1,verification_code=null where user_name=?2 ", nativeQuery = true)
-    void saveNewPassword(String password, String username);
-=======
     /*
         HauLC bổ sung
      */
     @Modifying
-    @Query(value = "update account set encrypt_pw =?1,email=?2,verification_code=null where user_name=?3 ", nativeQuery = true)
-    void updateAccount(String password, String email,String username);
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
+    @Query(value = "update account set email=?1,verification_code=null where user_name=?2 ", nativeQuery = true)
+    void updateAccount(String email,String username);
 }

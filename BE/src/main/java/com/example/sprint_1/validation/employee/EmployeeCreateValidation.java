@@ -17,98 +17,72 @@ public class EmployeeCreateValidation implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         EmployeeDTO employeeDTO = (EmployeeDTO) target;
-<<<<<<< HEAD
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"id","employee.empty");
-=======
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"name","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"dateOfBirth","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"gender","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"email","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"idCard","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"address","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"phone","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"salary","employee.empty");
-<<<<<<< HEAD
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"position","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"username","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"password","employee.empty");
 
-        if (!employeeDTO.getName().matches("^[\\D]+$")) {
-            errors.rejectValue("phone", "phone.invalid");
-=======
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeName","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeBirthday","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeGender","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeGmail","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeIdCard","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeAddress","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeePhone","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeSalary","employee.empty");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"position.positionId","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"account.username","employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"account.password","employee.empty");
 
-        if (employeeDTO.getName().equals("null")) {
-            errors.rejectValue("name", "name.null");
+        if (employeeDTO.getEmployeeName().equals("null")) {
+            errors.rejectValue("employeeName", "name.null");
         }
 
-        if(employeeDTO.getIdCard().equals("null")){
-            errors.rejectValue("idCard", "idCard.null");
+        if(employeeDTO.getEmployeeIdCard().equals("null")){
+            errors.rejectValue("employeeIdCard", "idCard.null");
         }
 
-        if(employeeDTO.getEmail().equals("null")){
-            errors.rejectValue("email", "email.null");
+        if(employeeDTO.getEmployeeGmail().equals("null")){
+            errors.rejectValue("employeeGmail", "email.null");
         }
 
-        if(employeeDTO.getAddress().equals("null")){
-            errors.rejectValue("address", "address.null");
+        if(employeeDTO.getEmployeeAddress().equals("null")){
+            errors.rejectValue("employeeAddress", "address.null");
         }
 
-        if(employeeDTO.getSalary().equals("null")){
-            errors.rejectValue("salary", "address.null");
+        if(employeeDTO.getEmployeeSalary()==null){
+            errors.rejectValue("employeeSalary", "address.null");
         }
 
-        if (!employeeDTO.getName().matches("^[\\D]+$")) {
-            errors.rejectValue("name", "name.invalid");
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
+        if (!employeeDTO.getEmployeeName().matches("^[\\D]+$")) {
+            errors.rejectValue("employeeName", "name.invalid");
         }
 
-        if (!employeeDTO.getPhone().startsWith("0")) {
-            errors.rejectValue("phone", "phone.invalid");
+        if (employeeDTO.getEmployeeGender()==null) {
+            errors.rejectValue("employeeGender","gender.null");
         }
-<<<<<<< HEAD
-=======
-        if (employeeDTO.getPhone().equals("null")) {
-            errors.rejectValue("phone", "phone.null");
+        if (!(employeeDTO.getEmployeeGender().equals(true) || employeeDTO.getEmployeeGender().equals(false))) {
+            errors.rejectValue("employeeGender","gender.null");
         }
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
 
-        if(!employeeDTO.getEmail().matches("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")){
-            errors.rejectValue("email", "email.invalid");
+//        if (!employeeDTO.getEmployeePhone().matches("0")) {
+//            errors.rejectValue("employeePhone", "phone.invalid");
+//        }
+        if (employeeDTO.getEmployeePhone().equals("null")) {
+            errors.rejectValue("employeePhone", "phone.null");
         }
-<<<<<<< HEAD
-=======
-        if(employeeDTO.getEmail().equals("null")){
-            errors.rejectValue("email", "email.null");
+
+        if(!employeeDTO.getEmployeeGmail().matches("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")){
+            errors.rejectValue("employeeGmail", "email.invalid");
+        }
+        if(employeeDTO.getEmployeeGmail().equals("null")){
+            errors.rejectValue("employeeGmail", "email.null");
         }
 
         if(employeeDTO.getPosition().getPositionId().equals("null")){
             errors.rejectValue("position.positionId", "position.null");
         }
 
-        if(employeeDTO.getAccount().getUsername().equals("null")){
-            errors.rejectValue("account.username", "username.null");
-        }
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
-
-        if(!employeeDTO.getIdCard().matches("^[\\d]{9}|[\\d]{12}$")){
-            errors.rejectValue("idCard", "idCard.invalid");
+        if(!employeeDTO.getEmployeeIdCard().matches("^[\\d]{9}|[\\d]{12}$")){
+            errors.rejectValue("employeeIdCard", "idCard.invalid");
         }
 
-        if(!DateValidator.greaterThan18Year(employeeDTO.getDateOfBirth())){
-            errors.rejectValue("dateOfBirth", "dateOfBirth.invalid");
-        }
-
-<<<<<<< HEAD
-        if(!employeeDTO.getIdCard().matches("^[\\w]{6,32}$")){
-            errors.rejectValue("idCard", "idCard.invalid");
-=======
-        if(!employeeDTO.getAccount().getPassword().matches("^[\\w]{6,32}$")){
-            errors.rejectValue("account.password", "idCard.invalid");
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
+        if(!DateValidator.greaterThan18Year(employeeDTO.getEmployeeBirthday())){
+            errors.rejectValue("employeeBirthday", "dateOfBirth.invalid");
         }
     }
 }

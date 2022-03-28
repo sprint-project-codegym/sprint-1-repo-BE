@@ -9,6 +9,6 @@ import java.util.List;
 public interface PositionRepository extends JpaRepository<Position, String> {
     List<Position> findAll();
 
-    @Query(value = "select * from position;", nativeQuery = true)
+    @Query(value = "select position_id, position_name from position;", nativeQuery = true)
     List<Position> getAllPosition();
 }

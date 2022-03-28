@@ -5,17 +5,23 @@ import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.employee.Position;
 import com.example.sprint_1.entity.security.Account;
 import com.example.sprint_1.repository.employee.EmployeeRepository;
+import com.example.sprint_1.repository.employee.PositionRepository;
 import com.example.sprint_1.service.employee.EmployeeService;
+import com.example.sprint_1.service.employee.PositionService;
 import com.example.sprint_1.service.security.AccountService;
 import com.example.sprint_1.service.security.RoleService;
 //import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+import com.example.sprint_1.ultils.GenerateUsername;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -32,9 +38,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private RoleService roleService;
 
+    @Autowired
+    private PositionService positionService;
+
     @Override
     public List<Employee> findAll() {
         return employeeRepository.findAll();
+    }
+
+    @Override
+    public List<Position> getAllPosition() {
+        return positionService.getAllPosition();
     }
 
     @Override
@@ -62,59 +76,41 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void createNewEmployee(EmployeeDTO employeeDto){
+
         Account account = new Account();
-<<<<<<< HEAD
-        account.setUserName(employeeDto.getUsername());
-//        account.setEncryptPw(encoder.encode("123"));
-        String password = encoder.encode(employeeDto.getPassword());
-        account.setEncryptPw(password);
+        account.setUserName(GenerateUsername.generate(employeeDto.getEmployeeName()));
+        String password = encoder.encode("123123");
         account.setEnable(true);
-        accountService.addNew(account.getUserName(), "123");
-        int id = accountService.findIdUserByUserName(employeeDto.getUsername());
+        account.setEmail(employeeDto.getEmployeeGmail()); // nếu employee.email null thì sẽ không lưu account
+        int i=1;
+        while (true) {
+            try { // nếu tồn tại account rồi thì thêm số vào ví dụ leconghau -> leconghau1
+                accountService.addNew(account.getUserName(), account.getEmail(), password);
+                break;
+            } catch (Exception e) {
+                account.setUserName(account.getUserName().replaceAll("[\\d]+",""));
+                account.setUserName(account.getUserName() + i);
+            }
+            i++;
+        }
+        int id = accountService.findIdUserByUserName(account.getUserName());
+        account.setAccountId(id);
         System.out.println(id);
         roleService.setDefaultRole(id, 1);
 
 
         Employee employee = new Employee();
-        employee.setEmployeeId(employeeDto.getId());
-=======
-        account.setUserName(employeeDto.getAccount().getUsername());
-        String password = encoder.encode(employeeDto.getAccount().getPassword());
-        account.setEncryptPw(password);
-        account.setEnable(true);
-        if(account.getEmail()!=null) {
-            account.setEmail(employeeDto.getEmail()); // nếu employee.email null thì sẽ không lưu account
-            accountService.addNew(account.getUserName(), account.getEmail(), password);
-            int id = accountService.findIdUserByUserName(employeeDto.getAccount().getUsername());
-            account.setAccountId(id);
-            System.out.println(id);
-            roleService.setDefaultRole(id, 1);
-        } else return;
-
-
-        Employee employee = new Employee();
         int code = (int) Math.floor(((Math.random() * 899999) + 100000));
         employee.setEmployeeId("E" + code);
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
-        employee.setEmployeeName(employeeDto.getName());
-        employee.setEmployeeBirthday(employeeDto.getDateOfBirth());
-        employee.setEmployeeGender(Boolean.valueOf(employeeDto.getGender()));
-        employee.setEmployeeIdCard(employeeDto.getIdCard());
-        employee.setEmployeeGmail(employeeDto.getEmail());
-        employee.setEmployeeAddress(employeeDto.getAddress());
-        employee.setEmployeePhone(employeeDto.getPhone());
-<<<<<<< HEAD
-        employee.setEmployeeSalary(employeeDto.getSalary());
-        employee.setDeleteFlag(false);
-
-        Position poEntity = new Position();
-        poEntity.setPositionId(employeeDto.getPosition());
-        employee.setPosition(poEntity);
-
-        employee.setAccount(account);
-        System.out.println(employee);
-=======
-        employee.setEmployeeSalary(Double.valueOf(employeeDto.getSalary()));
+        employee.setEmployeeName(employeeDto.getEmployeeName());
+        employee.setEmployeeBirthday(employeeDto.getEmployeeBirthday());
+        employee.setEmployeeGender(employeeDto.getEmployeeGender());
+        employee.setEmployeeIdCard(employeeDto.getEmployeeIdCard());
+        employee.setEmployeeGmail(employeeDto.getEmployeeGmail());
+        employee.setEmployeeAddress(employeeDto.getEmployeeAddress());
+        employee.setEmployeePhone(employeeDto.getEmployeePhone());
+        employee.setEmployeeSalary(employeeDto.getEmployeeSalary());
+        employee.setUrlImage(employeeDto.getUrlImage());
         employee.setDeleteFlag(false);
 
         Position poEntity = new Position();
@@ -123,10 +119,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         employee.setAccount(account);
         System.out.println(employee.getAccount().getAccountId());
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
         employeeRepository.createNewEmployee(employee.getEmployeeId(), employee.getEmployeeName(), employee.getEmployeeBirthday(),
                 employee.getEmployeeGender(),employee.getEmployeeIdCard(), employee.getEmployeeGmail(), employee.getEmployeeAddress(),
-                employee.getEmployeePhone(), employee.getEmployeeSalary(), false,
+                employee.getEmployeePhone(), employee.getEmployeeSalary(),employee.getUrlImage() ,false,
                 employee.getAccount().getAccountId(), employee.getPosition().getPositionId());
 //        employeeRepository.createNewEmployee(employee.getEmployeeId(), false,
 //                employee.getAccount().getAccountId(), employee.getPosition().getPositionId());
@@ -135,44 +130,30 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void editEmployee(String id,EmployeeDTO employeeDto) {
 
-<<<<<<< HEAD
-        Employee employee = employeeRepository.findByEmployeeId(employeeDto.getId());
-        Account account = employee.getAccount();
-        String newPassword = encoder.encode(employeeDto.getPassword());
-        accountService.saveNewPassword(newPassword,account.getUserName());
-
-=======
         Employee employee = employeeRepository.findByEmployeeId(id);
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
-        employee.setEmployeeName(employeeDto.getName());
-        employee.setEmployeeBirthday(employeeDto.getDateOfBirth());
-        employee.setEmployeeGender(Boolean.valueOf(employeeDto.getGender()));
-        employee.setEmployeeIdCard(employeeDto.getIdCard());
-        employee.setEmployeeGmail(employeeDto.getEmail());
-        employee.setEmployeeAddress(employeeDto.getAddress());
-        employee.setEmployeePhone(employeeDto.getPhone());
-<<<<<<< HEAD
-        employee.setEmployeeSalary(employeeDto.getSalary());
-
-        Position poEntity = new Position();
-        poEntity.setPositionId(employeeDto.getPosition());
-=======
-        employee.setEmployeeSalary(Double.valueOf(employeeDto.getSalary()));
+        employee.setEmployeeName(employeeDto.getEmployeeName());
+        employee.setEmployeeBirthday(employeeDto.getEmployeeBirthday());
+        employee.setEmployeeGender(employeeDto.getEmployeeGender());
+        employee.setEmployeeIdCard(employeeDto.getEmployeeIdCard());
+        employee.setEmployeeGmail(employeeDto.getEmployeeGmail());
+        employee.setEmployeeAddress(employeeDto.getEmployeeAddress());
+        employee.setEmployeePhone(employeeDto.getEmployeePhone());
+        employee.setEmployeeSalary(employeeDto.getEmployeeSalary());
+        employee.setUrlImage(employeeDto.getUrlImage());
 
         Account account = employee.getAccount();
         account.setEmail(employee.getEmployeeGmail()); // cập nhật lại email cho account
-        account.setEncryptPw(encoder.encode(employee.getAccount().getEncryptPw()));
-        accountService.updateAccount(account.getEncryptPw(), account.getEmail(), account.getUserName());
+//        account.setEncryptPw(encoder.encode(employee.getAccount().getEncryptPw()));
+        accountService.updateAccount(account.getEmail(), account.getUserName());
 
         Position poEntity = new Position();
         poEntity.setPositionId(employeeDto.getPosition().getPositionId());
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
         employee.setPosition(poEntity);
 
         System.out.println(employee);
         employeeRepository.editEmployee(employee.getEmployeeName(), employee.getEmployeeBirthday(),
                 employee.getEmployeeGender(),employee.getEmployeeIdCard(), employee.getEmployeeGmail(), employee.getEmployeeAddress(),
-                employee.getEmployeePhone(), employee.getEmployeeSalary(), employee.getDeleteFlag(),
+                employee.getEmployeePhone(), employee.getEmployeeSalary(), employee.getUrlImage(),employee.getDeleteFlag(),
                 employee.getAccount().getAccountId(), employee.getPosition().getPositionId(),id);
     }
 

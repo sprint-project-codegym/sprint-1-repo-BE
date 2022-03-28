@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 @RequestMapping("api/home")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SecurityController {
-//    @Autowired
+    //    @Autowired
 //    private JwtUtility jwtUtility;
 //    @Autowired
 //    private AuthenticationManager authenticationManager;

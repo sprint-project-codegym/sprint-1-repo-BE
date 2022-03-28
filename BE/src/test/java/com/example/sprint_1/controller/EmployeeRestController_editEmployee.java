@@ -3,7 +3,6 @@ package com.example.sprint_1.controller;
 import com.example.sprint_1.dto.employee.AccountDTO;
 import com.example.sprint_1.dto.employee.EmployeeDTO;
 import com.example.sprint_1.dto.employee.PositionDTO;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class EmployeeRestController_createEmployee {
+public class EmployeeRestController_editEmployee {
     @Autowired
     private MockMvc mockMvc;
 
@@ -26,7 +25,8 @@ public class EmployeeRestController_createEmployee {
     private ObjectMapper objectMapper;
 
     @Test
-    public void createEmployee_name_13() throws Exception  {
+    public void editEmployee_name_13() throws Exception  {
+        String id="E463267";
         EmployeeDTO employeeDto = new EmployeeDTO();
         employeeDto.setEmployeeName("null");
         employeeDto.setEmployeeBirthday("2001-10-31");
@@ -36,28 +36,30 @@ public class EmployeeRestController_createEmployee {
         employeeDto.setEmployeeAddress("Quảng Nam");
         employeeDto.setEmployeePhone("099988778");
         employeeDto.setEmployeeSalary(1000.0);
+        employeeDto.setUrlImage("abcd.png");
 
         AccountDTO accountDTO = new AccountDTO();
-        accountDTO.setUsername("leconghau414gr");
+        accountDTO.setUsername("testtt");
         accountDTO.setPassword("123456");
         employeeDto.setAccount(accountDTO);
 
         PositionDTO positionDTO = new PositionDTO();
         positionDTO.setPositionId("1");
         employeeDto.setPosition(positionDTO);
+        System.out.println(employeeDto.getAccount());
 
         this.mockMvc
                 .perform(MockMvcRequestBuilders
-                        .post("/api/home/employee")
+                        .put("/api/home/employee/"+id)
                         .content(this.objectMapper.writeValueAsString(employeeDto))
                         .contentType(MediaType.APPLICATION_JSON_VALUE))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_dateOfBirth_13() throws Exception  {
+    public void editEmployee_dateOfBirth_13() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("null");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -84,9 +86,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_email_13() throws Exception  {
+    public void editEmployee_email_13() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("null");
@@ -113,9 +115,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_idCard_13() throws Exception  {
+    public void editEmployee_idCard_13() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -142,9 +144,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_address_13() throws Exception  {
+    public void editEmployee_address_13() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -154,7 +156,6 @@ public class EmployeeRestController_createEmployee {
         employeeDto.setEmployeeSalary(1000.0);
 
         AccountDTO accountDTO = new AccountDTO();
-        accountDTO.setUsername("leconghau4");
         accountDTO.setPassword("123456");
         employeeDto.setAccount(accountDTO);
 
@@ -171,9 +172,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_phone_13() throws Exception  {
+    public void editEmployee_phone_13() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -200,9 +201,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_salary_13() throws Exception  {
+    public void editEmployee_salary_13() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -229,9 +230,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_position_13() throws Exception  {
+    public void editEmployee_position_13() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -258,9 +259,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_account_13() throws Exception  {
+    public void editEmployee_account_13() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -287,9 +288,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_name_14() throws Exception  {
+    public void editEmployee_name_14() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("");
+        employeeDto.setEmployeeName("");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -316,9 +317,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_dateOfBirth_14() throws Exception  {
+    public void editEmployee_dateOfBirth_14() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -345,9 +346,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_email_14() throws Exception  {
+    public void editEmployee_email_14() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("");
@@ -374,9 +375,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_idCard_14() throws Exception  {
+    public void editEmployee_idCard_14() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -403,9 +404,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_address_14() throws Exception  {
+    public void editEmployee_address_14() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -432,9 +433,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_phone_14() throws Exception  {
+    public void editEmployee_phone_14() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -461,9 +462,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_position_14() throws Exception  {
+    public void editEmployee_position_14() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -490,9 +491,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_account_14() throws Exception  {
+    public void editEmployee_account_14() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -520,9 +521,9 @@ public class EmployeeRestController_createEmployee {
     }
 
     @Test
-    public void createEmployee_name_15() throws Exception  {
+    public void editEmployee_name_15() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("543");
+        employeeDto.setEmployeeName("543");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -549,9 +550,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_dateOfBirth_15() throws Exception  {
+    public void editEmployee_dateOfBirth_15() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-30-30");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -578,9 +579,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_email_15() throws Exception  {
+    public void editEmployee_email_15() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@");
@@ -607,9 +608,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_idCard_15() throws Exception  {
+    public void editEmployee_idCard_15() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -636,9 +637,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_address_15() throws Exception  {
+    public void editEmployee_address_15() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -665,9 +666,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_phone_15() throws Exception  {
+    public void editEmployee_phone_15() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -694,9 +695,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_position_15() throws Exception  {
+    public void editEmployee_position_15() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -723,9 +724,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_account_15() throws Exception  {
+    public void editEmployee_account_15() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -753,9 +754,9 @@ public class EmployeeRestController_createEmployee {
     }
 
     @Test
-    public void createEmployee_account_16() throws Exception  {
+    public void editEmployee_account_16() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -782,9 +783,9 @@ public class EmployeeRestController_createEmployee {
                 .andExpect(status().is4xxClientError());
     }
     @Test
-    public void createEmployee_account_17() throws Exception  {
+    public void editEmployee_account_17() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("hau@gmail.com");
@@ -812,9 +813,9 @@ public class EmployeeRestController_createEmployee {
     }
 
     @Test
-    public void createEmployee_all_18() throws Exception  {
+    public void editEmployee_all_18() throws Exception  {
         EmployeeDTO employeeDto = new EmployeeDTO();
-         employeeDto.setEmployeeName("Hậu");
+        employeeDto.setEmployeeName("Hậu");
         employeeDto.setEmployeeBirthday("2001-10-31");
         employeeDto.setEmployeeGender(true);
         employeeDto.setEmployeeGmail("leconghau095@gmail.com");
@@ -824,7 +825,7 @@ public class EmployeeRestController_createEmployee {
         employeeDto.setEmployeeSalary(1000.0);
 
         AccountDTO accountDTO = new AccountDTO();
-        accountDTO.setUsername("leconghau");
+        accountDTO.setUsername("leconghauok");
         accountDTO.setPassword("123456");
         employeeDto.setAccount(accountDTO);
 

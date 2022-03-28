@@ -17,39 +17,72 @@ public class EmployeeEditValidation implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         EmployeeDTO employeeDTO = (EmployeeDTO) target;
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dateOfBirth", "employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "gender", "employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "idCard", "employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "address", "employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "phone", "employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "salary", "employee.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "position", "employee.empty");
-<<<<<<< HEAD
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "employee.empty");
-=======
-//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "employee.empty");
->>>>>>> 72757406d8117924b4411b003cf435dbbb361414
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeName","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeBirthday","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeGender","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeGmail","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeIdCard","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeAddress","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeePhone","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"employeeSalary","employee.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors,"position.positionId","employee.empty");
 
-        if (!employeeDTO.getName().matches("^[\\D]+$")) {
-            errors.rejectValue("phone", "phone.startWith");
+        if (employeeDTO.getEmployeeName().equals("null")) {
+            errors.rejectValue("employeeName", "name.null");
         }
 
-        if (!employeeDTO.getPhone().startsWith("0")) {
-            errors.rejectValue("phone", "phone.startWith");
+        if(employeeDTO.getEmployeeIdCard().equals("null")){
+            errors.rejectValue("employeeIdCard", "idCard.null");
         }
 
-        if(!employeeDTO.getEmail().matches("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")){
-            errors.rejectValue("email", "email.invalid");
+        if(employeeDTO.getEmployeeGmail().equals("null")){
+            errors.rejectValue("employeeGmail", "email.null");
         }
 
-        if(!employeeDTO.getIdCard().matches("^[\\d]{9}|[\\d]{12}$")){
-            errors.rejectValue("idCard", "idCard.invalid");
+        if(employeeDTO.getEmployeeAddress().equals("null")){
+            errors.rejectValue("employeeAddress", "address.null");
         }
 
-        if(!DateValidator.greaterThan18Year(employeeDTO.getDateOfBirth())){
-            errors.rejectValue("dateOfBirth", "dateOfBirth.invalid");
+        if(employeeDTO.getEmployeeSalary()==null){
+            errors.rejectValue("employeeSalary", "address.null");
         }
+
+        if (!employeeDTO.getEmployeeName().matches("^[\\D]+$")) {
+            errors.rejectValue("employeeName", "name.invalid");
+        }
+
+        if (employeeDTO.getEmployeeGender()==null) {
+            errors.rejectValue("employeeGender","gender.null");
+        }
+        if (!(employeeDTO.getEmployeeGender().equals(true) || employeeDTO.getEmployeeGender().equals(false))) {
+            errors.rejectValue("employeeGender","gender.null");
+        }
+
+        if (!employeeDTO.getEmployeePhone().startsWith("0")) {
+            errors.rejectValue("employeePhone", "phone.invalid");
+        }
+        if (employeeDTO.getEmployeePhone().equals("null")) {
+            errors.rejectValue("employeePhone", "phone.null");
+        }
+
+        if(!employeeDTO.getEmployeeGmail().matches("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")){
+            errors.rejectValue("employeeGmail", "email.invalid");
+        }
+        if(employeeDTO.getEmployeeGmail().equals("null")){
+            errors.rejectValue("employeeGmail", "email.null");
+        }
+
+        if(employeeDTO.getPosition().getPositionId().equals("null")){
+            errors.rejectValue("position.positionId", "position.null");
+        }
+
+        if(!employeeDTO.getEmployeeIdCard().matches("^[\\d]{9}|[\\d]{12}$")){
+            errors.rejectValue("employeeIdCard", "idCard.invalid");
+        }
+
+        if(!DateValidator.greaterThan18Year(employeeDTO.getEmployeeBirthday())){
+            errors.rejectValue("employeeBirthday", "dateOfBirth.invalid");
+        }
+
     }
 }

@@ -35,21 +35,21 @@ public interface EmployeeRepository extends JpaRepository<Employee, String> {
     @Modifying
     @Query(value="insert into employee(employee_id,employee_name,employee_birthday" +
             ",employee_gender,employee_id_card,employee_gmail,employee_address" +
-            ",employee_phone,employee_salary,delete_flag" +
-            ",account_id,position_id) values (?,?,?,?,?,?,?,?,?,?,?,?)",nativeQuery = true)
+            ",employee_phone,employee_salary,url_image,delete_flag" +
+            ",account_id,position_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?)",nativeQuery = true)
     @Transactional
     void createNewEmployee(String id,String name, String dateOfBirth, Boolean gender,String idCard,String email,
-                           String address, String phone, Double salary,Boolean delete_flag,
+                           String address, String phone, Double salary,String employee_image,Boolean delete_flag,
                            Integer account,String position);
 
     @Modifying
     @Query(value="update employee set employee_name=?,employee_birthday=?" +
             ",employee_gender=?,employee_id_card=?,employee_gmail=?,employee_address=?" +
-            ",employee_phone=?,employee_salary=?,delete_flag=?" +
+            ",employee_phone=?,employee_salary=?,url_image=?,delete_flag=?" +
             ",account_id=?,position_id=? where employee_id =?",nativeQuery = true)
     @Transactional
     void editEmployee(String name, String dateOfBirth, Boolean gender,String idCard,String email,
-                      String address, String phone, Double salary,Boolean delete_flag,
+                      String address, String phone, Double salary,String employee_image,Boolean delete_flag,
                       Integer account,String position,String id);
 
 //    @Modifying

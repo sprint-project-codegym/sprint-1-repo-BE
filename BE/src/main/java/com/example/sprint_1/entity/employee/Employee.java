@@ -20,6 +20,7 @@ public class Employee {
     private String employeeAddress;
     private String employeePhone;
     private Double employeeSalary;
+    private String urlImage;
     private Boolean deleteFlag;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -140,7 +141,13 @@ public class Employee {
     public void setContractList(List<Contract> contractList) {
         this.contractList = contractList;
     }
+    public String getUrlImage() {
+        return urlImage;
+    }
 
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
+    }
     @Override
     public String toString() {
         return "Employee{" +
