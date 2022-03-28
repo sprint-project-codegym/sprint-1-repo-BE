@@ -48,7 +48,7 @@ public class SecurityController {
     private PasswordEncoder encoder;
 
     @PostMapping("/login")
-    public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<JwtResponse> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
 
@@ -69,7 +69,7 @@ public class SecurityController {
     }
 
     @PostMapping("/verify")
-    public ResponseEntity<?> VerifyEmail(@RequestBody VerifyRequest code) {
+    public ResponseEntity<MessageResponse> VerifyEmail(@RequestBody VerifyRequest code) {
         Boolean isVerified = accountService.findAccountByVerificationCode(code.getCode());
         if (isVerified) {
             return ResponseEntity.ok(new MessageResponse("activated"));
@@ -79,7 +79,7 @@ public class SecurityController {
     }
 
     @PostMapping("/reset-password")
-    public ResponseEntity<?> reset(@RequestBody LoginRequest loginRequest) throws MessagingException, UnsupportedEncodingException {
+    public ResponseEntity<MessageResponse> reset(@RequestBody LoginRequest loginRequest) throws MessagingException, UnsupportedEncodingException {
 
         if (accountService.existsByUserName(loginRequest.getUsername()) != null) {
             accountService.addVerificationCode(loginRequest.getUsername());
@@ -92,7 +92,7 @@ public class SecurityController {
     }
 
     @PostMapping("/verify-password")
-    public ResponseEntity<?> VerifyPassword(@RequestBody VerifyRequest code) {
+    public ResponseEntity<MessageResponse> VerifyPassword(@RequestBody VerifyRequest code) {
         Boolean isVerified = accountService.findAccountByVerificationCodeToResetPassword(code.getCode());
         if (isVerified) {
             return ResponseEntity.ok(new MessageResponse("accepted"));
@@ -102,7 +102,7 @@ public class SecurityController {
     }
 
     @PostMapping("/do-reset-password")
-    public ResponseEntity<?> doResetPassword(@RequestBody ResetPassRequest resetPassRequest) {
+    public ResponseEntity<MessageResponse> doResetPassword(@RequestBody ResetPassRequest resetPassRequest) {
         accountService.saveNewPassword(encoder.encode(resetPassRequest.getPassword()), resetPassRequest.getCode());
         return ResponseEntity.ok(new MessageResponse("success"));
     }
