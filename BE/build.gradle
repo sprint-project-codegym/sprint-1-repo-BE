@@ -27,6 +27,11 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
+    // https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin
+    implementation 'org.sonarsource.scanner.maven:sonar-maven-plugin:3.8.0.2131'
+
+
+
     /**
      * Tran Minh Khoa
      */

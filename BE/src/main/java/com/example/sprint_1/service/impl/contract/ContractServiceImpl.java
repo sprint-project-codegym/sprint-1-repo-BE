@@ -6,6 +6,8 @@ import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.ground.Ground;
 import com.example.sprint_1.repository.contract.ContractRepository;
+import com.example.sprint_1.repository.customer.CustomerRepository;
+import com.example.sprint_1.repository.ground.GroundRepository;
 import com.example.sprint_1.service.contract.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,9 +19,25 @@ public class ContractServiceImpl implements ContractService {
     @Autowired
     ContractRepository contractRepository;
 
+    @Autowired
+    CustomerRepository customerRepository;
+
+    @Autowired
+    GroundRepository groundRepository;
+
     @Override
     public List<Contract> findAll() {
         return contractRepository.findAll();
+    }
+
+    @Override
+    public List<Ground> findAllGround() {
+        return groundRepository.findAll();
+    }
+
+    @Override
+    public List<Customer> findAllCustomer() {
+        return customerRepository.findAll();
     }
 
     @Override

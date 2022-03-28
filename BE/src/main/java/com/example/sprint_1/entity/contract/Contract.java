@@ -3,13 +3,13 @@ package com.example.sprint_1.entity.contract;
 import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.ground.Ground;
-import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
 @AllArgsConstructor

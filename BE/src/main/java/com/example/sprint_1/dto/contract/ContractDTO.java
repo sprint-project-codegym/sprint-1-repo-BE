@@ -1,16 +1,11 @@
 package com.example.sprint_1.dto.contract;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.aspectj.apache.bcel.ExceptionConstants;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 
 @Setter
 @Getter
@@ -18,7 +13,7 @@ import javax.validation.constraints.Pattern;
 @AllArgsConstructor
 public class ContractDTO {
     @NotBlank(message = "Không được để trống!")
-    @Pattern(regexp = "^(HD)[-][\\d]{4}$", message = "Mã hợp đồng không đúng định dạng (HD-xxxx)!")
+            @Pattern(regexp = "^(HD)[-][\\d]{4}$", message = "Mã hợp đồng không đúng định dạng (HD-xxxx)!")
     private String contractId;
     @NotBlank(message = "Không được để trống!")
     @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "Ngày không hợp lệ")

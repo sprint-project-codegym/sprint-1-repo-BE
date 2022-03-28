@@ -15,7 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ContractController_createContract {
+class ContractControllerCreateContract {
 
     @Autowired
     private MockMvc mockMvc;
@@ -25,7 +25,7 @@ public class ContractController_createContract {
 
     //id = null
     @Test
-    public void createContract_id_13() throws Exception {
+    void createContract_id_13() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId(null);
         contractDTO.setStartDate("2022-03-03");
@@ -50,7 +50,7 @@ public class ContractController_createContract {
 
     //id = ""
     @Test
-    public void createContract_id_14() throws Exception {
+    void createContract_id_14() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("");
         contractDTO.setStartDate("2022-03-03");
@@ -75,7 +75,7 @@ public class ContractController_createContract {
 
     //id khong hop le
     @Test
-    public void createContract_id_15() throws Exception {
+    void createContract_id_15() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("aaaaa");
         contractDTO.setStartDate("2022-03-03");
@@ -100,7 +100,7 @@ public class ContractController_createContract {
 
     //start date = null
     @Test
-    public void createContract_startDate_13() throws Exception {
+    void createContract_startDate_13() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate(null);
@@ -125,7 +125,7 @@ public class ContractController_createContract {
 
     //start date = ""
     @Test
-    public void createContract_startDate_14() throws Exception {
+    void createContract_startDate_14() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("");
@@ -150,7 +150,7 @@ public class ContractController_createContract {
 
     //start date khong hop le
     @Test
-    public void createContract_startDate_15() throws Exception {
+    void createContract_startDate_15() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("asasd");
@@ -175,7 +175,7 @@ public class ContractController_createContract {
 
     //end date = null
     @Test
-    public void createContract_endDate_13() throws Exception {
+    void createContract_endDate_13() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("2022-03-04");
@@ -200,7 +200,7 @@ public class ContractController_createContract {
 
     //end date = ""
     @Test
-    public void createContract_endDate_14() throws Exception {
+    void createContract_endDate_14() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("2022-03-04");
@@ -225,7 +225,7 @@ public class ContractController_createContract {
 
     //end date khong hop le
     @Test
-    public void createContract_endDate_15() throws Exception {
+    void createContract_endDate_15() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("2022-03-04");
@@ -250,7 +250,7 @@ public class ContractController_createContract {
 
     //contract date = null
     @Test
-    public void createContract_contractDate_13() throws Exception {
+    void createContract_contractDate_13() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("2022-03-04");
@@ -275,7 +275,7 @@ public class ContractController_createContract {
 
     //contract date = ""
     @Test
-    public void createContract_contractDate_14() throws Exception {
+    void createContract_contractDate_14() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("2022-03-04");
@@ -300,7 +300,7 @@ public class ContractController_createContract {
 
     //contract date khong hop le
     @Test
-    public void createContract_contractDate_15() throws Exception {
+    void createContract_contractDate_15() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("2022-03-04");
@@ -325,7 +325,7 @@ public class ContractController_createContract {
 
     //rent cost = null
     @Test
-    public void createContract_rentCost_13() throws Exception {
+    void createContract_rentCost_13() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("2022-03-04");
@@ -350,7 +350,7 @@ public class ContractController_createContract {
 
     //rent cost khong hop le
     @Test
-    public void createContract_rentCost_15() throws Exception {
+    void createContract_rentCost_15() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("2022-03-04");
@@ -375,7 +375,7 @@ public class ContractController_createContract {
 
     //total cost = null
     @Test
-    public void createContract_totalCost_13() throws Exception {
+    void createContract_totalCost_13() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("2022-03-04");
@@ -400,7 +400,7 @@ public class ContractController_createContract {
 
     //total cost khong hop le
     @Test
-    public void createContract_totalCost_15() throws Exception {
+    void createContract_totalCost_15() throws Exception {
         ContractDTO contractDTO = new ContractDTO();
         contractDTO.setContractId("HD-0001");
         contractDTO.setStartDate("2022-03-04");
