@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class GroundController_createGround {
+class GroundController_createGround {
 
     @Autowired
     private MockMvc mockMvc;
@@ -26,7 +26,7 @@ public class GroundController_createGround {
 
     //id = null
     @Test
-    public void createGround_id_13() throws Exception {
+    void createGround_id_13() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId(null);
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -53,7 +53,7 @@ public class GroundController_createGround {
 
     //id = ""
     @Test
-    public void createGround_id_14() throws Exception {
+    void createGround_id_14() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -81,7 +81,7 @@ public class GroundController_createGround {
 
     //id invalid format
     @Test
-    public void createGround_id_15() throws Exception {
+    void createGround_id_15() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("abcde");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -108,7 +108,7 @@ public class GroundController_createGround {
 
     //type = null
     @Test
-    public void createGround_type_13() throws Exception {
+    void createGround_type_13() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType(null);
@@ -135,7 +135,7 @@ public class GroundController_createGround {
 
     //type = ""
     @Test
-    public void createGround_type_14() throws Exception {
+    void createGround_type_14() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("");
@@ -162,7 +162,7 @@ public class GroundController_createGround {
 
     //type <= min length
     @Test
-    public void createGround_type_16() throws Exception {
+    void createGround_type_16() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("z");
@@ -189,7 +189,7 @@ public class GroundController_createGround {
 
     //type >= min length
     @Test
-    public void createGround_type_17() throws Exception {
+    void createGround_type_17() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("abcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabcabc");
@@ -216,7 +216,7 @@ public class GroundController_createGround {
 
     //area = null
     @Test
-    public void createGround_area_13() throws Exception {
+    void createGround_area_13() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -243,7 +243,7 @@ public class GroundController_createGround {
 
     //area < 0
     @Test
-    public void createGround_area_15() throws Exception {
+    void createGround_area_15() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -270,7 +270,7 @@ public class GroundController_createGround {
 
     //image = null
     @Test
-    public void createGround_image_13() throws Exception {
+    void createGround_image_13() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -298,7 +298,7 @@ public class GroundController_createGround {
 
     //image = ""
     @Test
-    public void createGround_image_14() throws Exception {
+    void createGround_image_14() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -325,7 +325,7 @@ public class GroundController_createGround {
 
     //status = null
     @Test
-    public void createGround_status_13() throws Exception {
+    void createGround_status_13() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -352,7 +352,7 @@ public class GroundController_createGround {
 
     //status = ""
     @Test
-    public void createGround_status_14() throws Exception {
+    void createGround_status_14() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -379,7 +379,7 @@ public class GroundController_createGround {
 
     //rentCost = null
     @Test
-    public void createGround_rentCost_13() throws Exception {
+    void createGround_rentCost_13() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -406,7 +406,7 @@ public class GroundController_createGround {
 
     //rentCost < 0
     @Test
-    public void createGround_rentCost_15() throws Exception {
+    void createGround_rentCost_15() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -433,7 +433,7 @@ public class GroundController_createGround {
 
     //mamageCost = null
     @Test
-    public void createGround_manageCost_13() throws Exception {
+    void createGround_manageCost_13() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -460,7 +460,7 @@ public class GroundController_createGround {
 
     //manageCost < 0
     @Test
-    public void createGround_manageCost_15() throws Exception {
+    void createGround_manageCost_15() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -487,7 +487,7 @@ public class GroundController_createGround {
 
     //floor = null
     @Test
-    public void createGround_floor_13() throws Exception {
+    void createGround_floor_13() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -514,7 +514,7 @@ public class GroundController_createGround {
 
     //floor = ""
     @Test
-    public void createGround_floor_14() throws Exception {
+    void createGround_floor_14() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");
@@ -541,7 +541,7 @@ public class GroundController_createGround {
 
     //all valid item
     @Test
-    public void createGround_18() throws Exception {
+    void createGround_18() throws Exception {
         GroundCreateDTO groundCreateDTO = new GroundCreateDTO();
         groundCreateDTO.setGroundId("MB-0001");
         groundCreateDTO.setGroundType("Mặt tiền");

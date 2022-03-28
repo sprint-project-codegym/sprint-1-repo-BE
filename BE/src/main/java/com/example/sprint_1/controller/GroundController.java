@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +30,7 @@ public class GroundController {
     //LuanVT: add new ground
     @PostMapping("/api/manager/ground/create")
     @Transactional
-    public ResponseEntity<?> createGround(@Validated @RequestBody GroundCreateDTO groundCreateDTO, BindingResult bindingResult) {
+    public ResponseEntity<List<FieldError>> createGround(@Validated @RequestBody GroundCreateDTO groundCreateDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(bindingResult.getFieldErrors(), HttpStatus.NOT_ACCEPTABLE);
         }
