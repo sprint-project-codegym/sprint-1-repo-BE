@@ -1,6 +1,5 @@
 package com.example.sprint_1.service.impl.security;
 
-<<<<<<< HEAD
 import com.example.sprint_1.entity.security.Role;
 import com.example.sprint_1.repository.security.RoleRepository;
 import com.example.sprint_1.service.security.RoleService;
@@ -29,11 +28,4 @@ public class RoleServiceImpl implements RoleService {
         return roleRepository.findAllRole();
     }
 
-=======
-import com.example.sprint_1.service.security.RoleService;
-import org.springframework.stereotype.Service;
-
-@Service
-public class RoleServiceImpl implements RoleService {
->>>>>>> origin/contract
 }

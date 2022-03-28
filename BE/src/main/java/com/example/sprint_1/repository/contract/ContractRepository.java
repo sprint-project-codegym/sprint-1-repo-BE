@@ -4,17 +4,13 @@ import com.example.sprint_1.entity.contract.Contract;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-<<<<<<< HEAD
-=======
 import org.springframework.data.repository.query.Param;
->>>>>>> origin/contract
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
 @Repository
 public interface ContractRepository extends JpaRepository<Contract, String> {
-<<<<<<< HEAD
     @Modifying
     @Query(value = "INSERT INTO Contract VALUES (:#{#contract.contractId}, :#{#contract.contractContent}, :#{#contract.contractDate}," +
             ":#{#contract.deleteFlag}, :#{#contract.endDate}, :#{#contract.rentCost}, :#{#contract.startDate}, :#{#contract.totalCost}, " +
@@ -22,7 +18,6 @@ public interface ContractRepository extends JpaRepository<Contract, String> {
     @Transactional
     void saveContract(Contract contract);
 
-=======
     @Transactional
     @Modifying
     @Query(value = "update `contract` as c set c.contract_content = :contract_content, c.contract_date = :contract_date," +
@@ -35,5 +30,4 @@ public interface ContractRepository extends JpaRepository<Contract, String> {
                            @Param("start_date") String start_date, @Param("total_cost") Double total_cost,
                            @Param("customer_id") String customer_id, @Param("employee_id") String employee_id,
                            @Param("ground_id") String ground_id);
->>>>>>> origin/contract
 }

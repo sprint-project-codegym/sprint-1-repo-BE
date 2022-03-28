@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //package com.example.sprint_1.service.security;
 //
 //import com.example.sprint_1.entity.security.Account;
@@ -36,9 +35,3 @@
 //    Boolean existsByEmail(String email);
 //
 //}
-=======
-package com.example.sprint_1.service.security;
-
-public interface AccountService {
-}
->>>>>>> origin/contract

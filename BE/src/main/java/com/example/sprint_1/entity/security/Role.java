@@ -23,7 +23,6 @@ public class Role {
     @OneToMany(mappedBy = "role")
     @JsonBackReference
     private Set<AccountRole> accountRoleList;
-<<<<<<< HEAD
 
 
     public Integer getRoleId() {
@@ -49,7 +48,5 @@ public class Role {
     public void setAccountRoleList(Set<AccountRole> accountRoleList) {
         this.accountRoleList = accountRoleList;
     }
-=======
->>>>>>> origin/contract
 }
 

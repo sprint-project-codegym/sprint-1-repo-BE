@@ -43,13 +43,13 @@ public class ContractController {
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
     }
 
-    @GetMapping("/api/contract/list")
+    @GetMapping("/list")
     public ResponseEntity<List<Contract>> getListContract() {
         List<Contract> contractList = contractService.findAll();
         return new ResponseEntity<>(contractList, HttpStatus.OK);
     }
 
-    @PatchMapping(value = "/api/contract/edit", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PatchMapping(value = "/edit", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String message = "Lỗi định dạng";
