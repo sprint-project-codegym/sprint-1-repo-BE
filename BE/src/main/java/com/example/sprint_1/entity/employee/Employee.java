@@ -32,7 +32,6 @@ public class Employee {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "accountId")
-    @JsonBackReference
     private Account account;
 
     @ManyToOne(targetEntity = Position.class)
