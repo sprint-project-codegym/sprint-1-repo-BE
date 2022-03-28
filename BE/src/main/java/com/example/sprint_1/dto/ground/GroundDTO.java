@@ -1,14 +1,16 @@
 package com.example.sprint_1.dto.ground;
 
-import com.example.sprint_1.entity.ground.Floor;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class GroundDTO {
 
     @NotBlank(message = "Mã mặt bằng không được để trống!")
@@ -39,95 +41,8 @@ public class GroundDTO {
     private Integer version;
     private Boolean deleteFlag;
 
-    @NotBlank(message = "Không được để trống!")
+    @NotNull(message = "Không được để trống!")
     private String floorId;
 
 
-    public String getGroundId() {
-        return groundId;
-    }
-
-    public void setGroundId(String groundId) {
-        this.groundId = groundId;
-    }
-
-    public String getGroundType() {
-        return groundType;
-    }
-
-    public void setGroundType(String groundType) {
-        this.groundType = groundType;
-    }
-
-    public Double getArea() {
-        return area;
-    }
-
-    public void setArea(Double area) {
-        this.area = area;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Double getRentCost() {
-        return rentCost;
-    }
-
-    public void setRentCost(Double rentCost) {
-        this.rentCost = rentCost;
-    }
-
-    public Double getManageCost() {
-        return manageCost;
-    }
-
-    public void setManageCost(Double manageCost) {
-        this.manageCost = manageCost;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
-
-    public Boolean getDeleteFlag() {
-        return deleteFlag;
-    }
-
-    public void setDeleteFlag(Boolean deleteFlag) {
-        this.deleteFlag = deleteFlag;
-    }
-
-    public String getFloorId() {
-        return floorId;
-    }
-
-    public void setFloorId(String floorId) {
-        this.floorId = floorId;
-    }
 }

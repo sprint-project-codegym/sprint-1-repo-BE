@@ -1,5 +1,6 @@
 package com.example.sprint_1.repository.ground;
 
+import com.example.sprint_1.dto.ground.GroundViewDTO;
 import com.example.sprint_1.entity.ground.Ground;
 
 import org.springframework.data.domain.Page;
@@ -15,8 +16,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GroundRepository extends JpaRepository<Ground, String> {
-    @Query(value = "select g.ground_id, g.area, g.ground_type, g.image, g.status, g.rent_cost, g.manage_cost, g.note, g.version, g.delete_flag, g.floor_id from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_id = :id", nativeQuery = true)
-    Ground findByGroundId(@Param("id") String id);
+    @Query(value = "select g.ground_id as groundId, g.area, g.ground_type as groundType, g.image, g.status, g.rent_cost as rentCost, g.manage_cost as manageCost, g.note, g.version, g.delete_flag as deleteFlag, g.floor_id as floorId from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_id = :id", nativeQuery = true)
+    GroundViewDTO findByGroundId(@Param("id") String id);
 
     @Transactional
     @Modifying

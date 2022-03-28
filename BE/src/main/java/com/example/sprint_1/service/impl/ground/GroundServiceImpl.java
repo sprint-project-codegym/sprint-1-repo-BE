@@ -3,6 +3,7 @@ package com.example.sprint_1.service.impl.ground;
 
 import com.example.sprint_1.dto.ground.GroundDTO;
 
+import com.example.sprint_1.dto.ground.GroundViewDTO;
 import com.example.sprint_1.entity.ground.Ground;
 import com.example.sprint_1.repository.ground.GroundRepository;
 import com.example.sprint_1.service.ground.GroundService;
@@ -12,7 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class GroundServiceImpl implements GroundService {
@@ -35,8 +35,8 @@ public class GroundServiceImpl implements GroundService {
     }
 
     @Override
-    public Ground findById(String id) {
-        return groundRepository.findById(id).orElse(null);
+    public GroundViewDTO findById(String id) {
+        return groundRepository.findByGroundId(id);
     }
 
     @Override
