@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class ContractController_updateContract {
 
     @Autowired
-    private MockMvc mockMvc;
+    MockMvc mockMvc;
 
     @Autowired
     ObjectMapper objectMapper;
@@ -32,7 +32,7 @@ public class ContractController_updateContract {
 
 
     @Test
-    public void edit_contract_contractId_19() throws Exception {
+    void edit_contract_contractId_19() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -93,7 +93,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_startDate_19() throws Exception {
+    void edit_contract_startDate_19() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -154,7 +154,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_endDate_19() throws Exception {
+    void edit_contract_endDate_19() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -216,7 +216,7 @@ public class ContractController_updateContract {
 
 
     @Test
-    public void edit_contract_contractDate_19() throws Exception {
+    void edit_contract_contractDate_19() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -277,7 +277,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_rentCost_19() throws Exception {
+    void edit_contract_rentCost_19() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -338,7 +338,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_totalCost_19() throws Exception {
+    void edit_contract_totalCost_19() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -399,7 +399,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_contractContent_19() throws Exception {
+    void edit_contract_contractContent_19() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -464,7 +464,7 @@ public class ContractController_updateContract {
 
 
     @Test
-    public void edit_contract_contractId_20() throws Exception {
+    void edit_contract_contractId_20() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -525,7 +525,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_startDate_20() throws Exception {
+    void edit_contract_startDate_20() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -586,7 +586,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_endDate_20() throws Exception {
+    void edit_contract_endDate_20() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -647,7 +647,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_contractDate_20() throws Exception {
+    void edit_contract_contractDate_20() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -708,7 +708,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_contractContent_20() throws Exception {
+    void edit_contract_contractContent_20() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -773,7 +773,7 @@ public class ContractController_updateContract {
 
 
     @Test
-    public void edit_contract_startDate_21() throws Exception {
+    void edit_contract_startDate_21() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -834,7 +834,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_endDate_21() throws Exception {
+    void edit_contract_endDate_21() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -895,7 +895,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_contractDate_21() throws Exception {
+    void edit_contract_contractDate_21() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -956,7 +956,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_rentCost_21() throws Exception {
+    void edit_contract_rentCost_21() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -1017,7 +1017,7 @@ public class ContractController_updateContract {
     }
 
     @Test
-    public void edit_contract_totalCost_21() throws Exception {
+    void edit_contract_totalCost_21() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -1082,7 +1082,7 @@ public class ContractController_updateContract {
 
 
     @Test
-    public void edit_contract_contractContent_22() throws Exception {
+    void edit_contract_contractContent_22() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -1147,7 +1147,7 @@ public class ContractController_updateContract {
 
 
     @Test
-    public void edit_contract_contractContent_23() throws Exception {
+    void edit_contract_contractContent_23() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");
@@ -1212,7 +1212,7 @@ public class ContractController_updateContract {
 
 
     @Test
-    public void edit_contract_available_24() throws Exception {
+    void edit_contract_available_24() throws Exception {
         EmployeeDTO employeeDTO = new EmployeeDTO();
         employeeDTO.setEmployeeId("E001");
         employeeDTO.setEmployeeName("Nguyễn Thái Học");

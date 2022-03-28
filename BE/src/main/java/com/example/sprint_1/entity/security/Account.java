@@ -34,5 +34,16 @@ public class Account {
     @JsonBackReference
     private Set<AccountRole> accountRoleList;
 
+    public Account(String userName, String encryptPw) {
+        this.userName = userName;
+        this.encryptPw = encryptPw;
+    }
+
+//    public Account(String userName, String email, String encryptPw) {
+//        this.userName = userName;
+//        this.email = email;
+//        this.encryptPw = encryptPw;
+//    }
+
 }
 

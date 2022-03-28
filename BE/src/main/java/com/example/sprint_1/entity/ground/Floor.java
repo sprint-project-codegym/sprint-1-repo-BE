@@ -1,10 +1,12 @@
 package com.example.sprint_1.entity.ground;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.*;
+
 
 import javax.persistence.*;
 import java.util.List;
+
+import lombok.*;
 
 @Data
 @NoArgsConstructor

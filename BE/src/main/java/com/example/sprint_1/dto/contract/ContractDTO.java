@@ -3,6 +3,7 @@ package com.example.sprint_1.dto.contract;
 import com.example.sprint_1.dto.customer.CustomerDTO;
 import com.example.sprint_1.dto.employee.EmployeeDTO;
 import com.example.sprint_1.dto.ground.GroundDTO;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,8 +17,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
-@Getter
+@AllArgsConstructor
 @Setter
+@Getter
 public class ContractDTO {
     @Id
     @NotEmpty
@@ -32,7 +34,7 @@ public class ContractDTO {
     @NotEmpty
     private String contractDate;
     @NotNull
-    @DecimalMax("1000000000.0")
+    @DecimalMax("100000000.0")
     @DecimalMin("10.0")
     private Double rentCost;
     @NotNull
@@ -40,7 +42,7 @@ public class ContractDTO {
     @DecimalMin("10.0")
     private Double totalCost;
     @NotEmpty
-    @Length(min = 5, max = 20)
+    @Length(min = 10, max = 200)
     private String contractContent;
     private Boolean deleteFlag;
 
