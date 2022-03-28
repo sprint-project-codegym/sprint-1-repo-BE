@@ -10,7 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
 
 @RestController
@@ -22,13 +21,13 @@ public class EmployeeController {
 
     @GetMapping("")
     public ResponseEntity<Page<Employee>> getList(@RequestParam(defaultValue = "0") Integer page,
-                                                  @RequestParam(defaultValue = "2") Integer size,
+                                                  @RequestParam(defaultValue = "5") Integer size,
                                                   @RequestParam(defaultValue = "") String name,
                                                   @RequestParam(defaultValue = "") String id){
         Pageable paging= PageRequest.of(page,size);
         Page<Employee> employees = employeeService.searchEmployee(paging,name,id);
         if(employees.isEmpty()){
-            return new ResponseEntity<Page<Employee>>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Page<Employee>>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<Page<Employee>>(employees, HttpStatus.OK);
     }
