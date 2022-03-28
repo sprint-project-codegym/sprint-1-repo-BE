@@ -1,5 +1,8 @@
 package com.example.sprint_1.dto.employee;
 
+<<<<<<< HEAD
+public class PositionDTO {
+=======
 import lombok.Data;
 
 @Data
@@ -22,4 +25,5 @@ public class PositionDTO {
     public void setPositionName(String positionName) {
         this.positionName = positionName;
     }
+>>>>>>> origin/contract
 }

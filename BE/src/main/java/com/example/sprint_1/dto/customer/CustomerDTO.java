@@ -1,5 +1,9 @@
 package com.example.sprint_1.dto.customer;
 
+<<<<<<< HEAD
+public class CustomerDTO
+{
+=======
 import lombok.Data;
 
 import javax.persistence.Id;
@@ -96,4 +100,5 @@ public class CustomerDTO {
     public void setDeleteFlag(Boolean deleteFlag) {
         this.deleteFlag = deleteFlag;
     }
+>>>>>>> origin/contract
 }

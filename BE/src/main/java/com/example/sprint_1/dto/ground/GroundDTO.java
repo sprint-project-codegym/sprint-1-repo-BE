@@ -1,5 +1,8 @@
 package com.example.sprint_1.dto.ground;
 
+<<<<<<< HEAD
+public class GroundDTO {
+=======
 import lombok.Data;
 
 import javax.persistence.Id;
@@ -106,4 +109,5 @@ public class GroundDTO {
     public void setFloor(FloorDTO floor) {
         this.floor = floor;
     }
+>>>>>>> origin/contract
 }

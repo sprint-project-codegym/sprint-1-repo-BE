@@ -1,52 +1,56 @@
 package com.example.sprint_1.dto.contract;
 
-import com.example.sprint_1.dto.customer.CustomerDTO;
-import com.example.sprint_1.dto.employee.EmployeeDTO;
-import com.example.sprint_1.dto.ground.GroundDTO;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
-@NoArgsConstructor
-@Getter
 @Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class ContractDTO {
-    @Id
-    @NotEmpty
+    @NotBlank(message = "Không được để trống!")
+            @Pattern(regexp = "^(HD)[-][\\d]{4}$", message = "Mã hợp đồng không đúng định dạng (HD-xxxx)!")
     private String contractId;
-    @Column(columnDefinition = "Date")
-    @NotEmpty
+    @NotBlank(message = "Không được để trống!")
+    @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "Ngày không hợp lệ")
     private String startDate;
-    @Column(columnDefinition = "Date")
-    @NotEmpty
+    @NotBlank(message = "Không được để trống!")
+    @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "Ngày không hợp lệ")
     private String endDate;
-    @Column(columnDefinition = "Date")
-    @NotEmpty
+    @NotBlank(message = "Không được để trống!")
+    @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "Ngày không hợp lệ")
     private String contractDate;
-    @NotNull
-    @DecimalMax("1000000000.0")
-    @DecimalMin("10.0")
+    @NotNull(message = "Không được để trống!")
+    @Min(value = 0, message = "Giá tiền thuê phải là số dương!")
     private Double rentCost;
-    @NotNull
-    @DecimalMax("1000000000.0")
-    @DecimalMin("10.0")
+    @NotNull(message = "Không được để trống!")
+    @Min(value = 0, message = "Giá tiền thuê phải là số dương!")
     private Double totalCost;
-    @NotEmpty
-    @Length(min = 5, max = 20)
     private String contractContent;
     private Boolean deleteFlag;
 
-    private CustomerDTO customer;
+    private String customerId;
+    private String employeeId;
+    private String groundId;
 
-    private EmployeeDTO employee;
-
-    private GroundDTO ground;
+    @Override
+    public String toString() {
+        return "ContractDTO{" +
+                "contractId='" + contractId + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", contractDate='" + contractDate + '\'' +
+                ", rentCost=" + rentCost +
+                ", totalCost=" + totalCost +
+                ", contractContent='" + contractContent + '\'' +
+                ", deleteFlag=" + deleteFlag +
+                ", customerId='" + customerId + '\'' +
+                ", employeeId='" + employeeId + '\'' +
+                ", groundId='" + groundId + '\'' +
+                '}';
+    }
 }

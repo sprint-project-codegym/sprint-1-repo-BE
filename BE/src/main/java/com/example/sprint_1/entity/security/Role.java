@@ -23,5 +23,33 @@ public class Role {
     @OneToMany(mappedBy = "role")
     @JsonBackReference
     private Set<AccountRole> accountRoleList;
+<<<<<<< HEAD
+
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<AccountRole> getAccountRoleList() {
+        return accountRoleList;
+    }
+
+    public void setAccountRoleList(Set<AccountRole> accountRoleList) {
+        this.accountRoleList = accountRoleList;
+    }
+=======
+>>>>>>> origin/contract
 }
 

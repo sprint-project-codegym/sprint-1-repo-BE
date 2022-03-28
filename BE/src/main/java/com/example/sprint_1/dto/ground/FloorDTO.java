@@ -1,5 +1,8 @@
 package com.example.sprint_1.dto.ground;
 
+<<<<<<< HEAD
+public class FloorDTO {
+=======
 import lombok.Data;
 
 @Data
@@ -77,4 +80,5 @@ public class FloorDTO {
     public void setBuilding(BuildingDTO building) {
         this.building = building;
     }
+>>>>>>> origin/contract
 }

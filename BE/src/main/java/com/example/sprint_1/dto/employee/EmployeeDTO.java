@@ -1,5 +1,8 @@
 package com.example.sprint_1.dto.employee;
 
+<<<<<<< HEAD
+public class EmployeeDTO {
+=======
 import lombok.Data;
 
 import javax.persistence.Id;
@@ -106,4 +109,5 @@ public class EmployeeDTO {
     public void setPosition(PositionDTO position) {
         this.position = position;
     }
+>>>>>>> origin/contract
 }
