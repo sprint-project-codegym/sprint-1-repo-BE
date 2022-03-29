@@ -2,6 +2,7 @@ package com.example.sprint_1.controller;
 
 import com.example.sprint_1.dto.ground.FloorListDTO;
 import com.example.sprint_1.dto.ground.GroundCreateDTO;
+import com.example.sprint_1.dto.ground.GroundViewDTO;
 import com.example.sprint_1.entity.ground.Floor;
 import com.example.sprint_1.entity.ground.Ground;
 import com.example.sprint_1.service.ground.FloorService;
@@ -34,7 +35,9 @@ public class GroundController {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(bindingResult.getFieldErrors(), HttpStatus.NOT_ACCEPTABLE);
         }
-
+        if (this.groundService.findGroundById(groundCreateDTO.getGroundId()) != null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         Ground groundEntity = new Ground();
         BeanUtils.copyProperties(groundCreateDTO, groundEntity);
         Floor floorEntity = new Floor();
@@ -53,5 +56,14 @@ public class GroundController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(floorDTOList, HttpStatus.OK);
+    }
+
+    @GetMapping("api/manager/ground/list/{id}")
+    public ResponseEntity<GroundViewDTO> getGroundEntity(@PathVariable("id") String id) {
+        GroundViewDTO ground = groundService.findGroundById(id);
+        if (ground == null) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(ground, HttpStatus.OK);
     }
 }
