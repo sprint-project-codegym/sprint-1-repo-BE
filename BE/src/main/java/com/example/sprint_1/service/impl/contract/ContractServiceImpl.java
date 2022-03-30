@@ -10,6 +10,8 @@ import com.example.sprint_1.repository.customer.CustomerRepository;
 import com.example.sprint_1.repository.ground.GroundRepository;
 import com.example.sprint_1.service.contract.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +26,22 @@ public class ContractServiceImpl implements ContractService {
 
     @Autowired
     GroundRepository groundRepository;
+
+
+    @Override
+    public void deleteContractById(String id) {
+        contractRepository.deleteContract(id);
+    }
+
+    @Override
+    public Contract findById(String id) {
+        return contractRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Page<Contract> findAllContractWithPagination(String id, String customerName, Pageable pageable) {
+        return contractRepository.findAllContractWithPagination(id, customerName, pageable);
+    }
 
     @Override
     public List<Contract> findAll() {
@@ -65,15 +83,4 @@ public class ContractServiceImpl implements ContractService {
         contract.setGround(grEntity);
         contractRepository.saveContract(contract);
     }
-
-    @Override
-    public void updateContractDTO(ContractDTO contractDTO) {
-        contractRepository.updateContractDTO(contractDTO.getContractId(), contractDTO.getContractContent(),
-                contractDTO.getContractDate(), contractDTO.getDeleteFlag(),
-                contractDTO.getEndDate(), contractDTO.getRentCost(),
-                contractDTO.getStartDate(), contractDTO.getTotalCost(),
-                contractDTO.getCustomerId(), contractDTO.getEmployeeId(),
-                contractDTO.getGroundId());
-    }
-
 }

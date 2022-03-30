@@ -52,7 +52,6 @@ public class Contract {
     @ManyToOne(targetEntity = Ground.class)
     @JoinColumn(name = "groundId")
     private Ground ground;
-
     @Override
     public String toString() {
         return "Contract{" +

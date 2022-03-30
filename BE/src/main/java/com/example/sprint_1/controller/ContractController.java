@@ -6,22 +6,50 @@ import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.ground.Ground;
 import com.example.sprint_1.service.contract.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
-@CrossOrigin(origins = "http://localhost:4200")
+
+
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/manager/contract")
 public class ContractController {
-
+    // Nguyen Dinh Hung Anh //
     @Autowired
     ContractService contractService;
+
+    @GetMapping("/list") // Get list contract and search//
+    public ResponseEntity<Page<Contract>> getListWithPagination(@RequestParam(defaultValue = "") String id,
+                                                                @RequestParam(defaultValue = "") String customerName,
+                                                                @RequestParam(defaultValue = "0") int page,
+                                                                @RequestParam(defaultValue = "3") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Contract> contracts;
+        contracts = contractService.findAllContractWithPagination(id, customerName, pageable);
+        if (contracts.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(contracts, HttpStatus.OK);
+    }
+
+    @GetMapping("/list/delete/{id}") //delete contract//
+    public ResponseEntity<String> deleteContractById(@PathVariable("id") String id, Model model) {
+        Contract contract = contractService.findById(id);
+        if (contract == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        contractService.deleteContractById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 //    KienHQ create contract
 
     @GetMapping("/list-ground")
@@ -41,21 +69,5 @@ public class ContractController {
         }
         contractService.saveContract(dto);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
-    }
-
-    @GetMapping("/list")
-    public ResponseEntity<List<Contract>> getListContract() {
-        List<Contract> contractList = contractService.findAll();
-        return new ResponseEntity<>(contractList, HttpStatus.OK);
-    }
-
-    @PatchMapping(value = "/edit", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> updateContract(@Valid @RequestBody ContractDTO contractDTO, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            String message = "Lỗi định dạng";
-            return new ResponseEntity<>(message, HttpStatus.NOT_FOUND);
-        }
-        contractService.updateContractDTO(contractDTO);
-        return new ResponseEntity<>(contractDTO, HttpStatus.OK);
     }
 }
