@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-//@RequestMapping("api/home")
 @CrossOrigin(origins = "*")
-//@CrossOrigin("http://localhost:4200")
 public class CustomerController {
     /**
      * Le Thi Nga
@@ -23,7 +21,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    //NgaLT hien thi list khach hang, tim kiem khach hang
+    //NgaLT hien thi list khach hang phan trang, tim kiem khach hang
     @GetMapping("/customer/list")
     public ResponseEntity<Page<Customer>> getListCustomerWithPagination(@RequestParam(defaultValue = "0") int page,
                                                                         @RequestParam(defaultValue = "5") int size,
@@ -37,7 +35,7 @@ public class CustomerController {
         return new ResponseEntity<>(customers, HttpStatus.OK);
     }
 
-    //NgaLT delete customer
+    //NgaLT xoa customer
     @GetMapping(value = "/customer/list/delete/{id}")
     public ResponseEntity<String> deleteCustomerById(@PathVariable("id") String id) {
         Customer customer = customerService.findCustomerByCustomerId(id);
