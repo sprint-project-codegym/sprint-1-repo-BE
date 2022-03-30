@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GroundRepository extends JpaRepository<Ground, String> {
-    @Query(value = "select g.ground_id, g.area, g.ground_type, g.image, g.status, g.rent_cost, g.manage_cost, g.note, g.version, g.delete_flag, g.floor_id from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_id = :id", nativeQuery = true)
+    @Query(value = "select g.ground_id, g.area, g.ground_type, g.image, g.status, g.rent_cost, g.manage_cost, g.note, g.version, g.delete_flag, g.floor_id from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_id = :id and g.delete_flag = 1", nativeQuery = true)
     Ground findByGroundId(@Param("id") String id);
 
     @Transactional
@@ -34,7 +34,7 @@ public interface GroundRepository extends JpaRepository<Ground, String> {
 
     @Query(value = "select ground.ground_id, ground.area, ground.ground_type, ground.image, ground.status, ground.rent_cost, ground.manage_cost, ground.note, ground.version, ground.delete_flag, ground.floor_id " +
             "from ground left join floor on ground.floor_id = floor.floor_id where ground.ground_id like %?1% and ground.ground_type like %?2% and ground.delete_flag = 1",
-            countQuery = "select count(*) from customer where customer.customer_id like %?1% and customer.customer_name like %?2% and customer.delete_flag = 1", nativeQuery = true)
+            countQuery = "select count(*) from ground where ground.ground_id like %?1% and ground.ground_type like %?2% and ground.delete_flag = 1", nativeQuery = true)
     Page<Ground> findByGroundIdContainingAndGroundTypeContaining(String id, String groundType, Pageable pageable);
 
 }

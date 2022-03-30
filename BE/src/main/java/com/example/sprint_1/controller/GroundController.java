@@ -18,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 
 @RestController
+@CrossOrigin("*")
 public class GroundController {
     @Autowired
     GroundService groundService;
@@ -37,23 +38,25 @@ public class GroundController {
     @GetMapping("api/ground/list")
     public ResponseEntity<Page<Ground>> getGround(@RequestParam(value = "id", defaultValue = "") String id,
                                                   @RequestParam(value = "groundType", defaultValue = "") String groundType,
-                                                  @RequestParam(value = "page", defaultValue = "0") Integer page) {
-        Pageable pageable = PageRequest.of(page, 10);
+                                                  @RequestParam(value = "page", defaultValue = "0") Integer page,
+                                                  @RequestParam(value = "size", defaultValue = "5") Integer size) {
+        Pageable pageable = PageRequest.of(page, size);
         Page<Ground> grounds = groundService.findByIdAndGroundType(pageable, id, groundType);
         if (grounds.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
+
         return new ResponseEntity<>(grounds, HttpStatus.OK);
     }
 
     //HungLM delete ground
-    @PatchMapping("api/ground/delete/{id}")
+    @DeleteMapping("api/ground/delete/{id}")
     public ResponseEntity<String> deleteGround(@PathVariable("id") String id) {
         Ground ground = groundService.findById(id);
         if (ground == null) {
-            return new ResponseEntity<>("Không tìm thấy ground", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         groundService.deleteGround(id);
-        return new ResponseEntity<>("xóa thành công", HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
