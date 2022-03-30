@@ -1,29 +1,5 @@
 package com.example.sprint_1.dto.employee;
 
-<<<<<<< HEAD
-import com.example.sprint_1.entity.security.Account;
-import lombok.*;
-
-
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-public class EmployeeAcountDTO {
-    private String employeeId;
-    private String employeeName;
-    private String employeeBirthday;
-    private Boolean employeeGender;
-    private String employeeGmail;
-    private String employeeAddress;
-    private String employeePhone;
-    private String employeeAccountUserName;
-    private String employeeAccountPw;
-
-
-
-
-=======
 import com.example.sprint_1.dto.security.AccountDTO;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -60,5 +36,4 @@ public class EmployeeAcountDTO {
     private String employeePhone;
 
     private AccountDTO account;
->>>>>>> 3d2b27c42e637c107910d85f75dd36f344f0ee13
 }

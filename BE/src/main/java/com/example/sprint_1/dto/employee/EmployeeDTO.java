@@ -11,9 +11,6 @@ import javax.persistence.Id;
 @Setter
 @NoArgsConstructor
 public class EmployeeDTO {
-<<<<<<< HEAD
-
-=======
     @Id
     private String employeeId;
     private String employeeName;
@@ -117,5 +114,4 @@ public class EmployeeDTO {
     public void setAccount(AccountDTO account) {
         this.account = account;
     }
->>>>>>> 3d2b27c42e637c107910d85f75dd36f344f0ee13
 }

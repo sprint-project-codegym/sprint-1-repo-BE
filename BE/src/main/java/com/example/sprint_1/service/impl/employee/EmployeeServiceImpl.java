@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-<<<<<<< HEAD
     @Autowired
     EmployeeRepository employeeRepository;
 
@@ -18,14 +17,5 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee findEmployeeByEmployeeId(String id) {
         return employeeRepository.findEmployeeByEmployeeId(id);
     }
-=======
-//    @Autowired
-//    EmployeeRepository employeeRepository;
-//
-//
-//    @Override
-//    public Employee findEmployeeById(String id) {
-//        return employeeRepository.findEmployeeById(id);
-//    }
->>>>>>> 3d2b27c42e637c107910d85f75dd36f344f0ee13
+
 }

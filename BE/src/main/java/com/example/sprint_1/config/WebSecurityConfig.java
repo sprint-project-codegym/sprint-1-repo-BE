@@ -58,16 +58,6 @@
 ////////    }
 ////}
 //
-//
-//// Hậu config
-//package com.example.sprint_1.config;
-//
-////import com.example.sprint_1.service.impl.security.AccountDetailServiceImpl;
-<<<<<<< HEAD
-////import com.example.sprint_1.service.impl.security.jwt.JwtFilter;
-=======
-//////import com.example.sprint_1.service.impl.security.jwt.JwtFilter;
->>>>>>> 3d2b27c42e637c107910d85f75dd36f344f0ee13
 ////import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
@@ -86,11 +76,6 @@
 //
 ////    @Autowired
 ////    private AccountDetailServiceImpl accountService;
-<<<<<<< HEAD
-////
-=======
-//
->>>>>>> 3d2b27c42e637c107910d85f75dd36f344f0ee13
 ////    @Autowired
 ////    private JwtFilter jwtFilter;
 //
@@ -98,11 +83,6 @@
 ////    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 ////        auth.userDetailsService(accountService);
 ////    }
-<<<<<<< HEAD
-////
-=======
-//
->>>>>>> 3d2b27c42e637c107910d85f75dd36f344f0ee13
 ////    @Override
 ////    @Bean
 ////    public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -114,7 +94,7 @@
 //        return new BCryptPasswordEncoder(12);
 //    }
 //
-<<<<<<< HEAD
+
 ////    @Override
 ////    protected void configure(HttpSecurity http) throws Exception {
 ////        http.csrf()
@@ -131,22 +111,5 @@
 ////                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 ////        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 ////    }
-=======
-//    @Override
-//    protected void configure(HttpSecurity http) throws Exception {
-//        http.csrf()
-//                .disable()
-//                .authorizeRequests()
-//                .antMatchers("/api/home/**")
-//                .permitAll()
-//                .antMatchers("/api/manager/**").hasAnyRole("USER","ADMIN")
-//                .antMatchers("/api/admin/**").hasRole("ADMIN")
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-////        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-//    }
->>>>>>> 3d2b27c42e637c107910d85f75dd36f344f0ee13
+
 //}
