@@ -1,8 +1,8 @@
 package com.example.sprint_1.controller;
 
 import com.example.sprint_1.dto.ground.FloorListDTO;
-import com.example.sprint_1.dto.ground.GroundCreateDTO;
 import com.example.sprint_1.dto.ground.GroundViewDTO;
+import com.example.sprint_1.dto.ground.GroundCreateDTO;
 import com.example.sprint_1.entity.ground.Floor;
 import com.example.sprint_1.entity.ground.Ground;
 import com.example.sprint_1.service.ground.FloorService;
@@ -21,13 +21,13 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import com.example.sprint_1.dto.ground.GroundDTO;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/manager/ground")
+
 public class GroundController {
     @Autowired
     GroundService groundService;
@@ -38,9 +38,9 @@ public class GroundController {
     //NghiaND edit ground
     @PutMapping(value = "/edit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 
-    public ResponseEntity<?> editGround(@PathVariable("id") String id, @Validated @RequestBody GroundDTO groundDTO, BindingResult bindingResult) throws MethodArgumentNotValidException {
+    public ResponseEntity<List<FieldError>> editGround(@PathVariable("id") String id, @Validated @RequestBody GroundDTO groundDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            throw new MethodArgumentNotValidException(null, bindingResult);
+            return new ResponseEntity<>(bindingResult.getFieldErrors(), HttpStatus.NOT_ACCEPTABLE);
         }
 
         groundService.updateGround(id, groundDTO);

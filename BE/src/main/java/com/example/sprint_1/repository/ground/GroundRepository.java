@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface GroundRepository extends JpaRepository<Ground, String> {
+
     @Query(value = "select g.ground_id, g.area, g.ground_type, g.image, g.status, g.rent_cost, g.manage_cost, g.note, g.version, g.delete_flag, g.floor_id from ground as g left join floor as f on g.floor_id = f.floor_id where g.ground_id = :id and g.delete_flag = 1", nativeQuery = true)
     Ground findByGroundId(@Param("id") String id);
 

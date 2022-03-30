@@ -4,9 +4,10 @@ import com.example.sprint_1.dto.ground.FloorListDTO;
 import com.example.sprint_1.entity.ground.Floor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import org.springframework.stereotype.Service;
 
 @Service
 public interface FloorRepository extends JpaRepository<Floor, String> {

@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class GroundController_editGround {
+ class GroundController_editGround {
 
     @Autowired
     private MockMvc mockMvc;
@@ -26,7 +26,7 @@ public class GroundController_editGround {
 
     //test id = null
     @Test
-    public void editGround_id_19() throws Exception {
+     void editGround_id_19() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("null");
         groundDTO.setGroundType("Mặt sau");
@@ -47,7 +47,7 @@ public class GroundController_editGround {
     }
     //test id = rỗng
     @Test
-    public void editGround_id_20() throws Exception {
+     void editGround_id_20() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("");
         groundDTO.setGroundType("Mặt sau");
@@ -69,7 +69,7 @@ public class GroundController_editGround {
 
     //test id = invalid format
     @Test
-    public void editGround_id_21() throws Exception {
+     void editGround_id_21() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("FL-0001");
         groundDTO.setGroundType("Mặt sau");
@@ -91,7 +91,7 @@ public class GroundController_editGround {
 
     //test groundType = rỗng
     @Test
-    public void editGround_groundType_19() throws Exception {
+     void editGround_groundType_19() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("");
@@ -113,7 +113,7 @@ public class GroundController_editGround {
 
     //test area = null
     @Test
-    public void editGround_area_19() throws Exception {
+     void editGround_area_19() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -135,7 +135,7 @@ public class GroundController_editGround {
 
     //test area là số âm
     @Test
-    public void editGround_area_21() throws Exception {
+     void editGround_area_21() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -157,7 +157,7 @@ public class GroundController_editGround {
 
     //test image null
     @Test
-    public void editGround_image_19() throws Exception {
+     void editGround_image_19() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -178,7 +178,7 @@ public class GroundController_editGround {
     }
     //test image rỗng
     @Test
-    public void editGround_image_20() throws Exception {
+     void editGround_image_20() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -199,7 +199,7 @@ public class GroundController_editGround {
     }
     //test status null
     @Test
-    public void editGround_status_19() throws Exception {
+     void editGround_status_19() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -220,7 +220,7 @@ public class GroundController_editGround {
     }
     //test status rỗng
     @Test
-    public void editGround_status_20() throws Exception {
+     void editGround_status_20() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -242,7 +242,7 @@ public class GroundController_editGround {
 
     //test floorId null
     @Test
-    public void editGround_floorID_19() throws Exception {
+     void editGround_floorID_19() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -263,7 +263,7 @@ public class GroundController_editGround {
     }
     //test floorId rỗng
     @Test
-    public void editGround_floorID_21() throws Exception {
+     void editGround_floorID_21() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -285,7 +285,7 @@ public class GroundController_editGround {
 
     //test rentCost null
     @Test
-    public void editGround_rentCost_19() throws Exception {
+     void editGround_rentCost_19() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -307,7 +307,7 @@ public class GroundController_editGround {
 
     //test rentCost là số âm
     @Test
-    public void editGround_rentCost_21() throws Exception {
+     void editGround_rentCost_21() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -329,7 +329,7 @@ public class GroundController_editGround {
 
     //test manageCost null
     @Test
-    public void editGround_manageCost_19() throws Exception {
+     void editGround_manageCost_19() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -351,7 +351,7 @@ public class GroundController_editGround {
 
     //test manageCost là số âm
     @Test
-    public void editGround_manageCost_21() throws Exception {
+     void editGround_manageCost_21() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-1111");
         groundDTO.setGroundType("Mặt sau");
@@ -373,7 +373,7 @@ public class GroundController_editGround {
 
     //test all valid
     @Test
-    public void editGround_24() throws Exception {
+     void editGround_24() throws Exception {
         GroundDTO groundDTO = new GroundDTO();
         groundDTO.setGroundId("MB-0132");
         groundDTO.setGroundType("Mặt sau");
