@@ -1,0 +1,60 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.4'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    runtimeOnly 'mysql:mysql-connector-java'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    /**
+     * Tran Minh Khoa
+     */
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+    // https://mvnrepository.com/artifact/org.springframework/spring-context-support
+    implementation group: 'org.springframework', name: 'spring-context-support', version: '5.2.12.RELEASE'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+/**
+ * Tran Minh Khoa
+ */
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+
+    systemProperty 'java.util.logging.config.file', "${project.buildDir}/resources/logging-test.properties"
+
+    forkEvery = 1
+
+    testLogging {
+        showStandardStreams = true
+    }
+}
