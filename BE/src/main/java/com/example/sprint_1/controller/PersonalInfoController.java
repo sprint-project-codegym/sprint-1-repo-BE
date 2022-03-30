@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 //import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,9 @@ import javax.validation.Valid;
 //Controller của Nhung -- làm chức năng chỉnh sửa Thông tin cá nhân
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/api/home")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class PersonalInfoController {
 
     @Autowired
@@ -34,7 +37,7 @@ public class PersonalInfoController {
 //    private PasswordEncoder encoder;
 
     //NhungHTC - Show thông tin cá nhân
-    @GetMapping("/api/personal-info/{id}")
+    @GetMapping("/personal-info/{id}")
     public ResponseEntity<Employee> showInfo(@PathVariable("id") String id) {
         if (id.equals("null") || id.equals("")) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -48,7 +51,7 @@ public class PersonalInfoController {
 
     //NhungHTC - Edit thông tin cá nhân
 
-    @RequestMapping(value = "/api/personal-info/edit", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/personal-info/edit", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> updateEmployee(@Valid @RequestBody EmployeeAcountDTO employeeAcountDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             String message = "Lỗi định dạng";
@@ -59,7 +62,7 @@ public class PersonalInfoController {
     }
 
     //NhungHTC - Đổi mật khẩu
-    @PutMapping("/api/personal-info/change-password/{id}")
+    @PutMapping("/personal-info/change-password/{id}")
     @ResponseBody
 //    @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
     public ResponseEntity<MessageResponse> changeUserPassword(@PathVariable("id") Integer id, @RequestBody PasswordDTO passwordDTO) {
