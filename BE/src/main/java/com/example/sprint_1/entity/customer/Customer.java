@@ -2,18 +2,12 @@ package com.example.sprint_1.entity.customer;
 
 import com.example.sprint_1.entity.contract.Contract;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
+@Data
 @Entity(name = "customer")
 public class Customer {
     @Id
@@ -30,6 +24,6 @@ public class Customer {
     private Boolean deleteFlag;
 
     @OneToMany(mappedBy = "customer")
-    @JsonBackReference
+    @JsonBackReference(value = "user_contract")
     public List<Contract> contractList;
 }

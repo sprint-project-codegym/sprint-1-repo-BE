@@ -28,6 +28,14 @@ public interface ContractRepository extends JpaRepository<Contract, String> {
     @Transactional
     @Query(value = "update contract set contract.delete_flag = 0 where contract.contract_id = :id ", nativeQuery = true)
     void deleteContract(@Param("id") String id);
+
+    @Modifying
+    @Query(value = "INSERT INTO Contract VALUES (:#{#contract.contractId}, :#{#contract.contractContent}, :#{#contract.contractDate}," +
+            ":#{#contract.deleteFlag}, :#{#contract.endDate}, :#{#contract.rentCost}, :#{#contract.startDate}, :#{#contract.totalCost}, " +
+            ":#{#contract.customer.customerId}, :#{#contract.employee.employeeId}, :#{#contract.ground.groundId})", nativeQuery = true)
+    @Transactional
+    void saveContract(Contract contract);
+
 }
 
 
