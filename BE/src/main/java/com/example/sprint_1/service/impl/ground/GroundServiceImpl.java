@@ -12,8 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class GroundServiceImpl implements GroundService {
 
@@ -36,7 +34,7 @@ public class GroundServiceImpl implements GroundService {
 
     @Override
     public Ground findById(String id) {
-        return groundRepository.findById(id).orElse(null);
+        return groundRepository.findByGroundId(id);
     }
 
     @Override
