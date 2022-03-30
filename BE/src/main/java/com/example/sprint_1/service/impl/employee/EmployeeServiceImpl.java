@@ -5,25 +5,26 @@ import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.employee.Position;
 import com.example.sprint_1.entity.security.Account;
 import com.example.sprint_1.repository.employee.EmployeeRepository;
-import com.example.sprint_1.repository.employee.PositionRepository;
 import com.example.sprint_1.service.employee.EmployeeService;
 import com.example.sprint_1.service.employee.PositionService;
 import com.example.sprint_1.service.security.AccountService;
 import com.example.sprint_1.service.security.RoleService;
-//import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 import com.example.sprint_1.ultils.GenerateUsername;
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+
+//import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+//import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 @Service
+
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
@@ -157,4 +158,23 @@ public class EmployeeServiceImpl implements EmployeeService {
                 employee.getAccount().getAccountId(), employee.getPosition().getPositionId(),id);
     }
 
+
+    @Override
+    public Page<Employee> getAllEmployee(Pageable pageable) {
+        return employeeRepository.getAllEmployee(pageable);
+    }
+
+    @Override
+    public Employee getEmployeeById(String id) {
+        return employeeRepository.getEmployeeById(id);
+    }
+
+    @Override
+    public Page<Employee> searchEmployee(Pageable pageable, String name, String id) {
+        return employeeRepository.findEmployeeByIdAndName(pageable,name, id);
+    }
+    @Override
+    public void deleteEmployee(String id) {
+        employeeRepository.deleteEmployee(id);
+    }
 }

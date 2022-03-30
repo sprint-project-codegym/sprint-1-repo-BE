@@ -14,6 +14,9 @@ import com.example.sprint_1.service.security.RoleService;
 import com.example.sprint_1.validation.employee.EmployeeCreateValidation;
 import com.example.sprint_1.validation.employee.EmployeeEditValidation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -24,7 +27,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/home")
+@RequestMapping("api/home/employee")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeController {
     @Autowired
@@ -62,17 +65,17 @@ public class EmployeeController {
     }
 
     /*
-     *   HauLC
+     *   HauLC dể dành
      */
-    @RequestMapping(value = "/employee",method = RequestMethod.GET)
-    public ResponseEntity<List<Employee>> findAllEmployee(){
-        List<Employee> employeeList = employeeService.findAll();
-        if(employeeList.isEmpty()) {
-            return new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<List<Employee>>(employeeList, HttpStatus.OK);
-        }
-    }
+//    @RequestMapping(value = "/employee",method = RequestMethod.GET)
+//    public ResponseEntity<List<Employee>> findAllEmployee(){
+//        List<Employee> employeeList = employeeService.findAll();
+//        if(employeeList.isEmpty()) {
+//            return new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT);
+//        } else {
+//            return new ResponseEntity<List<Employee>>(employeeList, HttpStatus.OK);
+//        }
+//    }
 
 //    @RequestMapping(value = "/employee/account",method = RequestMethod.GET)
 //    public ResponseEntity<List<Account>> findAllAccount(){
@@ -93,7 +96,7 @@ public class EmployeeController {
     /*
      *   HauLC
      */
-    @RequestMapping(value = "/employee", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public ResponseEntity<?> createEmployee(@Validated @RequestBody EmployeeDTO employeeDto, BindingResult bindingResult) {
         employeeCreateValidation.validate(employeeDto, bindingResult);
         if (bindingResult.hasErrors()) {
@@ -106,7 +109,7 @@ public class EmployeeController {
     /*
      *   HauLC
      */
-    @RequestMapping(value = "/employee/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public ResponseEntity<Employee> getEmployeeById(@PathVariable String id){
         Employee employee = employeeService.findByEmployeeId(id);
         System.out.println(employee);
@@ -120,7 +123,7 @@ public class EmployeeController {
     /*
      *   HauLC
      */
-    @RequestMapping(value = "/employee/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> editEmployee(@PathVariable("id") String id, @Validated @RequestBody EmployeeDTO employeeDto, BindingResult bindingResult) {
         System.out.println(employeeDto);
         employeeEditValidation.validate(employeeDto, bindingResult);
@@ -131,17 +134,26 @@ public class EmployeeController {
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
-    /**
-     * LuyenNT code
-     *
-     * @return
-     */
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public ResponseEntity<List<Object>> createVaccinations() {
-        List<Position> positionList = positionService.getAllPosition();
-        List<Role> roleList = roleService.getAllRoles();
-        List<Object> list = Arrays.asList(positionList, roleList);
-        return new ResponseEntity<List<Object>>(list, HttpStatus.OK);
-    }
 
+    @GetMapping("/list")
+    public ResponseEntity<Page<Employee>> getList(@RequestParam(defaultValue = "0") Integer page,
+                                                  @RequestParam(defaultValue = "5") Integer size,
+                                                  @RequestParam(defaultValue = "") String name,
+                                                  @RequestParam(defaultValue = "") String id){
+        Pageable paging= PageRequest.of(page,size);
+        Page<Employee> employees = employeeService.searchEmployee(paging,name,id);
+        if(employees.isEmpty()){
+            return new ResponseEntity<Page<Employee>>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<Page<Employee>>(employees, HttpStatus.OK);
+    }
+    @GetMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteEmployee(@PathVariable String id){
+        Employee employee=employeeService.getEmployeeById(id);
+        if (employee==null){
+            return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
+        }
+        employeeService.deleteEmployee(id);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
 }
