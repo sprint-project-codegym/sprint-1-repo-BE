@@ -17,13 +17,18 @@ import java.util.Set;
 @Entity(name = "account")
 public class Account {
     @Id
+    @Column(name= "account_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer accountId;
+    @Column(name = "user_name")
     private String userName;
     private String email;
+    @Column(name = "encrypt_pw")
     private String encryptPw;
     private String token;
+    @Column(name = "is_enable")
     private Boolean isEnable;
+    @Column(name = "verification_code")
     private String verificationCode;
 
     @OneToOne(mappedBy = "account")

@@ -86,7 +86,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void addNew(String username, String password) {
+    public void addNewAcc(String username, String password) {
         accountRepository.addNewAccount(username, password);
     }
 
@@ -133,5 +133,9 @@ public class AccountServiceImpl implements AccountService {
                 "<p>TÒA NHÀ CHO THUÊ</p>";
         helper.setText(mailContent, true);
         javaMailSender.send(message);
+    }
+    @Override
+    public Account findByAccountId(Integer id) {
+        return accountRepository.findAccountByAccountId(id);
     }
 }

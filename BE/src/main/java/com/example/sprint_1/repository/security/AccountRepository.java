@@ -36,6 +36,9 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     @Query(value = "select * from account where verification_code =?1", nativeQuery = true)
     Account findAccountByVerificationCode(String verifyCode);
 
+    @Query(value = "select * from account where account_id =?1", nativeQuery = true)
+    Account findAccountByAccountId(Integer id);
+
     @Modifying
     @Query(value = "update account set verification_code=?1 where user_name =?2", nativeQuery = true)
     void addVerificationCode(String code, String username);
@@ -48,6 +51,11 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     void addNewAccount(String username, String password);
 
     @Modifying
+
     @Query(value = "update account set encrypt_pw =?1,verification_code=null where verification_code=?2 ", nativeQuery = true)
     void saveNewPassword(String password, String code);
+
+    @Modifying
+    @Query(value = "update account set encrypt_pw =?1,verification_code=null where user_name=?2 ", nativeQuery = true)
+    void saveNewPassword_Nhung(String password, String username);
 }
