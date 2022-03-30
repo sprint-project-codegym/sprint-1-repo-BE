@@ -8,7 +8,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/dto/employee/EmployeeDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/dto/security/AccountDTO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/entity/employee/Employee.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/entity/employee/Position.java">
           <value>
             <set />
           </value>
@@ -23,7 +38,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/service/employee/EmployeeService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/BE/src/main/java/com/example/sprint_1/service/impl/employee/EmployeeServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/BE/src/test/java/com/example/sprint_1/controller/EmployeeController_deleteEmployee.java">
           <value>
             <set />
           </value>
