@@ -15,14 +15,4 @@ public interface ContractService {
     Contract findById(String id); //Find contract by id
 }
 
-//    List<Contract> findAll(); //Get all contract
-
-//    List<Contract> filterContract(List<Contract> contracts); // filter contract have delete_flag = 1
-//
-//    List<Contract> findByIdAndCustomerName(String id, String customerName); //search contract by id and customername
-//
-//    List<Contract> findByIdContaining(String id); //search contract by id
-//
-//    List<Contract> findByCustomerName(String customerName); //seach contract by customer name
-
 
