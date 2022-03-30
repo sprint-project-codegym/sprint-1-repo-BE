@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 
 public interface FloorRepository extends JpaRepository<Floor, String> {
     //PhuocDD da code chuc nang nay de lay danh sach tang
-    @Query(value="select * from floor where delete_flag = 1", nativeQuery = true)
+    @Query(value="select * from floor where delete_flag = 1", countQuery= "select count(*) from floor where floor.delete_flag = 1 ", nativeQuery = true)
     Page<Floor> findAllFloorWithPagination(Pageable pageable);
 
     //PhuocDD da code chuc nang nay de lay floor ID
@@ -22,7 +22,7 @@ public interface FloorRepository extends JpaRepository<Floor, String> {
     //PhuocDD da code chuc nang nay de xoa tang
     @Modifying
     @Transactional
-    @Query(value = "update floor set delete_flag = 0 where floor_id = :id",nativeQuery = true)
+    @Query(value = "update floor set delete_flag = 0 where floor_id = :id ",nativeQuery = true)
     void deleteFloor (@Param("id") String id);
 
 

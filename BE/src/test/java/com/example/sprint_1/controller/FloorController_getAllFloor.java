@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 
 @SpringBootTest
-public class FloorController_getAllFloor {
+class FloorController_getAllFloor {
 
     @Autowired
     private FloorController floorController;
@@ -19,17 +19,17 @@ public class FloorController_getAllFloor {
     Chu y: phai qua phuong thuc getAllFloor ben FloorController sua lai size page = 0 moi ra loi
      */
     @Test
-    public void getListFloor_5() {
+    void getListFloor_5() {
         ResponseEntity<Page<Floor>> responseEntity
-                = this.floorController.getAllFloor(0);
+                = this.floorController.getAllFloor(0, 2);
 
         Assertions.assertEquals(404, responseEntity.getStatusCodeValue());
     }
 
     // PhuocDD test chuc nang danh sach tang co phan trang truong hop thanh cong
     @Test
-    public void getAllFloor_6() {
-        ResponseEntity<Page<Floor>> responseEntity = this.floorController.getAllFloor(0);
+    void getAllFloor_6() {
+        ResponseEntity<Page<Floor>> responseEntity = this.floorController.getAllFloor(0,0);
 
         Assertions.assertEquals(200, responseEntity.getStatusCodeValue());
         Assertions.assertEquals(2, responseEntity.getBody().getTotalPages());

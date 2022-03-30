@@ -5,8 +5,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
 
-import java.util.List;
-
 public interface FloorService {
     //PhuocDD da code chuc nang nay de lay danh sach tang
     Page<Floor> findAllFloorWithPagination( Pageable pageable);

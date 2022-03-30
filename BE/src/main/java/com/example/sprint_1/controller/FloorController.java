@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("api/public/floor")
+@RequestMapping("api/home/floor")
 @CrossOrigin(origins = "*")
 public class FloorController {
     // PhuocDD code chuc nang xoa tang
@@ -22,24 +22,24 @@ public class FloorController {
 
     // PhuocDD hien thi danh sach tang
     @GetMapping("/list")
-    public ResponseEntity<Page<Floor>> getAllFloor(@RequestParam(defaultValue = "0") int page ) {
-        Pageable pageable = PageRequest.of(page, 10);
+    public ResponseEntity<Page<Floor>> getAllFloor(@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size ) {
+        Pageable pageable = PageRequest.of(page, size);
         Page<Floor> floors = floorService.findAllFloorWithPagination(pageable);
         if(floors.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(floors, HttpStatus.OK);
     }
 
     // PhuocDD xoa tang
-    @DeleteMapping(value = "/delete/{id}")
-    public ResponseEntity<String> deleteFloorById (@PathVariable("id") String id){
+    @GetMapping(value = "/delete/{id}")
+    public ResponseEntity<?> deleteFloorById (@PathVariable("id") String id){
         Floor floor = floorService.findFloorByFloorId(id);
         if(floor == null) {
-            return new ResponseEntity<>("Delete fail",HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }else {
             floorService.deleteFloor(id);
-            return new ResponseEntity<>("Delete success", HttpStatus.OK);
+            return new ResponseEntity<>( HttpStatus.OK);
         }
 
     }
