@@ -30,7 +30,7 @@ public class Account {
     @JsonBackReference
     private Employee employee;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "account",cascade = CascadeType.ALL)
     @JsonBackReference
     private Set<AccountRole> accountRoleList;
 

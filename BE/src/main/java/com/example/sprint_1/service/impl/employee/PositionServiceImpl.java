@@ -9,9 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+
 public class PositionServiceImpl implements PositionService{
     @Autowired
     private PositionRepository positionRepository;
+
+    /*
+    * Haulc
+    * */
     @Override
     public List<Position> getAllPosition() {
         return positionRepository.getAllPosition();

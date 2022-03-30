@@ -18,10 +18,10 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
 
     Account findAccountByUserName(String username);
 
-    @Query(value = "select account_id from  sprint-1.account where user_name = ?1", nativeQuery = true)
+    @Query(value = "select account_id from  sprint_1.account where user_name = ?1", nativeQuery = true)
     Integer findIdUserByUserName(String username);
 
-    @Query(value = "SELECT user_name from  sprint-1.account where user_name = ?1", nativeQuery = true)
+    @Query(value = "SELECT user_name from  sprint_1.account where user_name = ?1", nativeQuery = true)
     String existsByUserName(String username);
 
 //    @Query(value = "SELECT email FROM account where email= ?1", nativeQuery = true)
@@ -43,11 +43,28 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     @Query(value = "select * from account", nativeQuery = true)
     List<Account> getAllAccount();
 
+    /*
+    HauLC
+     */
     @Modifying
-    @Query(value = "insert into account(user_name,encrypt_pw) values (?1,?2)", nativeQuery = true)
-    void addNewAccount(String username, String password);
+    @Query(value = "insert into account(user_name,email,encrypt_pw,is_enable) values (?1,?2,?3,true)", nativeQuery = true)
+    void addNewAccount(String username, String email, String password);
 
+//    @Modifying
+//    @Query(value = "update account set encrypt_pw =?1,verification_code=null where verification_code=?2 ", nativeQuery = true)
+//    void saveNewPassword(String password, String code);
+
+    /*
+        HauLC sử lại saveNewPassword
+     */
     @Modifying
-    @Query(value = "update account set encrypt_pw =?1,verification_code=null where verification_code=?2 ", nativeQuery = true)
-    void saveNewPassword(String password, String code);
+    @Query(value = "update account set encrypt_pw =?1,verification_code=null where user_name=?2 ", nativeQuery = true)
+    void saveNewPassword(String password, String username);
+
+    /*
+        HauLC bổ sung
+     */
+    @Modifying
+    @Query(value = "update account set email=?1,verification_code=null where user_name=?2 ", nativeQuery = true)
+    void updateAccount(String email,String username);
 }
