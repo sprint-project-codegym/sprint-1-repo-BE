@@ -48,6 +48,9 @@ public class EmployeeController {
     @Autowired
     private EmployeeEditValidation employeeEditValidation;
 
+    /*
+    *   HauLC
+    */
     @RequestMapping(value = "/position",method = RequestMethod.GET)
     public ResponseEntity<List<Position>> findAllPosition(){
         List<Position> positionList = employeeService.getAllPosition();
@@ -58,6 +61,9 @@ public class EmployeeController {
         }
     }
 
+    /*
+     *   HauLC
+     */
     @RequestMapping(value = "/employee",method = RequestMethod.GET)
     public ResponseEntity<List<Employee>> findAllEmployee(){
         List<Employee> employeeList = employeeService.findAll();
@@ -84,6 +90,9 @@ public class EmployeeController {
 //        return new ResponseEntity<Void>(HttpStatus.CREATED);
 //    }
 
+    /*
+     *   HauLC
+     */
     @RequestMapping(value = "/employee", method = RequestMethod.POST)
     public ResponseEntity<?> createEmployee(@Validated @RequestBody EmployeeDTO employeeDto, BindingResult bindingResult) {
         employeeCreateValidation.validate(employeeDto, bindingResult);
@@ -94,17 +103,23 @@ public class EmployeeController {
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
+    /*
+     *   HauLC
+     */
     @RequestMapping(value = "/employee/{id}",method = RequestMethod.GET)
     public ResponseEntity<Employee> getEmployeeById(@PathVariable String id){
         Employee employee = employeeService.findByEmployeeId(id);
         System.out.println(employee);
         if(employee==null) {
-            return new ResponseEntity<Employee>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<Employee>(HttpStatus.NOT_FOUND);
         } else {
             return new ResponseEntity<Employee>(employee, HttpStatus.OK);
         }
     }
 
+    /*
+     *   HauLC
+     */
     @RequestMapping(value = "/employee/{id}", method = RequestMethod.PUT)
     public ResponseEntity<?> editEmployee(@PathVariable("id") String id, @Validated @RequestBody EmployeeDTO employeeDto, BindingResult bindingResult) {
         System.out.println(employeeDto);
