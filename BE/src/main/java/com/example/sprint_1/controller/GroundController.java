@@ -21,6 +21,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/manager/ground")
 public class GroundController {
     @Autowired
     private GroundService groundService;
@@ -29,7 +30,7 @@ public class GroundController {
     private FloorService floorService;
 
     //LuanVT: add new ground
-    @PostMapping("/api/manager/ground/create")
+    @PostMapping("/create")
     @Transactional
     public ResponseEntity<List<FieldError>> createGround(@Validated @RequestBody GroundCreateDTO groundCreateDTO, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -49,7 +50,7 @@ public class GroundController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping("/api/manager/floor/list")
+    @GetMapping("/listFloor")
     public ResponseEntity<List<FloorListDTO>> getAllFloor() {
         List<FloorListDTO> floorDTOList = this.floorService.getAllFloor();
         if (floorDTOList.isEmpty()) {
@@ -58,7 +59,7 @@ public class GroundController {
         return new ResponseEntity<>(floorDTOList, HttpStatus.OK);
     }
 
-    @GetMapping("api/manager/ground/list/{id}")
+    @GetMapping("/list/{id}")
     public ResponseEntity<GroundViewDTO> getGroundEntity(@PathVariable("id") String id) {
         GroundViewDTO ground = groundService.findGroundById(id);
         if (ground == null) {
