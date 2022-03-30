@@ -1,10 +1,13 @@
 package com.example.sprint_1.service.impl.ground;
 
 import com.example.sprint_1.dto.ground.GroundViewDTO;
+import com.example.sprint_1.dto.ground.GroundDTO;
 import com.example.sprint_1.entity.ground.Ground;
 import com.example.sprint_1.repository.ground.GroundRepository;
 import com.example.sprint_1.service.ground.GroundService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,4 +27,27 @@ public class GroundServiceImpl implements GroundService {
         return this.groundRepository.findGroundById(id);
     }
 
+    public void updateGround(String id, GroundDTO ground) {
+        groundRepository.updateGroundDTO(ground.getGroundId(), ground.getGroundType(), ground.getArea(), ground.getImage(), ground.getStatus(), ground.getRentCost(), ground.getManageCost(), ground.getNote(), ground.getVersion(), ground.getFloorId(), id);
+    }
+
+    @Override
+    public Page<Ground> findALl(Pageable pageable) {
+        return groundRepository.findAll(pageable);
+    }
+
+    @Override
+    public void deleteGround(String id) {
+        groundRepository.deleteByGroundId(id);
+    }
+
+    @Override
+    public Ground findById(String id) {
+        return groundRepository.findByGroundId(id);
+    }
+
+    @Override
+    public Page<Ground> findByIdAndGroundType(Pageable pageable, String id, String groundType) {
+        return groundRepository.findByGroundIdContainingAndGroundTypeContaining(id, groundType, pageable);
+    }
 }
