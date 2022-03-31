@@ -28,10 +28,13 @@ public interface AccountService {
 
     List<Account> getAllAccount();
 
-    void addNew(String username, String password);
+    void addNewAcc(String username, String password);
 
     void saveNewPassword(String password, String code);
+    void saveNewPassword_Nhung(String password, Integer accountId);
 
     Boolean existsByEmail(String email);
+
+    Account findByAccountId(Integer id);
 
 }

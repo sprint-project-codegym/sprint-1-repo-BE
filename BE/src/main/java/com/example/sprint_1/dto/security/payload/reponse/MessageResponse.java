@@ -1,17 +1,11 @@
 package com.example.sprint_1.dto.security.payload.reponse;
 
+import lombok.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class MessageResponse {
     private String message;
-
-    public MessageResponse(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 }

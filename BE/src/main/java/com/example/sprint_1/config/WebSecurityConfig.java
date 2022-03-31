@@ -25,8 +25,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private JwtFilter jwtFilter;
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(accountService);
+    protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder.userDetailsService(accountService);
     }
 
     @Override
@@ -45,10 +45,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/api/public/**")
+                .antMatchers("/api/home/**")
                 .permitAll()
-                .antMatchers("/api/user/**").hasAnyRole("USER","ADMIN")
-                .antMatchers("api/admin/**").hasRole("ADMIN")
+                .antMatchers("/api/manager/**").hasAnyRole("USER","ADMIN")
+                .antMatchers("/api/admin/**").hasRole("ADMIN")
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -57,3 +57,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }
+

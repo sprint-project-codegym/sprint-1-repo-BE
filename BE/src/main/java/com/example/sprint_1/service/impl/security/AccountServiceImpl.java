@@ -56,10 +56,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Boolean findAccountByVerificationCode(String code) {
         Account account = accountRepository.findAccountByVerificationCode(code);
-        if (account == null || account.getEnable()) {
+        if (account == null || account.getIsEnable()) {
             return false;
         } else {
-            account.setEnable(true);
+            account.setIsEnable(true);
             account.setVerificationCode(null);
             accountRepository.save(account);
             return true;
@@ -86,7 +86,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void addNew(String username, String password) {
+    public void addNewAcc(String username, String password) {
         accountRepository.addNewAccount(username, password);
     }
 
@@ -129,9 +129,18 @@ public class AccountServiceImpl implements AccountService {
         helper.setTo(email);
         helper.setSubject(subject);
         mailContent = "<p sytle='color:red;'>Xin chào " + userName + " ,<p>" + "<p> Nhấn vào link sau để xác thực email của bạn:</p>" +
-                "<h3><a href='" + confirmUrl + "'>Link Xác thực( nhấn vào đây)!</a></h3>" +
+                "<h3><a href='" + confirmUrl + "'>Link xác thực( nhấn vào đây)!</a></h3>" +
                 "<p>TÒA NHÀ CHO THUÊ</p>";
         helper.setText(mailContent, true);
         javaMailSender.send(message);
+    }
+    @Override
+    public Account findByAccountId(Integer id) {
+        return accountRepository.findAccountByAccountId(id);
+    }
+
+    @Override
+    public void saveNewPassword_Nhung(String password,Integer id) {
+        accountRepository.saveNewPassword_Nhung(password,id);
     }
 }

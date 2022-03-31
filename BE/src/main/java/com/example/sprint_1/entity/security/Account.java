@@ -17,13 +17,18 @@ import java.util.Set;
 @Entity(name = "account")
 public class Account {
     @Id
+    @Column(name= "account_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer accountId;
+    @Column(name = "user_name")
     private String userName;
     private String email;
+    @Column(name = "encrypt_pw")
     private String encryptPw;
     private String token;
+    @Column(name = "is_enable")
     private Boolean isEnable;
+    @Column(name = "verification_code")
     private String verificationCode;
 
     @OneToOne(mappedBy = "account")
@@ -37,84 +42,6 @@ public class Account {
     public Account(String userName, String encryptPw) {
         this.userName = userName;
         this.encryptPw = encryptPw;
-    }
-
-//    public Account(String userName, String email, String encryptPw) {
-//        this.userName = userName;
-//        this.email = email;
-//        this.encryptPw = encryptPw;
-//    }
-
-    public Integer getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Integer accountId) {
-        this.accountId = accountId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEncryptPw() {
-        return encryptPw;
-    }
-
-    public void setEncryptPw(String encryptPw) {
-        this.encryptPw = encryptPw;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public Boolean getEnable() {
-        return isEnable;
-    }
-
-    public void setEnable(Boolean enable) {
-        isEnable = enable;
-    }
-
-    public String getVerificationCode() {
-        return verificationCode;
-    }
-
-    public void setVerificationCode(String verificationCode) {
-        this.verificationCode = verificationCode;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public Set<AccountRole> getAccountRoleList() {
-        return accountRoleList;
-    }
-
-    public void setAccountRoleList(Set<AccountRole> accountRoleList) {
-        this.accountRoleList = accountRoleList;
     }
 }
 
