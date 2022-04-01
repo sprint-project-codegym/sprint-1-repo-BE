@@ -1,11 +1,8 @@
 package com.example.sprint_1.dto.employee;
 
-import lombok.*;
+import lombok.Data;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
+@Data
 public class PositionDTO {
     private String positionId;
     private String positionName;

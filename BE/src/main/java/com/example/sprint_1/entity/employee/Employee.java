@@ -3,15 +3,12 @@ package com.example.sprint_1.entity.employee;
 import com.example.sprint_1.entity.contract.Contract;
 import com.example.sprint_1.entity.security.Account;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
+
+import lombok.*;
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
 @Entity(name = "employee")
 public class Employee {
     @Id

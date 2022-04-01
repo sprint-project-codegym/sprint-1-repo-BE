@@ -1,11 +1,8 @@
 package com.example.sprint_1.dto.ground;
 
-import lombok.*;
+import lombok.Data;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
+@Data
 public class FloorDTO {
     private String floorId;
     private String floorName;
@@ -16,6 +13,4 @@ public class FloorDTO {
     private Boolean deleteFlag;
 
     private BuildingDTO building;
-
-
 }

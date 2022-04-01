@@ -1,14 +1,10 @@
 package com.example.sprint_1.dto.ground;
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.Id;
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
+@Data
 public class GroundDTO {
-    @Id
     private String groundId;
     private String groundType;
     private Double area;

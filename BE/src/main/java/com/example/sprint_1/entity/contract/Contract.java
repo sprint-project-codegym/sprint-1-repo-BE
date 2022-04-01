@@ -3,12 +3,12 @@ package com.example.sprint_1.entity.contract;
 import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.ground.Ground;
+
+import javax.persistence.*;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.*;
 import javax.validation.constraints.*;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -16,6 +16,7 @@ import javax.validation.constraints.*;
 @Entity(name = "contract")
 public class Contract {
     @Id
+    @NotNull
     @NotEmpty
     private String contractId;
     @Column(columnDefinition = "Date")
@@ -36,7 +37,7 @@ public class Contract {
     @DecimalMin("10.0")
     private Double totalCost;
     @NotEmpty
-    @Length(min = 10, max = 200)
+    @Length(min = 5, max = 20)
     private String contractContent;
     private Boolean deleteFlag;
 
@@ -51,5 +52,20 @@ public class Contract {
     @ManyToOne(targetEntity = Ground.class)
     @JoinColumn(name = "groundId")
     private Ground ground;
-
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "contractId='" + contractId + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", contractDate='" + contractDate + '\'' +
+                ", rentCost=" + rentCost +
+                ", totalCost=" + totalCost +
+                ", contractContent='" + contractContent + '\'' +
+                ", deleteFlag=" + deleteFlag +
+                ", customer=" + customer +
+                ", employee=" + employee +
+                ", ground=" + ground +
+                '}';
+    }
 }

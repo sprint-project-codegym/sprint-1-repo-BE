@@ -1,11 +1,8 @@
 package com.example.sprint_1.dto.ground;
 
-import lombok.*;
+import lombok.Data;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
+@Data
 public class BuildingDTO {
     private String buildingId;
     private String buildingName;
