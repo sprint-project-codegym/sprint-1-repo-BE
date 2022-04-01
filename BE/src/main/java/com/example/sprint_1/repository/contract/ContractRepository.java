@@ -36,6 +36,21 @@ public interface ContractRepository extends JpaRepository<Contract, String> {
     @Transactional
     void saveContract(Contract contract);
 
+    //DongVTH
+    @Transactional
+    @Modifying
+    @Query(value = "update `contract` as c set c.contract_content = :contract_content, c.contract_date = :contract_date," +
+            "c.delete_flag = :delete_flag, c.end_date = :end_date, c.rent_cost =:rent_cost, c.start_date =:start_date, c.delete_flag =:delete_flag," +
+            "c.total_cost = :total_cost, c.customer_id = :customer_id, c.employee_id = :employee_id, c.ground_id =:ground_id " +
+            "where c.contract_id = :contract_id", nativeQuery = true)
+    void updateContractDTO(@Param("contract_id") String contract_id, @Param("contract_content") String contract_content,
+                           @Param("contract_date") String contract_date, @Param("end_date") String end_date, @Param("rent_cost") Double rent_cost,
+                           @Param("start_date") String start_date, @Param("delete_flag") Boolean delete_flag, @Param("total_cost") Double total_cost,
+                           @Param("customer_id") String customer_id, @Param("employee_id") String employee_id,
+                           @Param("ground_id") String ground_id);
+    //DongVTH
+    @Query(value = "SELECT * FROM sprint_1.contract where contract_id = :contractId", nativeQuery = true)
+    Contract getContractByContractId(@Param("contractId") String contractId);
 }
 
 

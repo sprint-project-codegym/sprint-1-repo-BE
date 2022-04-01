@@ -1,6 +1,7 @@
 package com.example.sprint_1.service.impl.contract;
 
 import com.example.sprint_1.dto.contract.ContractDTO;
+import com.example.sprint_1.dto.contract.ContractEditDto;
 import com.example.sprint_1.entity.contract.Contract;
 import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.employee.Employee;
@@ -82,5 +83,21 @@ public class ContractServiceImpl implements ContractService {
         grEntity.setGroundId(dto.getGroundId());
         contract.setGround(grEntity);
         contractRepository.saveContract(contract);
+    }
+
+    //DongVTH
+    @Override
+    public Contract findContractById(String id) {
+        return contractRepository.getContractByContractId(id);
+    }
+
+    //DongVTH
+    @Override
+    public void updateContractDTO(String id, ContractEditDto contractEditDto) {
+        contractRepository.updateContractDTO(id, contractEditDto.getContractContent(),
+                contractEditDto.getContractDate(), contractEditDto.getEndDate(), contractEditDto.getRentCost(),
+                contractEditDto.getStartDate(), contractEditDto.getDeleteFlag(), contractEditDto.getTotalCost(),
+                contractEditDto.getCustomer().getCustomerId(), contractEditDto.getEmployee().getEmployeeId(),
+                contractEditDto.getGround().getGroundId());
     }
 }

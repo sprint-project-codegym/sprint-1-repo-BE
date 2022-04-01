@@ -1,6 +1,7 @@
 package com.example.sprint_1.service.contract;
 
 import com.example.sprint_1.dto.contract.ContractDTO;
+import com.example.sprint_1.dto.contract.ContractEditDto;
 import com.example.sprint_1.entity.contract.Contract;
 import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.ground.Ground;
@@ -21,13 +22,17 @@ public interface ContractService {
 
     void saveContract(ContractDTO dto);
 
-
     List<Ground> findAllGround();
 
     List<Customer> findAllCustomer();
 
     public List<Contract> findAll();
 
+    //DongVTH
+    Contract findContractById(String id);
+
+    //DongVTH
+    void updateContractDTO(String id, ContractEditDto contractEditDto);
 }
 
 

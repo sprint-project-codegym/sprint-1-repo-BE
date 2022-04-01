@@ -1,6 +1,7 @@
 package com.example.sprint_1.controller;
 
 import com.example.sprint_1.dto.contract.ContractDTO;
+import com.example.sprint_1.dto.contract.ContractEditDto;
 import com.example.sprint_1.entity.contract.Contract;
 import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.ground.Ground;
@@ -10,12 +11,14 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -69,5 +72,23 @@ public class ContractController {
         }
         contractService.saveContract(dto);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
+    }
+
+    // Dong edit
+    @GetMapping("/{id}")
+    public ResponseEntity<Contract> getContractByContractId(@PathVariable("id") String id) {
+        Contract contract = contractService.findContractById(id);
+        return new ResponseEntity<>(contract, HttpStatus.OK);
+    }
+
+    // DongVTH edit
+    @PutMapping(value = "/edit/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity updateContract(@Valid @RequestBody ContractEditDto contractEditDto, BindingResult bindingResult, @PathVariable("id") String id) {
+        if (bindingResult.hasErrors()) {
+            String message = "Lỗi định dạng";
+            return new ResponseEntity(message, HttpStatus.NOT_FOUND);
+        }
+        contractService.updateContractDTO(id, contractEditDto);
+        return new ResponseEntity(contractEditDto, HttpStatus.OK);
     }
 }
