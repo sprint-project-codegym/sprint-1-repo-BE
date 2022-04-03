@@ -1,6 +1,7 @@
 package com.example.sprint_1.dto.employee;
 
 import com.example.sprint_1.dto.security.AccountDTO;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,6 +27,8 @@ public class EmployeeDTO {
     private AccountDTO account;
 
     private PositionDTO position;
+
+    String urlImage;
 
     public String getEmployeeId() {
         return employeeId;
@@ -113,5 +116,21 @@ public class EmployeeDTO {
 
     public void setAccount(AccountDTO account) {
         this.account = account;
+    }
+
+    public PositionDTO getPosition() {
+        return position;
+    }
+
+    public void setPosition(PositionDTO position) {
+        this.position = position;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 }

@@ -143,4 +143,16 @@ public class AccountServiceImpl implements AccountService {
     public void saveNewPassword_Nhung(String password,Integer id) {
         accountRepository.saveNewPassword_Nhung(password,id);
     }
+
+    /*
+    HauLC
+     */
+    @Override
+    public void addNew(String username, String email, String password) {
+        accountRepository.addNewAccount(username, email, password);
+    }
+    @Override
+    public void updateAccount(String email, String username) {
+        accountRepository.updateAccount(email,username);
+    }
 }

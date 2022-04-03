@@ -11,14 +11,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
 @Getter
+@Setter
 @Entity(name = "employee")
 public class Employee {
     @Id
     private String employeeId;
     private String employeeName;
-    @Column(columnDefinition = "Date")
     private String employeeBirthday;
     private Boolean employeeGender;
     private String employeeIdCard;
@@ -37,7 +36,26 @@ public class Employee {
     @JoinColumn(name = "positionId")
     private Position position;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     @JsonBackReference
     public List<Contract> contractList;
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId='" + employeeId + '\'' +
+                ", employeeName='" + employeeName + '\'' +
+                ", employeeBirthday='" + employeeBirthday + '\'' +
+                ", employeeGender=" + employeeGender +
+                ", employeeIdCard='" + employeeIdCard + '\'' +
+                ", employeeGmail='" + employeeGmail + '\'' +
+                ", employeeAddress='" + employeeAddress + '\'' +
+                ", employeePhone='" + employeePhone + '\'' +
+                ", employeeSalary=" + employeeSalary +
+                ", deleteFlag=" + deleteFlag +
+                ", account=" + account +
+                ", position=" + position +
+                ", contractList=" + contractList +
+                '}';
+    }
 }

@@ -34,7 +34,6 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/home")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-//@CrossOrigin(origins = "http://localhost:4200")
 public class SecurityController {
     @Autowired
     private JwtUtility jwtUtility;
