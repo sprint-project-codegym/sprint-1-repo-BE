@@ -83,5 +83,6 @@ public class PersonalInfoController {
         String encodedPassword = account.getEncryptPw();
         return passencoder.matches(password, encodedPassword);
 //          return password.equals(account.getEncryptPw());
+
     }
 }
