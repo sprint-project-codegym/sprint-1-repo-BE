@@ -1,8 +1,6 @@
 package com.example.sprint_1.dto.security;
 
 import lombok.Data;
-
-import javax.persistence.Id;
 @Data
 public class AccountDTO {
 

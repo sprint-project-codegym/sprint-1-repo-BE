@@ -1,6 +1,7 @@
 package com.example.sprint_1.service.security;
 
 import com.example.sprint_1.entity.security.Role;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

@@ -36,15 +36,20 @@
       <option name="presentableId" value="Default" />
       <updated>1647169061801</updated>
       <workItem from="1647169064764" duration="10000" />
+<<<<<<< HEAD
       <workItem from="1647617187277" duration="59000" />
       <workItem from="1647617255767" duration="57000" />
       <workItem from="1647776988591" duration="17000" />
       <workItem from="1647777075793" duration="20000" />
       <workItem from="1648354970222" duration="105000" />
+=======
+      <workItem from="1647260433471" duration="9000" />
+>>>>>>> 8692ddb50e3b9c114971d58735a88a12b0c34542
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
+<<<<<<< HEAD
     <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -64,5 +69,8 @@
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1648355073297" />
+=======
+    <option name="version" value="3" />
+>>>>>>> 8692ddb50e3b9c114971d58735a88a12b0c34542
   </component>
 </project>
