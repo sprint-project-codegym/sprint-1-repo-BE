@@ -24,7 +24,7 @@ public class CustomerController {
     //NgaLT hien thi list khach hang phan trang, tim kiem khach hang
     @GetMapping("/customer/list")
     public ResponseEntity<Page<Customer>> getListCustomerWithPagination(@RequestParam(defaultValue = "0") int page,
-                                                                        @RequestParam(defaultValue = "5") int size,
+                                                                        @RequestParam(defaultValue = "10") int size,
                                                                         @RequestParam(defaultValue = "") String id,
                                                                         @RequestParam(defaultValue = "") String name) {
         Pageable pageable = PageRequest.of(page, size);
