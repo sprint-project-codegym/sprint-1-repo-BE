@@ -138,4 +138,9 @@ public class AccountServiceImpl implements AccountService {
     public Account findByAccountId(Integer id) {
         return accountRepository.findAccountByAccountId(id);
     }
+
+    @Override
+    public void saveNewPassword_Nhung(String password,Integer id) {
+        accountRepository.saveNewPassword_Nhung(password,id);
+    }
 }

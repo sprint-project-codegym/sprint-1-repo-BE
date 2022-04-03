@@ -22,8 +22,8 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
     //Nhung - Chức năng show và sửa thông tin cá nhân
 
     @Override
-    public Employee findEmployeeByEmployeeId(String id) {
-        return personalInfoRepository.getEmployeeByEmployeeId(id);
+    public Employee findEmployeeByAccountId(Integer id) {
+        return personalInfoRepository.getEmployeeByAccountId(id);
     }
 
     @Override

@@ -5,7 +5,7 @@ import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.security.Account;
 
 public interface PersonalInfoService {
-    public Employee findEmployeeByEmployeeId(String id);
+    public Employee findEmployeeByAccountId(Integer id);
 
     public void updateInfoEmployeeDTO(EmployeeAcountDTO employeeAcountDTO);
 

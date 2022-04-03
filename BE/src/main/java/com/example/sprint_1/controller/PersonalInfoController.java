@@ -37,14 +37,14 @@ public class PersonalInfoController {
 
     //NhungHTC - Show thông tin cá nhân
     @GetMapping("/personal-info/{id}")
-    public ResponseEntity<Employee> showInfo(@PathVariable("id") String id) {
-        if (id.equals("null") || id.equals("")) {
+    public ResponseEntity<Employee> showInfo(@PathVariable("id") Integer id) {
+        if (id == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        if (personalInfoService.findEmployeeByEmployeeId(id) == null) {
+        if (personalInfoService.findEmployeeByAccountId(id) == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        Employee employee = personalInfoService.findEmployeeByEmployeeId(id);
+        Employee employee = personalInfoService.findEmployeeByAccountId(id);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
@@ -67,12 +67,12 @@ public class PersonalInfoController {
     public ResponseEntity<MessageResponse> changeUserPassword(@PathVariable("id") Integer id, @RequestBody PasswordDTO passwordDTO) {
         String oldPassword = passwordDTO.getOldPassword();
         String newPassword = passwordDTO.getNewPassword();
-        Account account = personalInfoService.findById(id);
+        Account account = accountService.findByAccountId(id);
         if (!userPasswordCheck(oldPassword, account)) {
             return ResponseEntity.badRequest().body(new MessageResponse("Mật khẩu cũ không đúng. Vui lòng nhập lại."));
 //            return new ResponseEntity<>(new MessageResponse("1"), HttpStatus.OK);
         } else {
-            personalInfoService.updateAccountPassword(encoder.encode(newPassword), id);
+            accountService.saveNewPassword_Nhung(encoder.encode(newPassword), id);
 //            return new ResponseEntity<>(new MessageResponse("2"), HttpStatus.OK);
             return ResponseEntity.ok().body(new MessageResponse("Đổi mật khẩu thành công"));
         }
@@ -83,5 +83,6 @@ public class PersonalInfoController {
         String encodedPassword = account.getEncryptPw();
         return passencoder.matches(password, encodedPassword);
 //          return password.equals(account.getEncryptPw());
+
     }
 }

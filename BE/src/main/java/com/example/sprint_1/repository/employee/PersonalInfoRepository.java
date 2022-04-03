@@ -18,9 +18,9 @@ public interface PersonalInfoRepository extends JpaRepository<Employee, String> 
         @Query(value = "select e.employee_id, e.delete_flag, e.employee_address, e.employee_birthday " +
             ", e.employee_gender, e.employee_gmail, e.employee_id_card, e.employee_name, e.employee_phone, " +
                 "e.employee_salary, e.account_id, e.position_id, e.url_image from employee as e " +
-            "where employee_id = :employeeId", nativeQuery = true)
+            "where account_id = :accountId", nativeQuery = true)
 //    @Query(value = "select * from sprint_1.`employee` e where e.`employee_id` = :employeeId", nativeQuery = true)
-    Employee getEmployeeByEmployeeId(@Param("employeeId") String employeeId);
+    Employee getEmployeeByAccountId(@Param("accountId") Integer accountId);
 
 
     @Modifying

@@ -31,6 +31,7 @@ public interface AccountService {
     void addNewAcc(String username, String password);
 
     void saveNewPassword(String password, String code);
+    void saveNewPassword_Nhung(String password, Integer accountId);
 
     Boolean existsByEmail(String email);
 

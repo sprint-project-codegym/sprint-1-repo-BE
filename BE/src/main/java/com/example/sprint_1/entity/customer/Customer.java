@@ -29,6 +29,7 @@ public class Customer {
     private String status;
     private Boolean deleteFlag;
 
+
     @OneToMany(mappedBy = "customer")
     @JsonBackReference
     public List<Contract> contractList;
