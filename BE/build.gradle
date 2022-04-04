@@ -26,20 +26,20 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-
-    /**
-     * Tran Minh Khoa
-     */
-//    implementation 'org.springframework.boot:spring-boot-starter-mail'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
-//    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-//    // https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
-//    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
-//    // https://mvnrepository.com/artifact/org.springframework/spring-context-support
-//    implementation group: 'org.springframework', name: 'spring-context-support', version: '5.2.12.RELEASE'
-
 }
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+
+    systemProperty 'java.util.logging.config.file', "${project.buildDir}/resources/logging-test.properties"
+
+    forkEvery = 1
+
+    testLogging {
+        showStandardStreams = true
+    }
 }
