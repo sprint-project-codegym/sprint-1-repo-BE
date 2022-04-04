@@ -31,6 +31,6 @@ public class Ground {
     private Floor floor;
 
     @OneToMany(mappedBy = "ground")
-    @JsonBackReference
+    @JsonBackReference(value = "ground_contract")
     public List<Contract> contractList;
 }
