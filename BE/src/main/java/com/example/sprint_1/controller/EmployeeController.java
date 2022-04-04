@@ -23,6 +23,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -67,15 +68,15 @@ public class EmployeeController {
     /*
      *   HauLC dể dành
      */
-//    @RequestMapping(value = "/employee",method = RequestMethod.GET)
-//    public ResponseEntity<List<Employee>> findAllEmployee(){
-//        List<Employee> employeeList = employeeService.findAll();
-//        if(employeeList.isEmpty()) {
-//            return new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT);
-//        } else {
-//            return new ResponseEntity<List<Employee>>(employeeList, HttpStatus.OK);
-//        }
-//    }
+    @RequestMapping(value = "/employee",method = RequestMethod.GET)
+    public ResponseEntity<List<Employee>> findAllEmployee(){
+        List<Employee> employeeList = employeeService.findAll();
+        if(employeeList.isEmpty()) {
+            return new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT);
+        } else {
+            return new ResponseEntity<List<Employee>>(employeeList, HttpStatus.OK);
+        }
+    }
 
 //    @RequestMapping(value = "/employee/account",method = RequestMethod.GET)
 //    public ResponseEntity<List<Account>> findAllAccount(){
@@ -102,7 +103,11 @@ public class EmployeeController {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.NOT_ACCEPTABLE);
         }
-        employeeService.createNewEmployee(employeeDto);
+        try {
+            employeeService.createNewEmployee(employeeDto);
+        } catch (Exception e){
+            return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.CONFLICT);
+        }
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
@@ -130,7 +135,11 @@ public class EmployeeController {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.NOT_ACCEPTABLE);
         }
-        employeeService.editEmployee(id,employeeDto);
+        try {
+            employeeService.editEmployee(id,employeeDto);
+        } catch (Exception e){
+            return new ResponseEntity<>(bindingResult.getAllErrors(), HttpStatus.CONFLICT);
+        }
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
