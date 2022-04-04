@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
-
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 @Entity(name = "building")
 public class Building {
     @Id

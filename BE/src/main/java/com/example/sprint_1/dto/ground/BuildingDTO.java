@@ -11,5 +11,4 @@ public class BuildingDTO {
     private String fax;
     private String email;
     private String address;
-
 }

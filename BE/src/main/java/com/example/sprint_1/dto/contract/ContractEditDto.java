@@ -2,6 +2,7 @@ package com.example.sprint_1.dto.contract;
 
 import com.example.sprint_1.dto.customer.CustomerDTO;
 import com.example.sprint_1.dto.employee.EmployeeDTO;
+import com.example.sprint_1.dto.ground.GroundContractDTO;
 import com.example.sprint_1.dto.ground.GroundDTO;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
@@ -43,5 +44,5 @@ public class ContractEditDto {
 
     private EmployeeDTO employee;
 
-    private GroundDTO ground;
+    private GroundContractDTO ground;
 }

@@ -6,8 +6,12 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
+@Builder
 @Entity(name = "ground")
 public class Ground {
     @Id

@@ -5,8 +5,11 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
-
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 @Entity(name = "floor")
 public class Floor {
     @Id
