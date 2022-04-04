@@ -1,6 +1,5 @@
 package com.example.sprint_1.controller;
 
-import com.example.sprint_1.dto.ground.FloorDTO;
 import com.example.sprint_1.dto.ground.GroundCreateDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;

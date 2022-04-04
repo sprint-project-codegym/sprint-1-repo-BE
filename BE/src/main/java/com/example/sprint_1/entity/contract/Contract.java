@@ -5,14 +5,13 @@ import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.entity.ground.Ground;
 
 import javax.persistence.*;
+
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.*;
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
+
+@Data
 @Entity(name = "contract")
 public class Contract {
     @Id
@@ -52,20 +51,4 @@ public class Contract {
     @ManyToOne(targetEntity = Ground.class)
     @JoinColumn(name = "groundId")
     private Ground ground;
-    @Override
-    public String toString() {
-        return "Contract{" +
-                "contractId='" + contractId + '\'' +
-                ", startDate='" + startDate + '\'' +
-                ", endDate='" + endDate + '\'' +
-                ", contractDate='" + contractDate + '\'' +
-                ", rentCost=" + rentCost +
-                ", totalCost=" + totalCost +
-                ", contractContent='" + contractContent + '\'' +
-                ", deleteFlag=" + deleteFlag +
-                ", customer=" + customer +
-                ", employee=" + employee +
-                ", ground=" + ground +
-                '}';
-    }
 }

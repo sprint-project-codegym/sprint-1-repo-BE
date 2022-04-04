@@ -1,8 +1,7 @@
 package com.example.sprint_1.dto.employee;
 
+import com.example.sprint_1.dto.security.AccountDTO;
 import lombok.Data;
-
-import javax.persistence.Id;
 
 @Data
 public class EmployeeDTO {
@@ -16,8 +15,8 @@ public class EmployeeDTO {
     private String employeePhone;
     private Double employeeSalary;
     private Boolean deleteFlag;
-
+    private AccountDTO account;
     private PositionDTO position;
-
+    String urlImage;
 
 }

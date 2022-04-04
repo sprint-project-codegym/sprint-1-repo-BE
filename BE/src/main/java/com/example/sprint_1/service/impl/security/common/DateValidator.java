@@ -6,12 +6,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class DateValidator implements ConstraintValidator<DateValid, String>{
+    @Override
     public void initialize(DateValid constraint) {
+        // TODO document why this method is empty
     }
     public boolean isValid(String value, ConstraintValidatorContext context) {
         try {
-            LocalDate dateVaccination = LocalDate.parse(value, DateTimeFormatter.ISO_LOCAL_DATE);
-            return dateVaccination.plusDays(1).isBefore(LocalDate.now());
+            LocalDate date = LocalDate.parse(value, DateTimeFormatter.ISO_LOCAL_DATE);
+            return date.plusDays(1).isBefore(LocalDate.now());
         } catch (Exception e){
             return false;
         }

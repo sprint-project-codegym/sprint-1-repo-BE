@@ -1,3 +1,4 @@
+
 package com.example.sprint_1.service.impl.security.common.validator;
 
 import javax.validation.ConstraintValidator;
@@ -9,6 +10,7 @@ public class AdultValidator implements ConstraintValidator<Adult,String>{
     private int min;
     private int max;
 
+    @Override
     public void initialize(Adult constraintAnnotation) {
         this.min = constraintAnnotation.min();
         this.max = constraintAnnotation.max();

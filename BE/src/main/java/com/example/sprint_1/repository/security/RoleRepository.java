@@ -9,15 +9,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-
 @Repository
 @Transactional
 public interface RoleRepository extends JpaRepository<Role, Integer> {
     /**
      * Tran Minh Khoa
      */
-
-    @Query(value = "select * from role",nativeQuery = true)
+    @Query(value = "select * from role", nativeQuery = true)
     List<Role> findAllRole();
 
     @Modifying
