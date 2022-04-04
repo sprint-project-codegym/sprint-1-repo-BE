@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d94fb152-8fb1-48bc-927c-6809e3255dfc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/security/AccountRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/security/RoleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -17,13 +15,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/controller/FloorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/controller/FloorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/ground/FloorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/dto/ground/FloorDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/repository/ground/FloorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/repository/ground/FloorRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/ground/FloorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/ground/FloorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/AccountRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/AccountRoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sprint_1/service/impl/security/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sprint_1/controller/FloorController_deleteFloorById.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sprint_1/controller/FloorController_deleteFloorById.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/sprint_1/controller/FloorController_getAllFloor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/sprint_1/controller/FloorController_getAllFloor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -308,6 +299,13 @@
       <workItem from="1648609970147" duration="2132000" />
       <workItem from="1648621199609" duration="1420000" />
       <workItem from="1648636953550" duration="2508000" />
+      <workItem from="1648738513916" duration="653000" />
+      <workItem from="1648782568971" duration="2003000" />
+      <workItem from="1648802140081" duration="734000" />
+      <workItem from="1648809924243" duration="2260000" />
+      <workItem from="1648865186704" duration="1171000" />
+      <workItem from="1648875346185" duration="811000" />
+      <workItem from="1648997982194" duration="1232000" />
     </task>
     <servers />
   </component>
