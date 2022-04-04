@@ -48,17 +48,18 @@ public class ContractServiceImpl implements ContractService {
     public List<Contract> findAll() {
         return contractRepository.findAll();
     }
-
+    //KienHQ
     @Override
     public List<Ground> findAllGround() {
         return groundRepository.findAll();
     }
-
+    //KienHQ
     @Override
     public List<Customer> findAllCustomer() {
         return customerRepository.findAll();
     }
 
+    //KienHQ
     @Override
     public void saveContract(ContractDTO dto) {
         Contract contract = new Contract();
@@ -82,6 +83,7 @@ public class ContractServiceImpl implements ContractService {
         Ground grEntity = new Ground();
         grEntity.setGroundId(dto.getGroundId());
         contract.setGround(grEntity);
+
         contractRepository.saveContract(contract);
     }
 
@@ -90,6 +92,7 @@ public class ContractServiceImpl implements ContractService {
     public Contract findContractById(String id) {
         return contractRepository.getContractByContractId(id);
     }
+
 
     //DongVTH
     @Override

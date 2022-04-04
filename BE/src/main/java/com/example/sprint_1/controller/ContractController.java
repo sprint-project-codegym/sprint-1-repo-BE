@@ -29,7 +29,6 @@ public class ContractController {
     // Nguyen Dinh Hung Anh //
     @Autowired
     ContractService contractService;
-
     @GetMapping("/list") // Get list contract and search//
     public ResponseEntity<Page<Contract>> getListWithPagination(@RequestParam(defaultValue = "") String id,
                                                                 @RequestParam(defaultValue = "") String customerName,
@@ -55,20 +54,32 @@ public class ContractController {
     }
 //    KienHQ create contract
 
+    @GetMapping("/list/{id}")
+    public ResponseEntity<Contract> checkIdContract(@RequestBody @PathVariable("id") String id) {
+        Contract contract = contractService.findById(id);
+        if (contract != null) {
+            return new ResponseEntity<>(contract, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    //    KienHQ create contract
     @GetMapping("/list-ground")
     public ResponseEntity<List<Ground>> getListGround() {
         return new ResponseEntity<>(contractService.findAllGround(), HttpStatus.OK);
     }
-
+    //    KienHQ create contract
     @GetMapping("/list-customer")
     public ResponseEntity<List<Customer>> getListCustomer() {
         return new ResponseEntity<>(contractService.findAllCustomer(), HttpStatus.OK);
     }
-
+    //    KienHQ create contract
     @PostMapping(value = "/create", produces = {"application/json"})
     public ResponseEntity<ContractDTO> createContract(@Validated @RequestBody ContractDTO dto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+        }
+        if (contractService.findById(dto.getContractId()) != null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         contractService.saveContract(dto);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);

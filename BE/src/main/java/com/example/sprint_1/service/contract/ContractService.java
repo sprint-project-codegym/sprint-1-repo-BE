@@ -13,18 +13,17 @@ import java.util.List;
 
 @Service
 public interface ContractService {
-
     Page<Contract> findAllContractWithPagination(String id, String customerName, Pageable pageable);
 
     void deleteContractById(String id); //Delete contract by id
 
     Contract findById(String id); //Find contract by id
 
-    void saveContract(ContractDTO dto);
+    void saveContract(ContractDTO dto); //KienHQ
 
-    List<Ground> findAllGround();
+    List<Ground> findAllGround(); //KienHQ
 
-    List<Customer> findAllCustomer();
+    List<Customer> findAllCustomer(); //KienHQ
 
     public List<Contract> findAll();
 
