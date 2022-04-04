@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
+<<<<<<< HEAD
+<<<<<<< HEAD
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+>>>>>>> 79a80be33f1d6b1e7cc3b5cf63dd88550ea467b4
+=======
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+>>>>>>> 1405947d77eb782c712cf9d4b67de6c8cd116e60
 </project>

@@ -18,14 +18,14 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
 
     Account findAccountByUserName(String username);
 
-    @Query(value = "select account_id from  sprint-1.account where user_name = ?1", nativeQuery = true)
+    @Query(value = "select account_id from  sprint_1.account where user_name = ?1", nativeQuery = true)
     Integer findIdUserByUserName(String username);
 
-    @Query(value = "SELECT user_name from  sprint-1.account where user_name = ?1", nativeQuery = true)
+    @Query(value = "SELECT user_name from  sprint_1.account where user_name = ?1", nativeQuery = true)
     String existsByUserName(String username);
 
-//    @Query(value = "SELECT email FROM account where email= ?1", nativeQuery = true)
-//    String existsByEmail(String email);
+    @Query(value = "SELECT email FROM account where email= ?1", nativeQuery = true)
+    String existsByEmailStr(String email);
 
     Boolean existsByEmail(String email);
 
@@ -35,6 +35,9 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
 
     @Query(value = "select * from account where verification_code =?1", nativeQuery = true)
     Account findAccountByVerificationCode(String verifyCode);
+
+    @Query(value = "select * from account where account_id =?1", nativeQuery = true)
+    Account findAccountByAccountId(Integer id);
 
     @Modifying
     @Query(value = "update account set verification_code=?1 where user_name =?2", nativeQuery = true)
@@ -50,4 +53,19 @@ public interface AccountRepository extends JpaRepository<Account, Integer> {
     @Modifying
     @Query(value = "update account set encrypt_pw =?1,verification_code=null where verification_code=?2 ", nativeQuery = true)
     void saveNewPassword(String password, String code);
+
+    @Modifying
+    @Query(value = "update account set encrypt_pw =?1,verification_code=null where account_id=?2 ", nativeQuery = true)
+    void saveNewPassword_Nhung(String password, Integer account_id);
+
+    /*
+HauLC
+ */
+    @Modifying
+    @Query(value = "insert into account(user_name,email,encrypt_pw,is_enable) values (?1,?2,?3,true)", nativeQuery = true)
+    void addNewAccount(String username, String email, String password);
+
+    @Modifying
+    @Query(value = "update account set email=?1,verification_code=null where user_name=?2 ", nativeQuery = true)
+    void updateAccount(String email,String username);
 }
