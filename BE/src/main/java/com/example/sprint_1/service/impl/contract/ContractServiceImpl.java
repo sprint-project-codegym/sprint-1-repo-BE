@@ -1,6 +1,7 @@
 package com.example.sprint_1.service.impl.contract;
 
 import com.example.sprint_1.dto.contract.ContractDTO;
+import com.example.sprint_1.dto.contract.ContractEditDto;
 import com.example.sprint_1.entity.contract.Contract;
 import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.employee.Employee;
@@ -10,6 +11,8 @@ import com.example.sprint_1.repository.customer.CustomerRepository;
 import com.example.sprint_1.repository.ground.GroundRepository;
 import com.example.sprint_1.service.contract.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,21 +28,38 @@ public class ContractServiceImpl implements ContractService {
     @Autowired
     GroundRepository groundRepository;
 
+
+    @Override
+    public void deleteContractById(String id) {
+        contractRepository.deleteContract(id);
+    }
+
+    @Override
+    public Contract findById(String id) {
+        return contractRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Page<Contract> findAllContractWithPagination(String id, String customerName, Pageable pageable) {
+        return contractRepository.findAllContractWithPagination(id, customerName, pageable);
+    }
+
     @Override
     public List<Contract> findAll() {
         return contractRepository.findAll();
     }
-
+    //KienHQ
     @Override
     public List<Ground> findAllGround() {
         return groundRepository.findAll();
     }
-
+    //KienHQ
     @Override
     public List<Customer> findAllCustomer() {
         return customerRepository.findAll();
     }
 
+    //KienHQ
     @Override
     public void saveContract(ContractDTO dto) {
         Contract contract = new Contract();
@@ -67,18 +87,20 @@ public class ContractServiceImpl implements ContractService {
         contractRepository.saveContract(contract);
     }
 
+    //DongVTH
     @Override
-    public void updateContractDTO(ContractDTO contractDTO) {
-        contractRepository.updateContractDTO(contractDTO.getContractId(), contractDTO.getContractContent(),
-                contractDTO.getContractDate(), contractDTO.getDeleteFlag(),
-                contractDTO.getEndDate(), contractDTO.getRentCost(),
-                contractDTO.getStartDate(), contractDTO.getTotalCost(),
-                contractDTO.getCustomerId(), contractDTO.getEmployeeId(),
-                contractDTO.getGroundId());
+    public Contract findContractById(String id) {
+        return contractRepository.getContractByContractId(id);
     }
 
+
+    //DongVTH
     @Override
-    public Contract findById(String id) {
-        return contractRepository.findById(id).orElse(null);
+    public void updateContractDTO(String id, ContractEditDto contractEditDto) {
+        contractRepository.updateContractDTO(id, contractEditDto.getContractContent(),
+                contractEditDto.getContractDate(), contractEditDto.getEndDate(), contractEditDto.getRentCost(),
+                contractEditDto.getStartDate(), contractEditDto.getDeleteFlag(), contractEditDto.getTotalCost(),
+                contractEditDto.getCustomer().getCustomerId(), contractEditDto.getEmployee().getEmployeeId(),
+                contractEditDto.getGround().getGroundId());
     }
 }

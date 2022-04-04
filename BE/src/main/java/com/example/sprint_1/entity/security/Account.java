@@ -39,11 +39,6 @@ public class Account {
         this.encryptPw = encryptPw;
     }
 
-//    public Account(String userName, String email, String encryptPw) {
-//        this.userName = userName;
-//        this.email = email;
-//        this.encryptPw = encryptPw;
-//    }
 
     public Integer getAccountId() {
         return accountId;

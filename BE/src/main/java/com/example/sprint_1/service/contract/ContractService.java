@@ -1,24 +1,37 @@
 package com.example.sprint_1.service.contract;
 
 import com.example.sprint_1.dto.contract.ContractDTO;
+import com.example.sprint_1.dto.contract.ContractEditDto;
 import com.example.sprint_1.entity.contract.Contract;
 import com.example.sprint_1.entity.customer.Customer;
 import com.example.sprint_1.entity.ground.Ground;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public interface ContractService {
-    void saveContract(ContractDTO dto);
+    Page<Contract> findAllContractWithPagination(String id, String customerName, Pageable pageable);
 
-    Contract findById(String id);
+    void deleteContractById(String id); //Delete contract by id
 
-    List<Ground> findAllGround();
+    Contract findById(String id); //Find contract by id
 
-    List<Customer> findAllCustomer();
+    void saveContract(ContractDTO dto); //KienHQ
+
+    List<Ground> findAllGround(); //KienHQ
+
+    List<Customer> findAllCustomer(); //KienHQ
 
     public List<Contract> findAll();
 
-    public void updateContractDTO(ContractDTO contractDTO);
+    //DongVTH
+    Contract findContractById(String id);
+
+    //DongVTH
+    void updateContractDTO(String id, ContractEditDto contractEditDto);
 }
+
+
