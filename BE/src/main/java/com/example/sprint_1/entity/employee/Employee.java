@@ -20,9 +20,12 @@ public class Employee {
     private String employeeName;
     private String employeeBirthday;
     private Boolean employeeGender;
+    @Column(unique = true)
     private String employeeIdCard;
+    @Column(unique = true)
     private String employeeGmail;
     private String employeeAddress;
+    @Column(unique = true)
     private String employeePhone;
     private Double employeeSalary;
     private String urlImage;
