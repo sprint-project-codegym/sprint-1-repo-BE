@@ -63,6 +63,7 @@ public class ContractServiceImpl implements ContractService {
         Ground grEntity = new Ground();
         grEntity.setGroundId(dto.getGroundId());
         contract.setGround(grEntity);
+
         contractRepository.saveContract(contract);
     }
 
@@ -76,4 +77,8 @@ public class ContractServiceImpl implements ContractService {
                 contractDTO.getGroundId());
     }
 
+    @Override
+    public Contract findById(String id) {
+        return contractRepository.findById(id).orElse(null);
+    }
 }

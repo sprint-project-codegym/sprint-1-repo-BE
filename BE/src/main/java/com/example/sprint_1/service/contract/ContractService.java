@@ -12,6 +12,7 @@ import java.util.List;
 public interface ContractService {
     void saveContract(ContractDTO dto);
 
+    Contract findById(String id);
 
     List<Ground> findAllGround();
 

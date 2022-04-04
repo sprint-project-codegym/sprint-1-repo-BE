@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/manager/contract")
@@ -22,7 +23,17 @@ public class ContractController {
 
     @Autowired
     ContractService contractService;
+
 //    KienHQ create contract
+
+    @GetMapping("/list/{id}")
+    public ResponseEntity<Contract> checkIdContract(@RequestBody @PathVariable("id") String id) {
+        Contract contract = contractService.findById(id);
+        if (contract != null) {
+            return new ResponseEntity<>(contract, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 
     @GetMapping("/list-ground")
     public ResponseEntity<List<Ground>> getListGround() {
@@ -38,6 +49,9 @@ public class ContractController {
     public ResponseEntity<ContractDTO> createContract(@Validated @RequestBody ContractDTO dto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+        }
+        if (contractService.findById(dto.getContractId()) != null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         contractService.saveContract(dto);
         return new ResponseEntity<>(dto, HttpStatus.CREATED);
