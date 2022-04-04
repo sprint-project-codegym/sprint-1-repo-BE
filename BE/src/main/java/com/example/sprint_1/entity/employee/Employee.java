@@ -9,10 +9,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Getter
-@Setter
 @Entity(name = "employee")
 public class Employee {
     @Id
@@ -33,6 +29,8 @@ public class Employee {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "accountId")
+
+    @JsonBackReference(value = "account_employee")
     private Account account;
 
     @ManyToOne(targetEntity = Position.class)
@@ -40,25 +38,7 @@ public class Employee {
     private Position position;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
-    @JsonBackReference
+    @JsonBackReference(value = "employee_contract")
     public List<Contract> contractList;
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeId='" + employeeId + '\'' +
-                ", employeeName='" + employeeName + '\'' +
-                ", employeeBirthday='" + employeeBirthday + '\'' +
-                ", employeeGender=" + employeeGender +
-                ", employeeIdCard='" + employeeIdCard + '\'' +
-                ", employeeGmail='" + employeeGmail + '\'' +
-                ", employeeAddress='" + employeeAddress + '\'' +
-                ", employeePhone='" + employeePhone + '\'' +
-                ", employeeSalary=" + employeeSalary +
-                ", deleteFlag=" + deleteFlag +
-                ", account=" + account +
-                ", position=" + position +
-                ", contractList=" + contractList +
-                '}';
-    }
 }

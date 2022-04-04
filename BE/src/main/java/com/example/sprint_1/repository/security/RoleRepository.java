@@ -15,12 +15,10 @@ public interface RoleRepository extends JpaRepository<Role, Integer> {
     /**
      * Tran Minh Khoa
      */
-
-    @Query(value = "select * from role",nativeQuery = true)
+    @Query(value = "select * from role", nativeQuery = true)
     List<Role> findAllRole();
 
     @Modifying
     @Query(value = "insert into account_role(account_id,role_id) values (?1,?2)", nativeQuery = true)
     void setDefaultRole(int accountId, Integer roleId);
-
 }

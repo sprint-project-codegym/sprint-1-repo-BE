@@ -1,3 +1,9 @@
 package com.example.sprint_1.dto.ground;
+import lombok.Data;
 
-public class FloorDTO {}
+@Data
+public class FloorDTO {
+    private String floorId;
+    private String floorName;
+}
+

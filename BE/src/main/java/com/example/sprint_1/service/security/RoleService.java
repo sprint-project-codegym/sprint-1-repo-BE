@@ -14,5 +14,4 @@ public interface RoleService {
     void setDefaultRole(int accountId, Integer roleId);
 
     List<Role> getAllRoles();
-
 }

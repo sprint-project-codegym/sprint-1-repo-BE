@@ -6,12 +6,14 @@ import com.example.sprint_1.service.ground.FloorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import com.example.sprint_1.dto.ground.FloorListDTO;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class FloorServiceImpl implements FloorService {
     // PhuocDD code chuc nang xoa tang
-
     @Autowired
     FloorRepository floorRepository;
 
@@ -30,4 +32,7 @@ public class FloorServiceImpl implements FloorService {
         floorRepository.deleteFloor(id);
     }
 
+    public List<FloorListDTO> getAllFloor() {
+        return this.floorRepository.findAllFloorDTO();
+    }
 }
