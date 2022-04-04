@@ -23,6 +23,7 @@ public class Customer {
     private String status;
     private Boolean deleteFlag;
 
+
     @OneToMany(mappedBy = "customer")
     @JsonBackReference(value = "user_contract")
     public List<Contract> contractList;
