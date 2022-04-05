@@ -1,6 +1,7 @@
 package com.example.sprint_1.dto.employee;
 
 import com.example.sprint_1.dto.security.AccountDTO;
+import com.sun.org.apache.xpath.internal.objects.XString;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -34,6 +35,7 @@ public class EmployeeAcountDTO {
     @NotEmpty
     @Pattern(regexp = "^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$")
     private String employeePhone;
+    private String urlImage;
 
     private AccountDTO account;
 }

@@ -81,13 +81,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Account account = new Account();
         account.setUserName(GenerateUsername.generate(employeeDto.getEmployeeName()));
-        String password = encoder.encode("123123");
         account.setEnable(true);
         account.setEmail(employeeDto.getEmployeeGmail()); // nếu employee.email null thì sẽ không lưu account
         int i=1;
         while (true) {
             try { // nếu tồn tại account rồi thì thêm số vào ví dụ leconghau -> leconghau1
-                accountService.addNew(account.getUserName(), account.getEmail(), password);
+                accountService.addNew(account.getUserName(), account.getEmail(), encoder.encode("123123"));
                 break;
             } catch (Exception e) {
                 account.setUserName(account.getUserName().replaceAll("[\\d]+",""));

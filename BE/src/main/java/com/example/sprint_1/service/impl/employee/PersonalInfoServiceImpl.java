@@ -29,7 +29,8 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
     @Override
     public void updateInfoEmployeeDTO(EmployeeAcountDTO employeeAcountDTO) {
         personalInfoRepository.updateEmployeeDTO(employeeAcountDTO.getEmployeeId(), employeeAcountDTO.getEmployeeName(), employeeAcountDTO.getEmployeeGender(),
-                employeeAcountDTO.getEmployeeBirthday(), employeeAcountDTO.getEmployeePhone(), employeeAcountDTO.getEmployeeGmail(), employeeAcountDTO.getEmployeeAddress());
+                employeeAcountDTO.getEmployeeBirthday(), employeeAcountDTO.getEmployeePhone(), employeeAcountDTO.getEmployeeGmail(), employeeAcountDTO.getEmployeeAddress(),
+                employeeAcountDTO.getUrlImage());
 
     }
 
