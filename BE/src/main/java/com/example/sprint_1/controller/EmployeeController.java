@@ -68,15 +68,15 @@ public class EmployeeController {
     /*
      *   HauLC dể dành
      */
-    @RequestMapping(value = "/employee",method = RequestMethod.GET)
-    public ResponseEntity<List<Employee>> findAllEmployee(){
-        List<Employee> employeeList = employeeService.findAll();
-        if(employeeList.isEmpty()) {
-            return new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<List<Employee>>(employeeList, HttpStatus.OK);
-        }
-    }
+//    @RequestMapping(value = "/employee",method = RequestMethod.GET)
+//    public ResponseEntity<List<Employee>> findAllEmployee(){
+//        List<Employee> employeeList = employeeService.findAll();
+//        if(employeeList.isEmpty()) {
+//            return new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT);
+//        } else {
+//            return new ResponseEntity<List<Employee>>(employeeList, HttpStatus.OK);
+//        }
+//    }
 
 //    @RequestMapping(value = "/employee/account",method = RequestMethod.GET)
 //    public ResponseEntity<List<Account>> findAllAccount(){
