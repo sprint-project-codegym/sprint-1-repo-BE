@@ -29,8 +29,8 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
     @Override
     public void updateInfoEmployeeDTO(EmployeeAcountDTO employeeAcountDTO) {
         personalInfoRepository.updateEmployeeDTO(employeeAcountDTO.getEmployeeId(), employeeAcountDTO.getEmployeeName(), employeeAcountDTO.getEmployeeGender(),
-                employeeAcountDTO.getEmployeeBirthday(), employeeAcountDTO.getEmployeePhone(), employeeAcountDTO.getEmployeeGmail(), employeeAcountDTO.getEmployeeAddress());
-
+                employeeAcountDTO.getEmployeeBirthday(), employeeAcountDTO.getEmployeePhone(), employeeAcountDTO.getEmployeeGmail(), employeeAcountDTO.getEmployeeAddress(),
+                employeeAcountDTO.getUrlImage());
     }
 
     //Chức năng đổi mật khẩu
@@ -51,7 +51,7 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
 
     @Override
     public void updateAccountPassword(String encryptPw, Integer accountId) {
-        personalInfoRepository.updateAccountPassword(encryptPw,accountId);
+        personalInfoRepository.updateAccountPassword(encryptPw, accountId);
     }
 
 

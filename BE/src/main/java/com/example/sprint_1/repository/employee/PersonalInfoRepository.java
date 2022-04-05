@@ -15,26 +15,25 @@ import java.util.Optional;
 public interface PersonalInfoRepository extends JpaRepository<Employee, String> {
 
     //Repo của Nhung
-        @Query(value = "select e.employee_id, e.delete_flag, e.employee_address, e.employee_birthday " +
+    @Query(value = "select e.employee_id, e.delete_flag, e.employee_address, e.employee_birthday " +
             ", e.employee_gender, e.employee_gmail, e.employee_id_card, e.employee_name, e.employee_phone, " +
-                "e.employee_salary, e.account_id, e.position_id, e.url_image from employee as e " +
+            "e.employee_salary, e.account_id, e.position_id, e.url_image from employee as e " +
             "where account_id = :accountId", nativeQuery = true)
 //    @Query(value = "select * from sprint_1.`employee` e where e.`employee_id` = :employeeId", nativeQuery = true)
     Employee getEmployeeByAccountId(@Param("accountId") Integer accountId);
 
-
-    @Modifying
     @Transactional
     @Query(value = "update sprint_1.employee as e set e.employee_name = :employee_name, e.employee_gender = :employee_gender," +
             "e.employee_birthday = :employee_birthday, e.employee_phone = :employee_phone, e.employee_gmail = :employee_gmail," +
-            " e.employee_address = :employee_address where e.employee_id = :employee_id", nativeQuery = true)
+            " e.employee_address = :employee_address, e.url_image = :url_image where e.employee_id = :employee_id", nativeQuery = true)
     void updateEmployeeDTO(@Param("employee_id") String employee_id,
                            @Param("employee_name") String employee_name,
                            @Param("employee_gender") Boolean employee_gender,
                            @Param("employee_birthday") String employee_birthday,
                            @Param("employee_phone") String employee_phone,
                            @Param("employee_gmail") String employee_gmail,
-                           @Param("employee_address") String employee_address);
+                           @Param("employee_address") String employee_address,
+                           @Param("url_image") String url_image);
 
     @Modifying
     @Transactional
