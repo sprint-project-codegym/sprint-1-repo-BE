@@ -11,6 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import com.sun.org.apache.xpath.internal.objects.XString;
 
 //Của Nhung
 @Setter
@@ -34,6 +35,8 @@ public class EmployeeAcountDTO {
     @NotEmpty
     @Pattern(regexp = "^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$")
     private String employeePhone;
+
+    private String urlImage;
 
     private AccountDTO account;
 }
