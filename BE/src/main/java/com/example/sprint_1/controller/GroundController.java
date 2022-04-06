@@ -52,7 +52,7 @@ public class GroundController {
     public ResponseEntity<Page<Ground>> getGround(@RequestParam(value = "id", defaultValue = "") String id,
                                                   @RequestParam(value = "groundType", defaultValue = "") String groundType,
                                                   @RequestParam(value = "page", defaultValue = "0") Integer page,
-                                                  @RequestParam(value = "size", defaultValue = "5") Integer size) {
+                                                  @RequestParam(value = "size", defaultValue = "10") Integer size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Ground> grounds = groundService.findByIdAndGroundType(pageable, id, groundType);
         if (grounds.isEmpty()) {

@@ -32,7 +32,7 @@ public class ContractController {
     public ResponseEntity<Page<Contract>> getListWithPagination(@RequestParam(defaultValue = "") String id,
                                                                 @RequestParam(defaultValue = "") String customerName,
                                                                 @RequestParam(defaultValue = "0") int page,
-                                                                @RequestParam(defaultValue = "3") int size) {
+                                                                @RequestParam(defaultValue = "10") int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<Contract> contracts;
         contracts = contractService.findAllContractWithPagination(id, customerName, pageable);

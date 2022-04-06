@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/home/employee")
+@RequestMapping("/api/manager/employee")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeController {
     @Autowired
@@ -146,7 +146,7 @@ public class EmployeeController {
 
     @GetMapping("/list")
     public ResponseEntity<Page<Employee>> getList(@RequestParam(defaultValue = "0") Integer page,
-                                                  @RequestParam(defaultValue = "5") Integer size,
+                                                  @RequestParam(defaultValue = "10") Integer size,
                                                   @RequestParam(defaultValue = "") String name,
                                                   @RequestParam(defaultValue = "") String id){
         Pageable paging= PageRequest.of(page,size);
