@@ -8,6 +8,11 @@ public class GenerateUsername {
         String temp = Normalizer.normalize(s, Normalizer.Form.NFD);
         Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
         return pattern.matcher(temp).replaceAll("")
-                .replaceAll(" ","").toLowerCase();
+                .replaceAll(" ","").toLowerCase()
+                .replaceAll("đ","d")
+                .replaceAll("ê","e")
+                .replaceAll("^[ơ|ô]$","o")
+                .replaceAll("^[ă|â]$","a")
+                .replaceAll("ư","a");
     }
 }

@@ -33,4 +33,7 @@ public interface EmployeeService {
     Page<Employee> searchEmployee(Pageable pageable, String name, String id);
 
     void deleteEmployee(String id);
+
+    /*HauLC*/
+    String getEmployeeUsername(String name);
 }

@@ -8,11 +8,17 @@ import com.example.sprint_1.repository.employee.PositionRepository;
 import com.example.sprint_1.repository.security.AccountRepository;
 import com.example.sprint_1.service.employee.EmployeeService;
 import com.example.sprint_1.service.employee.PositionService;
+import com.example.sprint_1.service.security.AccountService;
 import com.example.sprint_1.service.security.RoleService;
 
 //import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+import com.example.sprint_1.ultils.NameInput;
 import com.example.sprint_1.validation.employee.EmployeeCreateValidation;
 import com.example.sprint_1.validation.employee.EmployeeEditValidation;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -51,6 +57,7 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeEditValidation employeeEditValidation;
+
 
     /*
      *   HauLC
@@ -111,6 +118,11 @@ public class EmployeeController {
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
+    @RequestMapping(value = "/generate-username",method = RequestMethod.POST)
+    public ResponseEntity<?> setEmployeeUsername(@RequestBody NameInput nameInput){
+        String username = employeeService.getEmployeeUsername(nameInput.getName());
+        return ResponseEntity.ok().body(new NameInput(nameInput.getName(),username));
+    }
     /*
      *   HauLC
      */

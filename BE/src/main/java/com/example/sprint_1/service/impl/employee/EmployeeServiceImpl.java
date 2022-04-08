@@ -4,6 +4,7 @@ import com.example.sprint_1.dto.employee.EmployeeDTO;
 import com.example.sprint_1.entity.employee.Employee;
 import com.example.sprint_1.repository.employee.EmployeeRepository;
 import com.example.sprint_1.service.employee.EmployeeService;
+import com.example.sprint_1.service.impl.security.AccountServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.example.sprint_1.entity.employee.Position;
 import com.example.sprint_1.entity.security.Account;
@@ -43,6 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private PositionService positionService;
 
+
     @Override
     public List<Employee> findAll() {
         return employeeRepository.findAll();
@@ -56,6 +58,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee findByEmployeeId(String id) {
         return employeeRepository.findByEmployeeId(id);
+    }
+
+    /*Hau LC*/
+    @Override
+    public String getEmployeeUsername(String name){
+        int i=1;
+        String username = GenerateUsername.generate(name);
+        while (accountService.findAccountByUserName(username) != null){
+            username =  username.replaceAll("[\\d]+","");
+            username+= i;
+            i++;
+        }
+        return username;
     }
 
     @Override
@@ -80,20 +95,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void createNewEmployee(EmployeeDTO employeeDto){
 
         Account account = new Account();
-        account.setUserName(GenerateUsername.generate(employeeDto.getEmployeeName()));
+        account.setUserName(getEmployeeUsername(employeeDto.getEmployeeName()));
         account.setEnable(true);
         account.setEmail(employeeDto.getEmployeeGmail()); // nếu employee.email null thì sẽ không lưu account
-        int i=1;
-        while (true) {
-            try { // nếu tồn tại account rồi thì thêm số vào ví dụ leconghau -> leconghau1
-                accountService.addNew(account.getUserName(), account.getEmail(), encoder.encode("123"));
-                break;
-            } catch (Exception e) {
-                account.setUserName(account.getUserName().replaceAll("[\\d]+",""));
-                account.setUserName(account.getUserName() + i);
-            }
-            i++;
-        }
+        accountService.addNew(account.getUserName(), account.getEmail(), encoder.encode("123"));
         int id = accountService.findIdUserByUserName(account.getUserName());
         account.setAccountId(id);
         System.out.println(id);
