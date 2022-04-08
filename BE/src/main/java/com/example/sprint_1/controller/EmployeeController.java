@@ -8,11 +8,17 @@ import com.example.sprint_1.repository.employee.PositionRepository;
 import com.example.sprint_1.repository.security.AccountRepository;
 import com.example.sprint_1.service.employee.EmployeeService;
 import com.example.sprint_1.service.employee.PositionService;
+import com.example.sprint_1.service.security.AccountService;
 import com.example.sprint_1.service.security.RoleService;
 
 //import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
+import com.example.sprint_1.ultils.NameInput;
 import com.example.sprint_1.validation.employee.EmployeeCreateValidation;
 import com.example.sprint_1.validation.employee.EmployeeEditValidation;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -28,7 +34,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/home/employee")
+@RequestMapping("/api/manager/employee")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeController {
     @Autowired
@@ -52,9 +58,10 @@ public class EmployeeController {
     @Autowired
     private EmployeeEditValidation employeeEditValidation;
 
+
     /*
-    *   HauLC
-    */
+     *   HauLC
+     */
     @RequestMapping(value = "/position",method = RequestMethod.GET)
     public ResponseEntity<List<Position>> findAllPosition(){
         List<Position> positionList = employeeService.getAllPosition();
@@ -68,15 +75,15 @@ public class EmployeeController {
     /*
      *   HauLC dể dành
      */
-    @RequestMapping(value = "/employee",method = RequestMethod.GET)
-    public ResponseEntity<List<Employee>> findAllEmployee(){
-        List<Employee> employeeList = employeeService.findAll();
-        if(employeeList.isEmpty()) {
-            return new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT);
-        } else {
-            return new ResponseEntity<List<Employee>>(employeeList, HttpStatus.OK);
-        }
-    }
+//    @RequestMapping(value = "/employee",method = RequestMethod.GET)
+//    public ResponseEntity<List<Employee>> findAllEmployee(){
+//        List<Employee> employeeList = employeeService.findAll();
+//        if(employeeList.isEmpty()) {
+//            return new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT);
+//        } else {
+//            return new ResponseEntity<List<Employee>>(employeeList, HttpStatus.OK);
+//        }
+//    }
 
 //    @RequestMapping(value = "/employee/account",method = RequestMethod.GET)
 //    public ResponseEntity<List<Account>> findAllAccount(){
@@ -111,6 +118,11 @@ public class EmployeeController {
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
+    @RequestMapping(value = "/generate-username",method = RequestMethod.POST)
+    public ResponseEntity<?> setEmployeeUsername(@RequestBody NameInput nameInput){
+        String username = employeeService.getEmployeeUsername(nameInput.getName());
+        return ResponseEntity.ok().body(new NameInput(nameInput.getName(),username));
+    }
     /*
      *   HauLC
      */
@@ -146,7 +158,7 @@ public class EmployeeController {
 
     @GetMapping("/list")
     public ResponseEntity<Page<Employee>> getList(@RequestParam(defaultValue = "0") Integer page,
-                                                  @RequestParam(defaultValue = "5") Integer size,
+                                                  @RequestParam(defaultValue = "10") Integer size,
                                                   @RequestParam(defaultValue = "") String name,
                                                   @RequestParam(defaultValue = "") String id){
         Pageable paging= PageRequest.of(page,size);

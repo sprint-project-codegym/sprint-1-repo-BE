@@ -23,9 +23,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'mysql:mysql-connector-java'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     /**
      * Tran Minh Khoa
@@ -43,3 +44,20 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+/**
+ * Tran Minh Khoa
+ */
+tasks.withType(Test).configureEach {
+    useJUnitPlatform()
+
+    systemProperty 'java.util.logging.config.file', "${project.buildDir}/resources/logging-test.properties"
+
+    forkEvery = 1
+
+    testLogging {
+        showStandardStreams = true
+    }
+}
+
+

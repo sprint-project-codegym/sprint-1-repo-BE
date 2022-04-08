@@ -1,6 +1,5 @@
 package com.example.sprint_1.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -13,33 +12,35 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class EmployeeController_deleteEmployee {
-
+public class GroundRestController_deleteGround {
     @Autowired
     private MockMvc mockMvc;
 
-
+    // delete list theo id = "null"
     @Test
-    public void deleteEmployee_25() throws Exception {
-        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/admin/employee/delete/{id}","null"))
+    public void deleteGround_25() throws Exception {
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/public/ground/delete/{id}","null"))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
+    // delete list theo id = ""
     @Test
-    public void deleteEmployee_26() throws Exception {
-        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/admin/employee/delete/{id}",""))
+    public void deleteGround_26() throws Exception {
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/public/ground/delete/{id}",""))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
+    // delete list theo id = "MB-111"
     @Test
-    public void deleteEmployee_27() throws Exception {
-        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/admin/employee/delete/{id}","KH01"))
+    public void deleteGround_27() throws Exception {
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/public/ground/delete/{id}","MB-111"))
                 .andDo(print())
                 .andExpect(status().is4xxClientError());
     }
+    // delete list theo id = "1"
     @Test
-    public void deleteEmployee_28() throws Exception {
-        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/admin/employee/delete/{id}","E001"))
+    public void deleteGround_28() throws Exception {
+        this.mockMvc.perform(MockMvcRequestBuilders.patch("/api/public/ground/delete/{id}","1"))
                 .andDo(print())
                 .andExpect(status().is2xxSuccessful());
     }

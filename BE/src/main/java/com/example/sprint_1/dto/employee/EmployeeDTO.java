@@ -1,27 +1,22 @@
 package com.example.sprint_1.dto.employee;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.example.sprint_1.dto.security.AccountDTO;
+import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class EmployeeDTO {
-    String employeeName;
-    String employeeBirthday;
-    Boolean employeeGender;
-    String employeeGmail;
-    String employeeIdCard;
-    String employeeAddress;
-    String employeePhone;
-    Double employeeSalary;
-    PositionDTO position;
-    AccountDTO account;
+    private String employeeId;
+    private String employeeName;
+    private String employeeBirthday;
+    private Boolean employeeGender;
+    private String employeeIdCard;
+    private String employeeGmail;
+    private String employeeAddress;
+    private String employeePhone;
+    private Double employeeSalary;
+    private Boolean deleteFlag;
+    private AccountDTO account;
+    private PositionDTO position;
     String urlImage;
+
 }

@@ -2,33 +2,35 @@ package com.example.sprint_1.service.impl.employee;
 
 import com.example.sprint_1.dto.employee.EmployeeDTO;
 import com.example.sprint_1.entity.employee.Employee;
-import com.example.sprint_1.entity.employee.Position;
-import com.example.sprint_1.entity.security.Account;
 import com.example.sprint_1.repository.employee.EmployeeRepository;
 import com.example.sprint_1.service.employee.EmployeeService;
+import com.example.sprint_1.service.impl.security.AccountServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.example.sprint_1.entity.employee.Position;
+import com.example.sprint_1.entity.security.Account;
 import com.example.sprint_1.service.employee.PositionService;
 import com.example.sprint_1.service.security.AccountService;
 import com.example.sprint_1.service.security.RoleService;
 import com.example.sprint_1.ultils.GenerateUsername;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-
 //import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 //import org.springframework.security.crypto.password.PasswordEncoder;
-
-
 @Service
 
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     EmployeeRepository employeeRepository;
+
+    @Override
+    public Employee findEmployeeByEmployeeId(String id) {
+        return employeeRepository.findEmployeeByEmployeeId(id);
+    }
 
     @Autowired
     private AccountService accountService;
@@ -41,6 +43,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private PositionService positionService;
+
 
     @Override
     public List<Employee> findAll() {
@@ -55,6 +58,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee findByEmployeeId(String id) {
         return employeeRepository.findByEmployeeId(id);
+    }
+
+    /*Hau LC*/
+    @Override
+    public String getEmployeeUsername(String name){
+        int i=1;
+        String username = GenerateUsername.generate(name);
+        while (accountService.findAccountByUserName(username) != null){
+            username =  username.replaceAll("[\\d]+","");
+            username+= i;
+            i++;
+        }
+        return username;
     }
 
     @Override
@@ -79,26 +95,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void createNewEmployee(EmployeeDTO employeeDto){
 
         Account account = new Account();
-        account.setUserName(GenerateUsername.generate(employeeDto.getEmployeeName()));
-        String password = encoder.encode("123123");
+        account.setUserName(getEmployeeUsername(employeeDto.getEmployeeName()));
         account.setEnable(true);
         account.setEmail(employeeDto.getEmployeeGmail()); // nếu employee.email null thì sẽ không lưu account
-        int i=1;
-        while (true) {
-            try { // nếu tồn tại account rồi thì thêm số vào ví dụ leconghau -> leconghau1
-                accountService.addNew(account.getUserName(), account.getEmail(), password);
-                break;
-            } catch (Exception e) {
-                account.setUserName(account.getUserName().replaceAll("[\\d]+",""));
-                account.setUserName(account.getUserName() + i);
-            }
-            i++;
-        }
+        accountService.addNew(account.getUserName(), account.getEmail(), encoder.encode("123"));
         int id = accountService.findIdUserByUserName(account.getUserName());
         account.setAccountId(id);
         System.out.println(id);
         roleService.setDefaultRole(id, 1);
-
 
         Employee employee = new Employee();
         int code = (int) Math.floor(((Math.random() * 899999) + 100000));
@@ -157,7 +161,6 @@ public class EmployeeServiceImpl implements EmployeeService {
                 employee.getEmployeePhone(), employee.getEmployeeSalary(), employee.getUrlImage(),employee.getDeleteFlag(),
                 employee.getAccount().getAccountId(), employee.getPosition().getPositionId(),id);
     }
-
 
     @Override
     public Page<Employee> getAllEmployee(Pageable pageable) {
